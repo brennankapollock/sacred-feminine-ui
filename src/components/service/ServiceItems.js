@@ -1,0 +1,97 @@
+import { TokyoContext } from '@/src/Context';
+import { useContext } from 'react';
+
+const services = [
+  {
+    id: 1,
+    name: 'Details',
+    text: [
+      'Our retreat will begin around 5pm the 1st, but you are welcome to arrive anytime after 4pm. The retreat will end at 11am on the 3rd, and we ask that all participants be there until that time.',
+      "In today’s digital world, your website is the first interaction consumers have with your business. That's why almost 95 percent of a user’s first impression relates to web design. It’s also why web desiWe will have a mix ofactivities that include solo and group meditation/ reflection, movement,yoga, writing, group processing - all meant to stimulate heart, mind,and body.",
+      'Every activity - group or solo - is not about adherence to aschedule or pleasing others, but we want to create an opportunity for you to listen to yourself, learning from your own heart and others around you.',
+    ],
+    image: 'assets/img/news/abbotsford.jpg',
+  },
+  {
+    id: 2,
+    name: 'Communication',
+    text: [
+      'For each retreat, a private facebook group is created - this can help retreat participants to get to knoweach other before the weekend and collaborate on transportation.',
+    ],
+  },
+  {
+    id: 3,
+    name: 'Cancellation Policy',
+    text: [
+      ' Due to the vendor charges for processing payments plus all of the backend work we do to prepare, we are unable to offer refunds.',
+      'However,should you need to cancel for some reason, you are welcome to either gift your spot to someone, or exchange your spot with someone else.',
+    ],
+  },
+  {
+    id: 4,
+    name: 'Retreat Prep',
+    text: [
+      ' A brief questionnaire will be sent to you upon registration, regarding how you can best prepare for the retreat and how we can get to know you better.',
+      'This email will also provide a very basic outline of what will happen over the course of the retreat.',
+    ],
+    image: 'assets/img/news/4.jpg',
+  },
+  {
+    id: 5,
+    name: 'Want to Join?',
+    text: [
+      'Space is limited to 27 participants, if you would like to come, please send an email to team@sacredfeminine.co with your first and last name.',
+      'These e-mails will be answered on a first come first serve basis. If you decide to join, we will provide a link for you to make an online payment for the retreat.',
+    ],
+  },
+];
+const ServiceItems = () => {
+  const { setServiceModal, modalToggle, modal } = useContext(TokyoContext);
+  return (
+    <div className="list w-full h-auto clear-both float-left">
+      <ul className="ml-[-40px] list-none flex flex-wrap">
+        {services.map((service) => (
+          <li className="mb-[40px] w-1/3 pl-[40px]" key={service.id}>
+            <div className="list_inner w-full h-auto clear-both float-left relative border-solid border-[rgba(0,0,0,.1)] border bg-white pt-[45px] pr-[30px] pb-[40px] pl-[30px] transition-all duration-300">
+              <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full bg-[rgba(0,0,0,.03)] font-bold text-black font-montserrat transition-all duration-300">
+                {service.id <= 9 ? `0${service.id}` : service.id}
+              </span>
+              <h3 className="title font-bold font-psych text-black text-[18px] mb-[15px]">
+                {service.name}
+              </h3>
+              <p className="text font-montserrat">
+                {service.text[0].slice(0, 70)}...
+              </p>
+              <div className="tokyo_tm_read_more">
+                <a
+                  href="#"
+                  onClick={() => {
+                    modalToggle(true);
+                    setServiceModal(service);
+                  }}
+                >
+                  <span>Read More</span>
+                </a>
+              </div>
+              <a
+                className="tokyo_tm_full_link"
+                href="#"
+                onClick={() => {
+                  modalToggle(true);
+                  setServiceModal(service);
+                }}
+              />
+              {/* Service Popup Start */}
+              <img
+                className="popup_service_image opacity-0 invisible hidden absolute z-[-111]"
+                src={service.image}
+                alt="image"
+              />
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+export default ServiceItems;
