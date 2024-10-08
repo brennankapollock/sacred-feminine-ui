@@ -1,4 +1,10 @@
 import SectionContainer from './SectionContainer';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
+
 const socialIcon = [
   {
     id: 1,
@@ -18,6 +24,15 @@ const socialIcon = [
   },
 ];
 const Home = () => {
+  const handleCheckout = async () => {
+    const stripe = await stripePromise;
+    const response = await fetch('/api/checkout-sessions/create', {
+      method: 'POST',
+    });
+    const session = await response.json();
+    await stripe.redirectToCheckout({ sessionId: session.id });
+  };
+
   return (
     <SectionContainer name={'home'}>
       <div className="container">
@@ -43,26 +58,11 @@ const Home = () => {
               <div className="tokyo_tm_button flex items-center justify-evenly rounded-lg">
                 <a
                   className="text-black font-psych "
-                  href="https://www.mailchimp.com"
-                  download
+                  href="#"
+                  onClick={handleCheckout}
                 >
                   Join The Fun!
                 </a>
-              </div>
-              <div className="social w-full text-center">
-                <ul className="m-0 list-none">
-                  {socialIcon.map((item) => (
-                    <li className=" inline-block" key={item.id}>
-                      <a
-                        className="text-black text-[20px] transition-all duration-300 hover:text-black"
-                        href={item.link}
-                        target="_blank"
-                      >
-                        <i className={item.iconName} />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           </div>

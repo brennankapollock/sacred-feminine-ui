@@ -640,6 +640,7 @@ h6 {
   width: 100%;
   margin-bottom: 20px;
   border-radius: 10px;
+  font-family: "Psych";
   
 }
 
@@ -657,7 +658,6 @@ h6 {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
   background-color: #caa16e;
-  color: #000000;
 
 }
 

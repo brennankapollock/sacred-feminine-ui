@@ -512,6 +512,110 @@ body.modal{
 }
 .cursor-outer.cursor-hover{opacity: 0;}
 
+.product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  
+  .product-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    width: calc(33.333% - 32px); /* Adjust width as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .product-title {
+    font-family: "Psych";
+    color: black;
+    font-size: 40px;
+  }
+  
+  .product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .product-card-button {
+    background-color: #A98747;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Psych";
+  }
+
+  .product-card-confirmation {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    width: calc(33.333% - 32px); /* Adjust width as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .product-card-button-group {
+    display: flex;
+    gap: 16px;
+  }
+
+  .product-card-remove {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Psych";
+  }
+
+  .success-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    font-size: 2rem; /* Adjust the font size as needed */
+    background-color: #f0f0f0; /* Optional: Set a background color */
+  }
+  
+  .success-page h1 {
+    font-size: 3rem; /* Adjust the heading size as needed */
+    margin-bottom: 20px;
+    font-family: "Psych";
+  }
+  
+  .success-page p {
+    font-size: 1.5rem; /* Adjust the paragraph size as needed */
+    margin-bottom: 40px;
+  }
+  
+  .success-page button {
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #A98747;
+    font-family: "Psych";
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+  
+
 body.dark .tokyo_tm_modalbox_about .description_wrap{
     scrollbar-width: thin;
     scrollbar-color: #777 #34353a;

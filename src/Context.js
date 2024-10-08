@@ -11,6 +11,7 @@ const type = {
   SERVICEMODAL: 'SERVICEMODAL',
   NEWSMODAL: 'NEWSMODAL',
   PORTFOLIODETAILSMODAL: 'PORTFOLIODETAILSMODAL',
+  SIGNUPMODAL: 'SIGNUPMODAL',
 };
 const {
   NAV,
@@ -19,6 +20,7 @@ const {
   SERVICEMODAL,
   NEWSMODAL,
   PORTFOLIODETAILSMODAL,
+  SIGNUPMODAL,
 } = type;
 
 // Initial Value
@@ -29,6 +31,7 @@ const initialState = {
   serviceModal: null,
   newsModal: null,
   portfolioDetailsModal: null,
+  signUpModal: false,
   menus: [
     { id: 1, name: 'home', href: 'home' },
     { id: 2, name: 'about', href: 'about' },
@@ -51,6 +54,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         animation: payload,
+      };
+    case SIGNUPMODAL:
+      return {
+        ...state,
+        signUpModal: payload,
       };
     case MODAL:
       return {
@@ -102,6 +110,13 @@ const TokyoState = ({ children }) => {
     });
   }, []);
 
+  const setSignUpModal = useCallback((value) => {
+    dispatch({
+      type: SIGNUPMODAL,
+      payload: value,
+    });
+  }, []);
+
   const setServiceModal = useCallback((value) => {
     dispatch({
       type: SERVICEMODAL,
@@ -129,6 +144,7 @@ const TokyoState = ({ children }) => {
     newsModal,
     portfolioDetailsModal,
     menus,
+    signUpModal,
   } = state;
   return (
     <TokyoContext.Provider
@@ -146,6 +162,8 @@ const TokyoState = ({ children }) => {
         setNewsModal,
         portfolioDetailsModal,
         setPortfolioDetailsModal,
+        signUpModal,
+        setSignUpModal,
       }}
     >
       {children}
