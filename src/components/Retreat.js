@@ -21,7 +21,6 @@ const Retreat = () => {
           <ServiceItems />
         </div>
       </div>
-      <Pricing />
     </SectionContainer>
   );
 };

@@ -115,7 +115,6 @@ ol li {
 }
 img {
   vertical-align: middle;
-  max-width: 100%;
 }
 iframe {
   max-width: 100%;
@@ -265,6 +264,12 @@ input[type="button"] {
   font-family: "psych";
   src: url("font/psych.ttf");
 }
+
+@font-face {
+  font-family: "bagnard";
+  src: url("font/bagnard.otf");
+}
+
 
 
 
