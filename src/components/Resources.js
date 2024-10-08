@@ -128,7 +128,7 @@ const Resources = () => {
                     <a
                       className="text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black"
                       href="#"
-                      onClick={handleFilterKeyChange('vimeo')}
+                      onClick={handleFilterKeyChange('meditation')}
                     >
                       Meditations
                     </a>
@@ -137,7 +137,7 @@ const Resources = () => {
                     <a
                       className="text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black"
                       href="#"
-                      onClick={handleFilterKeyChange('youtube')}
+                      onClick={handleFilterKeyChange('writing')}
                     >
                       Writings
                     </a>
@@ -146,7 +146,7 @@ const Resources = () => {
                     <a
                       className="text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black"
                       href="#"
-                      onClick={handleFilterKeyChange('soundcloud')}
+                      onClick={handleFilterKeyChange('music')}
                     >
                       Music
                     </a>
@@ -156,7 +156,7 @@ const Resources = () => {
                     <a
                       className="text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black"
                       href="#"
-                      onClick={handleFilterKeyChange('detail')}
+                      onClick={handleFilterKeyChange('book')}
                     >
                       Books
                     </a>
@@ -167,150 +167,104 @@ const Resources = () => {
           </div>
           <div className="list_wrapper w-full h-auto clear-both float-left">
             <ul className="portfolio_list gallery_zoom ml-[-40px] list-none">
-              <li className="vimeo mb-[40px] float-left w-1/3 pl-[40px] item__">
+              <li className="book mb-[40px] float-left w-1/3 pl-[40px] item__">
                 <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
                   <div
                     className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Teresa Butler"
-                    data-category="Vimeo"
+                    data-title="The Most Beautiful Thing I've Seen"
+                    data-category="Books"
                   >
-                    <a
-                      className="popup-vimeo"
-                      href="https://vimeo.com/337293658"
-                    >
+                    <img
+                      className="opacity-0 min-w-full"
+                      src="assets/img/thumbs/most-beautiful.jpg"
+                      alt="image"
+                    />
+                    <div
+                      className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
+                      data-img-url="assets/img/thumbs/most-beautiful.jpg"
+                    />
+                  </div>
+                </div>
+              </li>
+              <li className="book mb-[40px] float-left w-1/3 pl-[40px] item__">
+                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
+                  <div
+                    className="entry tokyo_tm_portfolio_animation_wrap"
+                    data-title="Practices for Embodied Living"
+                    data-category="Books"
+                  >
+                    <a href="https://www.amazon.com/Practices-Embodied-Living-Experiencing-Wisdom/dp/1587436248?dib_tag=se&dib=eyJ2IjoiMSJ9.n7ki-vAMy6Gs88HYKHHNphSTNvguhkhox8tzLzLMlq3NtIZR7ecEp_rGGz8989odbz6aXE3PK9xqlCD0VVVH71VGDN6UHRhHWKE3qw_r_o8.K35Ob4DzryBa-nwrciGkXcoUnGbpbYwzNvtweeYyJcE&qid=1728344513&sr=1-2">
                       <img
                         className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
+                        src="assets/img/thumbs/embodied-living.jpg"
                         alt="image"
                       />
                       <div
                         className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/5.jpg"
+                        data-img-url="assets/img/thumbs/embodied-living.jpg"
                       />
                     </a>
                   </div>
                 </div>
               </li>
-              <li className="youtube mb-[40px] float-left w-1/3 pl-[40px] item__">
+              <li className="music mb-[40px] float-left w-1/3 pl-[40px] item__">
                 <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
                   <div
                     className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Ashley Flores"
-                    data-category="Youtube"
+                    data-title="Animal Heart by Isa Ma"
+                    data-category="Music"
                   >
-                    <a
-                      className="popup-youtube"
-                      href="https://www.youtube.com/watch?v=7e90gBu4pas"
-                    >
+                    <a href="https://www.amazon.com/Practices-Embodied-Living-Experiencing-Wisdom/dp/1587436248?dib_tag=se&dib=eyJ2IjoiMSJ9.n7ki-vAMy6Gs88HYKHHNphSTNvguhkhox8tzLzLMlq3NtIZR7ecEp_rGGz8989odbz6aXE3PK9xqlCD0VVVH71VGDN6UHRhHWKE3qw_r_o8.K35Ob4DzryBa-nwrciGkXcoUnGbpbYwzNvtweeYyJcE&qid=1728344513&sr=1-2">
                       <img
                         className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
+                        src="assets/img/thumbs/isa.jpg"
                         alt="image"
                       />
                       <div
                         className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/6.jpg"
+                        data-img-url="assets/img/thumbs/isa.jpg"
                       />
                     </a>
                   </div>
                 </div>
               </li>
-              <li className="soundcloud mb-[40px] float-left w-1/3 pl-[40px] item__">
+              <li className="book mb-[40px] float-left w-1/3 pl-[40px] item__">
                 <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
                   <div
                     className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Derek Smith"
-                    data-category="Soundcloud"
+                    data-title="Mothers, Daughters, and Body Image"
+                    data-category="Books"
                   >
-                    <a
-                      className="soundcloude_link mfp-iframe audio"
-                      href="https://w.soundcloud.com/player/?visual=true&url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F159967086&show_artwork=true&maxwidth=1020&maxheight=1000&auto_play=1"
-                    >
+                    <a href="https://www.amazon.com/Practices-Embodied-Living-Experiencing-Wisdom/dp/1587436248?dib_tag=se&dib=eyJ2IjoiMSJ9.n7ki-vAMy6Gs88HYKHHNphSTNvguhkhox8tzLzLMlq3NtIZR7ecEp_rGGz8989odbz6aXE3PK9xqlCD0VVVH71VGDN6UHRhHWKE3qw_r_o8.K35Ob4DzryBa-nwrciGkXcoUnGbpbYwzNvtweeYyJcE&qid=1728344513&sr=1-2">
                       <img
                         className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
+                        src="assets/img/thumbs/mothers.jpg"
                         alt="image"
                       />
                       <div
                         className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/4.jpg"
+                        data-img-url="assets/img/thumbs/mothers.jpg"
                       />
                     </a>
                   </div>
                 </div>
               </li>
-              <li className="image mb-[40px] float-left w-1/3 pl-[40px] item__">
+              <li className="book mb-[40px] float-left w-1/3 pl-[40px] item__">
                 <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
                   <div
                     className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Gloria Jenkins"
-                    data-category="Image"
+                    data-title="The Wisdom of Your Body"
+                    data-category="Books"
                   >
-                    <a className="zoom" href="assets/img/portfolio/3.jpg">
+                    <a href="https://www.amazon.com/Practices-Embodied-Living-Experiencing-Wisdom/dp/1587436248?dib_tag=se&dib=eyJ2IjoiMSJ9.n7ki-vAMy6Gs88HYKHHNphSTNvguhkhox8tzLzLMlq3NtIZR7ecEp_rGGz8989odbz6aXE3PK9xqlCD0VVVH71VGDN6UHRhHWKE3qw_r_o8.K35Ob4DzryBa-nwrciGkXcoUnGbpbYwzNvtweeYyJcE&qid=1728344513&sr=1-2">
                       <img
                         className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
+                        src="assets/img/thumbs/wisdom.jpg"
                         alt="image"
                       />
                       <div
                         className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/3.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="detail mb-[40px] float-left w-1/3 pl-[40px] item__">
-                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Selena Gomez"
-                    data-category="Detail"
-                  >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[0]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
-                      <div
-                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/7.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="detail mb-[40px] float-left w-1/3 pl-[40px] item__">
-                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Ave Simone"
-                    data-category="Detail"
-                  >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[1]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
-                      <div
-                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/8.jpg"
+                        data-img-url="assets/img/thumbs/wisdom.jpg"
                       />
                     </a>
                   </div>

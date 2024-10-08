@@ -131,7 +131,7 @@
 	-moz-transition: visibility 1s linear, opacity 0s linear;
 	-webkit-transition: visibility1s linear, opacity 0s linear;
 	-o-transition: visibility 1s linear, opacity 0s linear;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
 }
 .tokyo_tm_section.animated {
 	opacity: 1;
@@ -159,33 +159,22 @@
 	color: #000;
 }
 
-/* body {
-    background-color: #ece7d4; /* Replace with your desired color */
-} */
+
 
 
 /* Change background color for Home Page */
-/* .tokyo_tm_home {
-    background-color: #ece7d4; /* Replace with your desired color */
-} */
 
-/* .tokyo_tm_about {
-    background-color: #ece7d4; /* Replace with your desired color */
-} */
-/* .tokyo_tm_home .avatar[data-type="square"] .image{
+
+.tokyo_tm_home .avatar[data-type="wave"] .image {
 	animation: none;
-} */
-/* .tokyo_tm_home .avatar[data-type="circle"] .image{
-	animation: none;
-	border-radius: 100%;
-} */
-.tokyo_tm_home .avatar .image{
+} 
+
+/* .tokyo_tm_home .avatar .image{
 	animation: morph 8s ease-in-out infinite 1s;
 	background-blend-mode: multiply;
-	
-}
+} */
 
-/* @keyframes morph {
+@keyframes morph {
 	 0% {
 		 border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 	}
@@ -195,7 +184,7 @@
 	 100% {
 		 border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 	}
-} */
+}
 .tokyo_tm_resume_list ul:before{
 	content: "";
     position: absolute;
@@ -457,9 +446,7 @@ body.modal{
 	text-align: left;
 	font-weight: 500;
 }
-/* body .tokyo_tm_topbar{
-    background-color: #ece7d4;
-} */
+
 
 .tokyo_tm_topbar .logo[data-type="image"] img{display: inline-block;}
 .tokyo_tm_topbar .logo[data-type="image"] h3{display: none;}

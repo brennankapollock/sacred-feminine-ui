@@ -42,7 +42,6 @@ const Layout = ({ children }) => {
         </div>
         {/* /RIGHTPART */}
         {/* CURSOR */}
-        <Cursor />
         {/* /CURSOR */}
       </div>
     </Fragment>

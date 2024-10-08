@@ -81,6 +81,7 @@ module.exports = {
     },
     fontFamily: {
       psych: ['Psych', 'sans-serif'],
+      bagnard: ["Bagnard", "sans-serif"]
     },
   },
   darkMode: 'class',

@@ -53,3 +53,21 @@ img.mfp-img {
 .font-psych {
   font-family: 'Psych' !important;
 }
+
+@font-face {
+  font-family: 'Bagnard';
+  src: url('../public/assets/css/font/bagnard.otf') format('otf');
+}
+
+.font-bagnard{
+  font-family: 'Bagnard' !important;
+}
+
+@font-face {
+  font-family: 'Young';
+  src: url('../public/assets/css/font/youngserif.otf') format('otf');
+}
+
+.font-young{
+  font-family: 'Young' !important;
+}

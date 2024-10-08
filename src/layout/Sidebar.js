@@ -4,9 +4,9 @@ import { TokyoContext } from '../Context';
 const Sidebar = () => {
   const { navChange, nav, menus } = useContext(TokyoContext);
   return (
-    <div className="leftpart w-[450px] h-[100vh] fixed flex items-center z-[12] px-[100px] py-[0px] bg-white">
+    <div className="leftpart w-[450px] h-[100vh] fixed flex items-center z-[12] px-[100px] py-[0px] bg-desert_sand-400">
       <div className="leftpart_inner w-full h-auto">
-        <div className="logo" data-type="image">
+        <div className="logo" data-type="text">
           {' '}
           {/* You can use image or text as logo. data-type values are: "image" and "text" */}
           <a href="#">
@@ -15,8 +15,8 @@ const Sidebar = () => {
               src="assets/img/logo/logo.png"
               alt="image"
             />
-            <h3 className="font-poppins font-black text-[31px] tracking-[5px]">
-              TOKYO
+            <h3 className="font-psych font-black text-[31px]">
+              Sacred Feminine
             </h3>
           </a>
         </div>
@@ -30,7 +30,7 @@ const Sidebar = () => {
                 key={menu.id}
               >
                 <a
-                  className="text-[#767676] capitalize inline-block font-medium font-montserrat transition-all duration-300 hover:text-black"
+                  className="text-[20px] capitalize inline-block font-psych transition-all duration-300"
                   href={`#${menu.href}`}
                   onClick={() => navChange(menu.href)}
                 >

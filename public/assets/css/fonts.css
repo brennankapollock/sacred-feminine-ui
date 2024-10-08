@@ -8,6 +8,19 @@
     font-style: normal;
   }
 
+
+  @font-face {
+    font-family: 'Bagnard';
+    src: url('../fonts/bagnard.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
   .font-psych {
     font-family: 'Psych' !important;
+  }
+
+  font-bagnard {
+    font-family: "Bagnard" !important;
   }

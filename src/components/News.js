@@ -1,48 +1,48 @@
-import { useContext } from "react";
-import { TokyoContext } from "../Context";
-import SectionContainer from "./SectionContainer";
-import SectionTitle from "./SectionTitle";
+import { useContext } from 'react';
+import { TokyoContext } from '../Context';
+import SectionContainer from './SectionContainer';
+import SectionTitle from './SectionTitle';
 
 const news = [
   {
     id: 1,
-    title: "Format releases a new tool that enables direct video hosting",
-    image: "assets/img/news/1.jpg",
-    author: "Alex Watson",
-    date: "22 Oct 2022",
+    title: 'Format releases a new tool that enables direct video hosting',
+    image: 'assets/img/news/1.jpg',
+    author: 'Alex Watson',
+    date: '22 Oct 2022',
   },
   {
     id: 2,
-    title: "Sony announced two new full frame cameras with zero fanfare",
-    image: "assets/img/news/2.jpg",
-    author: "Brook Kennedy",
-    date: "15 Oct 2022",
+    title: 'Sony announced two new full frame cameras with zero fanfare',
+    image: 'assets/img/news/2.jpg',
+    author: 'Brook Kennedy',
+    date: '15 Oct 2022',
   },
   {
     id: 3,
-    title: "Why every photographer should shoot film, even in 2022",
-    image: "assets/img/news/3.jpg",
-    author: "Paola Atkins",
-    date: "07 Oct 2022",
+    title: 'Why every photographer should shoot film, even in 2022',
+    image: 'assets/img/news/3.jpg',
+    author: 'Paola Atkins',
+    date: '07 Oct 2022',
   },
   {
     id: 4,
-    title: "Stay creative in lockdown with these fun photo projects",
-    image: "assets/img/news/4.jpg",
-    author: "Kevin Stone",
-    date: "25 Sep 2022",
+    title: 'Stay creative in lockdown with these fun photo projects',
+    image: 'assets/img/news/4.jpg',
+    author: 'Kevin Stone',
+    date: '25 Sep 2022',
   },
 ];
 
 const News = () => {
   const { setNewsModal, modalToggle } = useContext(TokyoContext);
   return (
-    <SectionContainer name={"news"}>
+    <SectionContainer name={'about'}>
       <div className="container">
         <div className="tokyo_tm_news w-full clear-both float-left h-auto pt-[100px] px-0 pb-[45px]">
           <div className="tokyo_tm_title w-full h-auto clear-both float-left mb-[62px]">
             <div className="title_flex w-full h-auto clear-both flex justify-between items-end">
-              <SectionTitle pageName={"News"} title={"Latest News"} />
+              <SectionTitle pageName={'News'} title={'Latest News'} />
             </div>
           </div>
           <ul className="ml-[-50px] list-none">
@@ -76,7 +76,7 @@ const News = () => {
                     <div className="extra flex items-center justify-between mb-[25px] relative">
                       <div className="short">
                         <p className="date font-montserrat text-[13px] text-[#767676]">
-                          By{" "}
+                          By{' '}
                           <a
                             className="text-[#767676] transition-all duration-300 hover:text-black"
                             href="#"
@@ -86,7 +86,7 @@ const News = () => {
                             }}
                           >
                             {item.author}
-                          </a>{" "}
+                          </a>{' '}
                           <span className="relative">{item.date}</span>
                         </p>
                       </div>
