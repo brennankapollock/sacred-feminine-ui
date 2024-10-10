@@ -1,111 +1,78 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
-const MailchimpModal = ({ isOpen, onClose }) => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js';
-    script.async = true;
-    document.body.appendChild(script);
+const MailchimpModal = ({ onClose }) => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName, lastName, email }),
+      });
+      if (response.ok) {
+        setIsSubscribed(true);
+      } else {
+        console.error('Failed to subscribe');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
-  if (!isOpen) return null;
+  if (isSubscribed) {
+    return (
+      <Alert className="bg-green-100">
+        <AlertTitle>Success!</AlertTitle>
+        <AlertDescription>Thank you for subscribing!</AlertDescription>
+        <Button onClick={onClose} className="mt-4 w-full" variant="outline">
+          Close
+        </Button>
+      </Alert>
+    );
+  }
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <button className="close-button" onClick={onClose}>
-          &times;
-        </button>
-        <div id="mc_embed_signup">
-          <form
-            action="https://sacredfeminineretreats.us19.list-manage.com/subscribe/post?u=1c626d0a1b41d23def1efb5c8&amp;id=749f2b97d8&amp;f_id=00b46fe7f0"
-            method="post"
-            id="mc-embedded-subscribe-form"
-            name="mc-embedded-subscribe-form"
-            className="validate"
-            target="_blank"
-          >
-            <div id="mc_embed_signup_scroll">
-              <h2>Subscribe</h2>
-              <div className="indicates-required">
-                <span className="asterisk">*</span> indicates required
-              </div>
-              <div className="mc-field-group">
-                <label htmlFor="mce-FNAME">
-                  First Name <span className="asterisk">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="FNAME"
-                  className="required text"
-                  id="mce-FNAME"
-                  required
-                />
-              </div>
-              <div className="mc-field-group">
-                <label htmlFor="mce-LNAME">
-                  Last Name <span className="asterisk">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="LNAME"
-                  className="required text"
-                  id="mce-LNAME"
-                  required
-                />
-              </div>
-              <div className="mc-field-group">
-                <label htmlFor="mce-EMAIL">
-                  Email Address <span className="asterisk">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="EMAIL"
-                  className="required email"
-                  id="mce-EMAIL"
-                  required
-                />
-              </div>
-              <div id="mce-responses" className="clear">
-                <div
-                  className="response"
-                  id="mce-error-response"
-                  style={{ display: 'none' }}
-                ></div>
-                <div
-                  className="response"
-                  id="mce-success-response"
-                  style={{ display: 'none' }}
-                ></div>
-              </div>
-              <div
-                aria-hidden="true"
-                style={{ position: 'absolute', left: '-5000px' }}
-              >
-                <input
-                  type="text"
-                  name="b_1c626d0a1b41d23def1efb5c8_749f2b97d8"
-                  tabIndex="-1"
-                />
-              </div>
-              <div className="clear">
-                <input
-                  type="submit"
-                  name="subscribe"
-                  id="mc-embedded-subscribe"
-                  className="button"
-                  value="Subscribe"
-                />
-              </div>
-            </div>
-          </form>
-        </div>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <Label htmlFor="firstName">First Name</Label>
+        <Input
+          id="firstName"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+        />
       </div>
-    </div>
+      <div>
+        <Label htmlFor="lastName">Last Name</Label>
+        <Input
+          id="lastName"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <Label htmlFor="email">Email</Label>
+        <Input
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
+      <Button type="submit" className="w-full">
+        Subscribe
+      </Button>
+    </form>
   );
 };
 

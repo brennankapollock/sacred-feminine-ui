@@ -1,8 +1,5 @@
-import SectionContainer from './SectionContainer';
-import SectionTitle from './SectionTitle';
-import FunFact from './service/FunFact';
-import Partners from './service/Partners';
-import Pricing from './service/Pricing';
+import SectionContainer from './containers/SectionContainer';
+import SectionTitle from './containers/SectionTitle';
 import ServiceItems from './service/ServiceItems';
 
 const Retreat = () => {

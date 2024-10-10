@@ -23,6 +23,7 @@ export default function Document() {
         <link rel="stylesheet" href="assets/css/plugins.css" />
         <link rel="stylesheet" href="assets/css/custom.css" />
         <link rel="stylesheet" href="assets/css/main.css" />
+
         <title>Sacred Feminine</title>
       </Head>
       <body>

@@ -1,6 +1,6 @@
 import { loadStripe } from '@stripe/stripe-js';
-import SectionContainer from './SectionContainer';
-import SectionTitle from './SectionTitle';
+import SectionContainer from './containers/SectionContainer';
+import SectionTitle from './containers/SectionTitle';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 

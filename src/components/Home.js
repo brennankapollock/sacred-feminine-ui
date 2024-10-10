@@ -1,37 +1,20 @@
-import SectionContainer from './SectionContainer';
-import { loadStripe } from '@stripe/stripe-js';
+import { useState } from 'react';
+import SectionContainer from './containers/SectionContainer';
+import MailchimpModal from './popup/MailChimpModal';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-);
-
-const socialIcon = [
-  {
-    id: 1,
-    iconName: 'icon-facebook-squared',
-    link: 'https://www.facebook.com/',
-  },
-  {
-    id: 2,
-    iconName: 'icon-twitter-squared',
-    link: 'https://twitter.com/',
-  },
-
-  {
-    id: 3,
-    iconName: 'icon-linkedin-squared',
-    link: 'https://www.linkedin.com/',
-  },
-];
 const Home = () => {
-  const handleCheckout = async () => {
-    const stripe = await stripePromise;
-    const response = await fetch('/api/checkout-sessions/create', {
-      method: 'POST',
-    });
-    const session = await response.json();
-    await stripe.redirectToCheckout({ sessionId: session.id });
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
 
   return (
     <SectionContainer name={'home'}>
@@ -42,7 +25,6 @@ const Home = () => {
               className="avatar min-w-[300px] min-h-[300px] relative rounded-full"
               data-type="circle"
             >
-              {' '}
               <div
                 className="image absolute inset-0 bg-no-repeat bg-center bg-cover"
                 data-img-url="assets/img/logo/logo.png"
@@ -56,19 +38,30 @@ const Home = () => {
                 of right here, and the vastness and mystery of the unknown.
               </p>
               <div className="tokyo_tm_button flex items-center justify-evenly rounded-lg">
-                <a
-                  className="text-black font-psych "
-                  href="#"
-                  onClick={handleCheckout}
+                <Button
+                  className="text-black font-psych"
+                  onClick={handleOpenModal}
                 >
                   Join The Fun!
-                </a>
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Subscribe to Our Newsletter</DialogTitle>
+            <DialogDescription>
+              Stay updated with our upcoming retreats and events.
+            </DialogDescription>
+          </DialogHeader>
+          <MailchimpModal isOpen={isModalOpen} onClose={handleCloseModal} />
+        </DialogContent>
+      </Dialog>
     </SectionContainer>
   );
 };
+
 export default Home;
