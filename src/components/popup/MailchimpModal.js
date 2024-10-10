@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
-const MailChimpModal = ({ onClose }) => {
+const MailchimpModal = ({ onClose }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -76,4 +76,4 @@ const MailChimpModal = ({ onClose }) => {
   );
 };
 
-export default MailChimpModal;
+export default MailchimpModal;

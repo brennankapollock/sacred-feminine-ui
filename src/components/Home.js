@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SectionContainer from './containers/SectionContainer';
-import MailChimpModal from './popup/MailChimpModal';
+import MailchimpModal from './popup/MailChimpModal';
 import {
   Dialog,
   DialogContent,
@@ -57,7 +57,7 @@ const Home = () => {
               Stay updated with our upcoming retreats and events.
             </DialogDescription>
           </DialogHeader>
-          <MailChimpModal isOpen={isModalOpen} onClose={handleCloseModal} />
+          <MailchimpModal isOpen={isModalOpen} onClose={handleCloseModal} />
         </DialogContent>
       </Dialog>
     </SectionContainer>
