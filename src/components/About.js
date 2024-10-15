@@ -1,9 +1,7 @@
-import SectionContainer from './SectionContainer';
-import SectionTitle from './SectionTitle';
-import Lisa from './about/Lisa';
-import Hilary from './about/Hilary';
+import SectionContainer from './containers/SectionContainer';
+import SectionTitle from './containers/SectionTitle';
+
 import { TokyoContext } from '../Context';
-import Image from 'next/image';
 
 import Summary from './about/Summary';
 import { useContext } from 'react';

@@ -1,6 +1,12 @@
 {
+  "/api/checkout-sessions/create": "pages/api/checkout-sessions/create.js",
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/api/hello": "pages/api/hello.js",
+  "/api/subscribe": "pages/api/subscribe.js",
+  "/_error": "pages/_error.js",
+  "/": "pages/index.html",
+  "/success": "pages/success.html",
+  "/checkout": "pages/checkout.html",
+  "/404": "pages/404.html"
 }

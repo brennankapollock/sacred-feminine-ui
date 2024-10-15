@@ -4,12 +4,12 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
         persian_red: {
-          DEFAULT: '#D13835',
           100: '#2a0a0a',
           200: '#551413',
           300: '#7f1f1d',
@@ -19,9 +19,9 @@ module.exports = {
           700: '#e38685',
           800: '#edafae',
           900: '#f6d7d6',
+          DEFAULT: '#D13835',
         },
         desert_sand: {
-          DEFAULT: '#E4B79B',
           100: '#3c2110',
           200: '#784221',
           300: '#b46331',
@@ -31,9 +31,9 @@ module.exports = {
           700: '#efd4c3',
           800: '#f4e2d7',
           900: '#faf1eb',
+          DEFAULT: '#E4B79B',
         },
         dark_goldenrod: {
-          DEFAULT: '#A98747',
           100: '#221b0e',
           200: '#44361c',
           300: '#65512a',
@@ -43,9 +43,21 @@ module.exports = {
           700: '#cfb88d',
           800: '#dfd0b3',
           900: '#efe7d9',
+          DEFAULT: '#A98747',
+        },
+        sf_yellow: {
+          DEFAULT: '#dba11c',
+        },
+        sf_beige: {
+          DEFAULT: '#ffedcb',
+        },
+        sf_green: {
+          DEFAULT: '#00e3b8',
+        },
+        sf_lime: {
+          DEFAULT: '#f9f871',
         },
         eerie_black: {
-          DEFAULT: '#1A1A1A',
           100: '#050505',
           200: '#0a0a0a',
           300: '#0f0f0f',
@@ -55,9 +67,9 @@ module.exports = {
           700: '#757575',
           800: '#a3a3a3',
           900: '#d1d1d1',
+          DEFAULT: '#1A1A1A',
         },
         chefchaouen_blue: {
-          DEFAULT: '#4B8FDE',
           100: '#091c32',
           200: '#123864',
           300: '#1c5596',
@@ -67,23 +79,69 @@ module.exports = {
           700: '#92bceb',
           800: '#b7d2f2',
           900: '#dbe9f8',
+          DEFAULT: '#4B8FDE',
         },
         white: {
-          DEFAULT: '#FFFFFF',
           100: '#F5F5F5',
           200: '#EBEBEB',
           300: '#E0E0E0',
           400: '#D5D5D5',
           500: '#CACACA',
           600: '#BFBFBF',
+          DEFAULT: '#FFFFFF',
         },
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        chart: {
+          1: 'hsl(var(--chart-1))',
+          2: 'hsl(var(--chart-2))',
+          3: 'hsl(var(--chart-3))',
+          4: 'hsl(var(--chart-4))',
+          5: 'hsl(var(--chart-5))',
+        },
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
     },
     fontFamily: {
       psych: ['Psych', 'sans-serif'],
-      bagnard: ["Bagnard", "sans-serif"]
+      bagnard: ['Bagnard', 'sans-serif'],
     },
   },
-  darkMode: 'class',
-  plugins: [],
+  darkMode: ['class', 'class'],
+  plugins: [require('tailwindcss-animate')],
 };

@@ -59,9 +59,37 @@ const ServiceItems = () => {
         {services.map((service) => (
           <li className="mb-[40px] w-1/3 pl-[40px]" key={service.id}>
             <div className="list_inner w-full h-auto clear-both float-left relative border-solid border-[rgba(0,0,0,.1)] border bg-white pt-[45px] pr-[30px] pb-[40px] pl-[30px] transition-all duration-300">
-              <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full bg-[rgba(0,0,0,.03)] font-bold text-black transition-all duration-300">
-                {service.id <= 9 ? `0${service.id}` : service.id}
-              </span>
+              {service.id == 1 && (
+                <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full bg-chefchaouen_blue font-bold text-black transition-all duration-300">
+                  {service.id <= 9 ? `0${service.id}` : service.id}
+                </span>
+              )}
+              {service.id == 2 && (
+                <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full bg-sf_yellow font-bold text-black transition-all duration-300">
+                  {service.id <= 9 ? `0${service.id}` : service.id}
+                </span>
+              )}
+              {service.id == 3 && (
+                <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full bg-dark_goldenrod font-bold text-black transition-all duration-300">
+                  {service.id <= 9 ? `0${service.id}` : service.id}
+                </span>
+              )}
+              {service.id == 4 && (
+                <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full bg-desert_sand-400 font-bold text-black transition-all duration-300">
+                  {service.id <= 9 ? `0${service.id}` : service.id}
+                </span>
+              )}
+              {service.id == 5 && (
+                <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full bg-sf_yellow font-bold text-black transition-all duration-300">
+                  {service.id <= 9 ? `0${service.id}` : service.id}
+                </span>
+              )}
+              {service.id == 6 && (
+                <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full bg-chefchaouen_blue font-bold text-black transition-all duration-300">
+                  {service.id <= 9 ? `0${service.id}` : service.id}
+                </span>
+              )}
+
               <h3 className=" font-bold font-psych text-black text-[18px] mb-[15px]">
                 {service.name}
               </h3>

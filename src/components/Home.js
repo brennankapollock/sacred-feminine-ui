@@ -1,33 +1,30 @@
-import SectionContainer from './SectionContainer';
-const socialIcon = [
-  {
-    id: 1,
-    iconName: 'icon-facebook-squared',
-    link: 'https://www.facebook.com/',
-  },
-  {
-    id: 2,
-    iconName: 'icon-twitter-squared',
-    link: 'https://twitter.com/',
-  },
+import { useState } from 'react';
+import SectionContainer from './containers/SectionContainer';
+import MailchimpModal from './MailChimpModal';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 
-  {
-    id: 3,
-    iconName: 'icon-linkedin-squared',
-    link: 'https://www.linkedin.com/',
-  },
-];
 const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
+
   return (
     <SectionContainer name={'home'}>
       <div className="container">
-        <div className="tokyo_tm_home w-full min-h-[100vh] clear-both flex items-center justify-center relative bg-lime-500">
+        <div className="tokyo_tm_home w-full min-h-[100vh] clear-both flex items-center justify-center relative">
           <div className="home_content flex items-center ">
             <div
               className="avatar min-w-[300px] min-h-[300px] relative rounded-full"
               data-type="circle"
             >
-              {' '}
               <div
                 className="image absolute inset-0 bg-no-repeat bg-center bg-cover"
                 data-img-url="assets/img/logo/logo.png"
@@ -41,34 +38,30 @@ const Home = () => {
                 of right here, and the vastness and mystery of the unknown.
               </p>
               <div className="tokyo_tm_button flex items-center justify-evenly rounded-lg">
-                <a
-                  className="text-black font-psych "
-                  href="https://www.mailchimp.com"
-                  download
+                <Button
+                  className="text-black font-psych"
+                  onClick={handleOpenModal}
                 >
                   Join The Fun!
-                </a>
-              </div>
-              <div className="social w-full text-center">
-                <ul className="m-0 list-none">
-                  {socialIcon.map((item) => (
-                    <li className=" inline-block" key={item.id}>
-                      <a
-                        className="text-black text-[20px] transition-all duration-300 hover:text-black"
-                        href={item.link}
-                        target="_blank"
-                      >
-                        <i className={item.iconName} />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Subscribe to Our Newsletter</DialogTitle>
+            <DialogDescription>
+              Stay updated with our upcoming retreats and events.
+            </DialogDescription>
+          </DialogHeader>
+          <MailchimpModal isOpen={isModalOpen} onClose={handleCloseModal} />
+        </DialogContent>
+      </Dialog>
     </SectionContainer>
   );
 };
+
 export default Home;

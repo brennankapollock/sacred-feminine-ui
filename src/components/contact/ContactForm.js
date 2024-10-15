@@ -1,10 +1,10 @@
-import emailjs from "emailjs-com";
-import { useState } from "react";
+import emailjs from 'emailjs-com';
+import { useState } from 'react';
 const ContactForm = () => {
   const [mailData, setMailData] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: '',
   });
   const { name, email, message } = mailData;
   const [error, setError] = useState(null);
@@ -18,16 +18,16 @@ const ContactForm = () => {
     } else {
       emailjs
         .send(
-          "service_seruhwu", // service id
-          "template_21aw58z", // template id
+          'service_seruhwu', // service id
+          'template_21aw58z', // template id
           mailData,
-          "Q3pccdLZhU-mZT7tQ" // public api
+          'Q3pccdLZhU-mZT7tQ' // public api
         )
         .then(
           (response) => {
             setError(false);
             clearError();
-            setMailData({ name: "", email: "", message: "" });
+            setMailData({ name: '', email: '', message: '' });
           },
           (err) => {
             console.log(err.text);
@@ -49,13 +49,13 @@ const ContactForm = () => {
         onSubmit={(e) => onSubmit(e)}
       >
         <div
-          className={error ? "empty_notice" : "returnmessage"}
-          style={{ display: error == null ? "none" : "block" }}
+          className={error ? 'empty_notice' : 'returnmessage'}
+          style={{ display: error == null ? 'none' : 'block' }}
         >
           <span>
             {error
-              ? "Please Fill Required Fields"
-              : "Your message has been received, We will contact you soon."}
+              ? 'Please Fill Required Fields'
+              : 'Your message has been received, We will contact you soon.'}
           </span>
         </div>
         <div className="first w-full float-left">
@@ -92,7 +92,7 @@ const ContactForm = () => {
           />
         </div>
         <div className="tokyo_tm_button" data-position="left">
-          <button type="submit">Send Message</button>
+          <button type="submit font-psych">Send Message</button>
         </div>
         {/* If you want to change mail address to yours, please open modal.php and go to line 4 */}
       </form>

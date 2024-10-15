@@ -1,8 +1,5 @@
-import SectionContainer from './SectionContainer';
-import SectionTitle from './SectionTitle';
-import FunFact from './service/FunFact';
-import Partners from './service/Partners';
-import Pricing from './service/Pricing';
+import SectionContainer from './containers/SectionContainer';
+import SectionTitle from './containers/SectionTitle';
 import ServiceItems from './service/ServiceItems';
 
 const Retreat = () => {
@@ -14,7 +11,7 @@ const Retreat = () => {
             <div className="title_flex w-full h-auto clear-both flex justify-between items-end">
               <SectionTitle
                 pageName={'Retreats'}
-                title={'Abbotsford, CA | Nov 1-3 '}
+                title={'Temecula, CA | Nov 13th-15th '}
               />
             </div>
           </div>
