@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SectionContainer from './containers/SectionContainer';
-import MailchimpModal from './popup/MailChimpModal';
+import MailchimpModal from './MailChimpModal';
 import {
   Dialog,
   DialogContent,
