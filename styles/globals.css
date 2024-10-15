@@ -43,11 +43,12 @@ img.mfp-img {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
-  background-color: #caa16e;
+  background-color: #A98747;
   color: #000000;
   border-radius: 10px;
 
 }
+
 
 
 @font-face {

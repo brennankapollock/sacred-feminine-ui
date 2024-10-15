@@ -101,15 +101,17 @@ const Resources = () => {
                     data-title="The Most Beautiful Thing I've Seen"
                     data-category="Books"
                   >
-                    <img
-                      className="opacity-0 min-w-full"
-                      src="assets/img/thumbs/most-beautiful.jpg"
-                      alt="image"
-                    />
-                    <div
-                      className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                      data-img-url="assets/img/thumbs/most-beautiful.jpg"
-                    />
+                    <a href="https://www.amazon.com/Most-Beautiful-Thing-Ive-Seen/dp/0310350433">
+                      <img
+                        className="opacity-0 min-w-full"
+                        src="assets/img/thumbs/most-beautiful.jpg"
+                        alt="image"
+                      />
+                      <div
+                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
+                        data-img-url="assets/img/thumbs/most-beautiful.jpg"
+                      />
+                    </a>
                   </div>
                 </div>
               </li>
@@ -120,15 +122,17 @@ const Resources = () => {
                     data-title="Womanhood"
                     data-category="Films"
                   >
-                    <img
-                      className="opacity-0 min-w-full"
-                      src="assets/img/thumbs/womanhood.png"
-                      alt="image"
-                    />
-                    <div
-                      className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                      data-img-url="assets/img/thumbs/womanhood.png"
-                    />
+                    <a href="https://www.youtube.com/watch?v=PQ9b9mSc8EQ&t=10s">
+                      <img
+                        className="opacity-0 min-w-full"
+                        src="assets/img/thumbs/womanhood.png"
+                        alt="image"
+                      />
+                      <div
+                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
+                        data-img-url="assets/img/thumbs/womanhood.png"
+                      />
+                    </a>
                   </div>
                 </div>
               </li>
@@ -160,7 +164,7 @@ const Resources = () => {
                     data-title="Animal Heart by Isa Ma"
                     data-category="Music"
                   >
-                    <a href="https://www.amazon.com/Practices-Embodied-Living-Experiencing-Wisdom/dp/1587436248?dib_tag=se&dib=eyJ2IjoiMSJ9.n7ki-vAMy6Gs88HYKHHNphSTNvguhkhox8tzLzLMlq3NtIZR7ecEp_rGGz8989odbz6aXE3PK9xqlCD0VVVH71VGDN6UHRhHWKE3qw_r_o8.K35Ob4DzryBa-nwrciGkXcoUnGbpbYwzNvtweeYyJcE&qid=1728344513&sr=1-2">
+                    <a href="https://open.spotify.com/album/1l3403LvYsSFt2xNsRGVrD">
                       <img
                         className="opacity-0 min-w-full"
                         src="assets/img/thumbs/isa.jpg"
@@ -181,7 +185,7 @@ const Resources = () => {
                     data-title="Mothers, Daughters, and Body Image"
                     data-category="Books"
                   >
-                    <a href="https://www.amazon.com/Practices-Embodied-Living-Experiencing-Wisdom/dp/1587436248?dib_tag=se&dib=eyJ2IjoiMSJ9.n7ki-vAMy6Gs88HYKHHNphSTNvguhkhox8tzLzLMlq3NtIZR7ecEp_rGGz8989odbz6aXE3PK9xqlCD0VVVH71VGDN6UHRhHWKE3qw_r_o8.K35Ob4DzryBa-nwrciGkXcoUnGbpbYwzNvtweeYyJcE&qid=1728344513&sr=1-2">
+                    <a href="https://www.amazon.com/Mothers-Daughters-Body-Image-Ourselves/dp/1682613542?qid=&sr=">
                       <img
                         className="opacity-0 min-w-full"
                         src="assets/img/thumbs/mothers.jpg"
@@ -202,7 +206,7 @@ const Resources = () => {
                     data-title="The Wisdom of Your Body"
                     data-category="Books"
                   >
-                    <a href="https://www.amazon.com/Practices-Embodied-Living-Experiencing-Wisdom/dp/1587436248?dib_tag=se&dib=eyJ2IjoiMSJ9.n7ki-vAMy6Gs88HYKHHNphSTNvguhkhox8tzLzLMlq3NtIZR7ecEp_rGGz8989odbz6aXE3PK9xqlCD0VVVH71VGDN6UHRhHWKE3qw_r_o8.K35Ob4DzryBa-nwrciGkXcoUnGbpbYwzNvtweeYyJcE&qid=1728344513&sr=1-2">
+                    <a href="https://www.amazon.com/Wisdom-Your-Body-Wholeness-Connection/dp/1587435527?dib_tag=se&dib=eyJ2IjoiMSJ9.n7ki-vAMy6Gs88HYKHHNphSTNvguhkhox8tzLzLMlq3NtIZR7ecEp_rGGz8989odbz6aXE3PK9xqlCD0VVVH71VGDN6UHRhHWKE3qw_r_o8.K35Ob4DzryBa-nwrciGkXcoUnGbpbYwzNvtweeYyJcE&qid=1728344513&sr=1-1">
                       <img
                         className="opacity-0 min-w-full"
                         src="assets/img/thumbs/wisdom.jpg"
