@@ -5,6 +5,13 @@ exports.id = 465;
 exports.ids = [465];
 exports.modules = {
 
+/***/ 5142:
+/***/ ((module) => {
+
+module.exports = require("dotenv");
+
+/***/ }),
+
 /***/ 3160:
 /***/ ((module) => {
 
@@ -32,6 +39,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next__WEBPACK_IMPORTED_MODULE_1__);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([stripe__WEBPACK_IMPORTED_MODULE_0__]);
 stripe__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+(__webpack_require__(5142).config)();
 
 
 const stripe = new stripe__WEBPACK_IMPORTED_MODULE_0__["default"](process.env.STRIPE_SECRET_KEY, {
