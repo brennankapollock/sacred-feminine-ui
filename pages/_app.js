@@ -1,5 +1,4 @@
-import TokyoState from '@/src/Context';
-import PreLoader from '@/src/layout/PreLoader';
+import TokyoState from '@/src/Context.js';
 import '@/styles/globals.css';
 
 export default function App({ Component, pageProps }) {
