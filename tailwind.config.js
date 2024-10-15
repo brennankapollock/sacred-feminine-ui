@@ -45,6 +45,18 @@ module.exports = {
           900: '#efe7d9',
           DEFAULT: '#A98747',
         },
+        sf_yellow: {
+          DEFAULT: '#dba11c',
+        },
+        sf_beige: {
+          DEFAULT: '#ffedcb',
+        },
+        sf_green: {
+          DEFAULT: '#00e3b8',
+        },
+        sf_lime: {
+          DEFAULT: '#f9f871',
+        },
         eerie_black: {
           100: '#050505',
           200: '#0a0a0a',

@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <SectionContainer name={'home'}>
       <div className="container">
-        <div className="tokyo_tm_home w-full min-h-[100vh] clear-both flex items-center justify-center relative bg-lime-500">
+        <div className="tokyo_tm_home w-full min-h-[100vh] clear-both flex items-center justify-center relative">
           <div className="home_content flex items-center ">
             <div
               className="avatar min-w-[300px] min-h-[300px] relative rounded-full"

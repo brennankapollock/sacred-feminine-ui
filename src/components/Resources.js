@@ -64,9 +64,9 @@ const Resources = () => {
                     <a
                       className="text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black"
                       href="#"
-                      onClick={handleFilterKeyChange('writing')}
+                      onClick={handleFilterKeyChange('film')}
                     >
-                      Writings
+                      Films
                     </a>
                   </li>
                   <li className="mr-[25px] inline-block">
@@ -109,6 +109,25 @@ const Resources = () => {
                     <div
                       className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
                       data-img-url="assets/img/thumbs/most-beautiful.jpg"
+                    />
+                  </div>
+                </div>
+              </li>
+              <li className="film mb-[40px] float-left w-1/3 pl-[40px] item__">
+                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
+                  <div
+                    className="entry tokyo_tm_portfolio_animation_wrap"
+                    data-title="Womanhood"
+                    data-category="Films"
+                  >
+                    <img
+                      className="opacity-0 min-w-full"
+                      src="assets/img/thumbs/womanhood.png"
+                      alt="image"
+                    />
+                    <div
+                      className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
+                      data-img-url="assets/img/thumbs/womanhood.png"
                     />
                   </div>
                 </div>

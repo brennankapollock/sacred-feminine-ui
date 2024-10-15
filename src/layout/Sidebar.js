@@ -4,7 +4,7 @@ import { TokyoContext } from '../Context';
 const Sidebar = () => {
   const { navChange, nav, menus } = useContext(TokyoContext);
   return (
-    <div className="leftpart w-[450px] h-[100vh] fixed flex items-center z-[12] px-[100px] py-[0px] bg-desert_sand-400">
+    <div className="leftpart w-[450px] h-[100vh] fixed flex items-center z-[12] px-[100px] py-[0px]">
       <div className="leftpart_inner w-full h-auto">
         <div className="logo" data-type="text">
           {' '}
