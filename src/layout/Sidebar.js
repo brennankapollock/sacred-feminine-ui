@@ -4,7 +4,7 @@ import { TokyoContext } from '../Context';
 const Sidebar = () => {
   const { navChange, nav, menus } = useContext(TokyoContext);
   return (
-    <div className="leftpart w-[450px] h-[100vh] fixed flex items-center z-[12] px-[100px] py-[0px] bg-dark_goldenrod">
+    <div className="leftpart w-[450px] h-[100vh] fixed flex items-center z-[12] px-[100px] py-[0px]">
       <div className="leftpart_inner w-full h-auto">
         <div className="logo" data-type="text">
           {' '}
@@ -47,7 +47,7 @@ const Sidebar = () => {
             created by{' '}
             <a
               className="text-black font-medium transition-all duration-300 hover:text-black"
-              href="https://themeforest.net/user/Codeefly"
+              href="https://brennankapollock.com"
               target="_blank"
             >
               brennan k.a. pollock

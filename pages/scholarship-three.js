@@ -1,10 +1,9 @@
+import ScholarshipThree from '@/src/components/ScholarshipThree';
 import { useState } from 'react';
-import Checkout from '@/src/components/Checkout';
-
-const CheckoutPage = () => {
+const ScholarshipThreePage = () => {
   const [code, setCode] = useState('');
   const [isCodeValid, setIsCodeValid] = useState(false);
-  const validCode = 'TEMECULA';
+  const validCode = 'SCHOLARSHIP';
 
   const handleCodeSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +13,6 @@ const CheckoutPage = () => {
       alert('Invalid code. Please try again.');
     }
   };
-
   return (
     <>
       {!isCodeValid ? (
@@ -40,10 +38,10 @@ const CheckoutPage = () => {
           </form>
         </div>
       ) : (
-        <Checkout />
+        <ScholarshipThree />
       )}
     </>
   );
 };
 
-export default CheckoutPage;
+export default ScholarshipThreePage;
