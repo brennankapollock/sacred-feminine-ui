@@ -41,13 +41,13 @@ const Sidebar = () => {
           </ul>
         </div>
         <div className="copyright w-full float-left">
-          <p className="text-[15px] text-[#999] font-montserrat leading-[25px]">
+          <p className="text-[15px] text-black font-montserrat leading-[25px]">
             © {new Date().getFullYear()} Sacred Feminine
             <br />
-            made by{' '}
+            created by{' '}
             <a
-              className="text-[#787878] font-medium transition-all duration-300 hover:text-black"
-              href="https://themeforest.net/user/Codeefly"
+              className="text-black font-medium transition-all duration-300 hover:text-black"
+              href="https://brennankapollock.com"
               target="_blank"
             >
               brennan k.a. pollock

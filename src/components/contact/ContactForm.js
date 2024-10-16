@@ -92,7 +92,7 @@ const ContactForm = () => {
           />
         </div>
         <div className="tokyo_tm_button" data-position="left">
-          <button type="submit font-psych">Send Message</button>
+          <button type="submit font-psych ">Send Message</button>
         </div>
         {/* If you want to change mail address to yours, please open modal.php and go to line 4 */}
       </form>

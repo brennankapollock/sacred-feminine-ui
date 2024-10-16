@@ -33,6 +33,7 @@ module.exports = {
           900: '#faf1eb',
           DEFAULT: '#E4B79B',
         },
+
         dark_goldenrod: {
           100: '#221b0e',
           200: '#44361c',

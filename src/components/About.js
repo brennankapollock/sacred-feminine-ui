@@ -81,11 +81,19 @@ const About = () => {
                     <div className="text w-full h-auto clear-both text-center font-bagnard text-black pb-[31px]">
                       {item.description}
                     </div>
-                    <div className="tokyo_tm_button font-psych flex items-center justify-evenly">
-                      <a href={item.linkOne} download>
+                    <div className="tokyo_tm_button  font-psych flex items-center justify-evenly">
+                      <a
+                        className="bg-desert_sand px-12 py-3 border-2 border-black rounded-xl"
+                        href={item.linkOne}
+                        download
+                      >
                         {item.buttonOne}
                       </a>
-                      <a href={item.linkTwo} download>
+                      <a
+                        className="bg-desert_sand  px-12 py-3 border-2 border-black rounded-xl"
+                        href={item.linkTwo}
+                        download
+                      >
                         {item.buttonTwo}
                       </a>
                     </div>

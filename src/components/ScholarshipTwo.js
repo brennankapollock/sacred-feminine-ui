@@ -1,6 +1,4 @@
 import { loadStripe } from '@stripe/stripe-js';
-import SectionContainer from './containers/SectionContainer';
-import SectionTitle from './containers/SectionTitle';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -10,22 +8,15 @@ const stripePromise = loadStripe(
 
 const products = [
   {
-    id: 1,
-    name: 'Temecula Retreat (Full Price)',
-    price: 1000,
-    image: 'product1.jpg',
-    quantity: 1,
-  },
-  {
     id: 2,
-    name: 'Temecula Retreat (Half Price) ',
-    price: 500,
+    name: 'Temecula Retreat (Scholarship) ',
+    price: 700,
     image: 'product2.jpg',
     quantity: 1,
   },
 ];
 
-export default function Checkout() {
+export default function ScholarshipTwo() {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleProductSelect = (product) => {
@@ -56,7 +47,7 @@ export default function Checkout() {
     <section>
       <div className="product-cards flex flex-col items-center justify-center h-screen">
         <h1 className="product-title text-4xl font-bold font-psych">
-          Payment Options
+          Select a Scholarship
         </h1>
         {!selectedProduct &&
           products.map((product) => (

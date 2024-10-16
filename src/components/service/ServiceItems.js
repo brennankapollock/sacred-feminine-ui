@@ -80,12 +80,12 @@ const ServiceItems = () => {
                 </span>
               )}
               {service.id == 5 && (
-                <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full bg-sf_yellow font-bold text-black transition-all duration-300">
+                <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full  bg-chefchaouen_blue font-bold text-black transition-all duration-300">
                   {service.id <= 9 ? `0${service.id}` : service.id}
                 </span>
               )}
               {service.id == 6 && (
-                <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full bg-chefchaouen_blue font-bold text-black transition-all duration-300">
+                <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full bg-sf_yellow font-bold text-black transition-all duration-300">
                   {service.id <= 9 ? `0${service.id}` : service.id}
                 </span>
               )}
