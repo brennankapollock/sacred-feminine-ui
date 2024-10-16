@@ -1,8 +1,15 @@
 {
+  "/api/checkout-sessions/create": "pages/api/checkout-sessions/create.js",
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/success": "pages/success.js",
-  "/": "pages/index.js",
-  "/scholarship-three": "pages/scholarship-three.js"
+  "/_error": "pages/_error.js",
+  "/api/hello": "pages/api/hello.js",
+  "/api/subscribe": "pages/api/subscribe.js",
+  "/checkout": "pages/checkout.html",
+  "/": "pages/index.html",
+  "/scholarship-three": "pages/scholarship-three.html",
+  "/scholarship": "pages/scholarship.html",
+  "/scholarship-two": "pages/scholarship-two.html",
+  "/success": "pages/success.html",
+  "/404": "pages/404.html"
 }
