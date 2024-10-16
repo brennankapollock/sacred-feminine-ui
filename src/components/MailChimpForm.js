@@ -30,7 +30,7 @@ const MailchimpForm = ({ onClose }) => {
   return (
     <div>
       {isSubscribed ? (
-        <div className="confirmation-popup">
+        <div className="confirmation-popup flex flex-col items-center justify-center">
           <p>Thank you for subscribing!</p>
           <Button
             onClick={() => {
