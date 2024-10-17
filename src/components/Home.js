@@ -42,7 +42,7 @@ const Home = () => {
                   className="text-black font-psych"
                   onClick={handleOpenModal}
                 >
-                  Join The Fun!
+                  Get Retreat Notifications
                 </Button>
               </div>
             </div>
