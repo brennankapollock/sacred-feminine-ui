@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import SectionContainer from './containers/SectionContainer';
+import { TokyoContext } from '../Context';
 import MailchimpModal from './MailChimpModal';
 import {
   Dialog,
@@ -11,6 +12,8 @@ import {
 import { Button } from '@/components/ui/button';
 
 const Home = () => {
+  const { navChange, nav, menus } = useContext(TokyoContext);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => setIsModalOpen(true);
@@ -42,7 +45,13 @@ const Home = () => {
                   className="text-black font-psych"
                   onClick={handleOpenModal}
                 >
-                  Get Retreat Notifications
+                  Stay in the Loop!
+                </Button>
+                <Button
+                  className="text-black font-psych"
+                  onClick={() => navChange('retreat')}
+                >
+                  Temecula Retreat
                 </Button>
               </div>
             </div>

@@ -352,6 +352,7 @@
     scrollbar-width: thin;
     scrollbar-color: #999 #fff;
 }
+
 .tokyo_tm_modalbox .description_wrap:-webkit-scrollbar-track{
     background: #fff;
 }
