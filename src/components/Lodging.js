@@ -60,9 +60,7 @@ export default function Lodging() {
   return (
     <section>
       <div className="product-cards flex flex-col items-center justify-center h-screen m-4">
-        <h1 className="product-title text-4xl font-bold font-psych">
-          Select Lodging
-        </h1>
+        <h1 className="product-title text-4xl font-bold font-psych">Lodging</h1>
         {!selectedProduct &&
           products.map((product) => (
             <div key={product.id} className="product-card ">
@@ -78,7 +76,7 @@ export default function Lodging() {
           ))}
         {selectedProduct && (
           <div className="product-card-confirmation">
-            <h3 className="text-2xl font-bold">Selected Lodging Type</h3>
+            <h3 className="text-2xl font-bold">Your Cart</h3>
             <p className="text-xl font-bold">{selectedProduct.name}</p>
             <p className="text-xl font-bold">Price: ${selectedProduct.price}</p>
             <div className="product-card-button-group">

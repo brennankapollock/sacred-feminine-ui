@@ -583,17 +583,17 @@ body.modal{
   }
 
   .product-card-confirmation {
-    border: 1px solid #ccc;
+    border: 1px solid #A98747;
     border-radius: 8px;
-    padding: 16px;
-    width: calc(33.333% - 32px); /* Adjust width as needed */
+    padding: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    width: 100%;
+    gap: 8px;
   }
 
   .product-card-button-group {

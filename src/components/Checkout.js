@@ -73,7 +73,7 @@ export default function Checkout() {
           ))}
         {selectedProduct && (
           <div className="product-card-confirmation">
-            <h3 className="text-2xl font-bold">Selected Retreat Type</h3>
+            <h3 className="text-2xl font-bold">Your Cart</h3>
             <p className="text-xl font-bold">{selectedProduct.name}</p>
             <p className="text-xl font-bold">Price: ${selectedProduct.price}</p>
             <div className="product-card-button-group">

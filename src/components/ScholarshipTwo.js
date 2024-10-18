@@ -47,7 +47,7 @@ export default function ScholarshipTwo() {
     <section>
       <div className="product-cards flex flex-col items-center justify-center h-screen m-4">
         <h1 className="product-title text-4xl font-bold font-psych">
-          Select a Scholarship
+          Scholarship
         </h1>
         {!selectedProduct &&
           products.map((product) => (
@@ -64,7 +64,7 @@ export default function ScholarshipTwo() {
           ))}
         {selectedProduct && (
           <div className="product-card-confirmation">
-            <h3 className="text-2xl font-bold">Selected Retreat Type</h3>
+            <h3 className="text-2xl font-bold">Your Cart</h3>
             <p className="text-xl font-bold">{selectedProduct.name}</p>
             <p className="text-xl font-bold">Price: ${selectedProduct.price}</p>
             <div className="product-card-button-group">
