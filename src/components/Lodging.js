@@ -61,7 +61,7 @@ export default function Lodging() {
     <section>
       <div className="product-cards flex flex-col items-center justify-center h-screen m-4">
         <h1 className="product-title text-4xl font-bold font-psych">
-          Select a Lodging Option
+          Select Lodging
         </h1>
         {!selectedProduct &&
           products.map((product) => (
