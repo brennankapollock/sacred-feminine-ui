@@ -45,7 +45,7 @@ export default function ScholarshipThree() {
 
   return (
     <section>
-      <div className="product-cards flex flex-col items-center justify-center h-screen">
+      <div className="product-cards flex flex-col items-center justify-center h-screen m-4">
         <h1 className="product-title text-4xl font-bold font-psych">
           Select a Scholarship
         </h1>
@@ -55,7 +55,7 @@ export default function ScholarshipThree() {
               <h2 className="text-2xl font-bold">{product.name}</h2>
               <p className="text-xl font-bold">Price: ${product.price}</p>
               <button
-                className="product-card-button border-black rounded-md p-8"
+                className="product-card-button border-black rounded-md p-4"
                 onClick={() => handleProductSelect(product)}
               >
                 Add to Cart
