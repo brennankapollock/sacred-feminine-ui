@@ -4,64 +4,61 @@ import { client } from '@/src/sanity';
 
 const ServiceItems = () => {
   const [data, setData] = useState([]);
-  const services = data.length
-    ? [
-        {
-          id: 1,
-          name: 'Details',
-          text: [
-            `${data[0]?.detailsOne}`,
-            `${data[0]?.detailsTwo}`,
-            `${data[0]?.detailsThree}`,
-          ],
-        },
-        {
-          id: 2,
-          name: 'Retreat Prep',
-          text: [
-            `${data[0]?.prepOne}`,
-            `${data[0]?.prepTwo}`,
-            `${data[0]?.prepThree}`,
-          ],
-          image: 'assets/img/news/4.jpg',
-        },
-        {
-          id: 3,
-          name: 'Accommodations',
-          text: [
-            `${data[0]?.accomodationsOne}`,
-            `${data[0]?.accomodationsTwo}`,
-            `${data[0]?.accomodationsThree}`,
-            `${data[0]?.accomodationsFour}`,
-          ],
-        },
-        {
-          id: 4,
-          name: 'Cost',
-          text: [
-            `${data[0]?.costOne}`,
-            `${data[0]?.costTwo}`,
-            `${data[0]?.costThree}`,
-            `${data[0]?.costFour}`,
-          ],
-        },
-        {
-          id: 5,
-          name: 'Cancellation Policy',
-          text: [`${data[0]?.cancellationOne}`, `${data[0]?.cancellationTwo}`],
-        },
-        {
-          id: 6,
-          name: 'Want to Join?',
-          text: [
-            `${data[0]?.joinOne}`,
-            `${data[0]?.joinTwo}`,
-            `${data[0]?.joinThree}`,
-          ],
-        },
-      ]
-    : [];
-
+  const services = [
+    {
+      id: 1,
+      name: 'Details',
+      text: [
+        `${data[0]?.detailsOne}`,
+        `${data[0]?.detailsTwo}`,
+        `${data[0]?.detailsThree}`,
+      ],
+    },
+    {
+      id: 2,
+      name: 'Retreat Prep',
+      text: [
+        `${data[0]?.prepOne}`,
+        `${data[0]?.prepTwo}`,
+        `${data[0]?.prepThree}`,
+      ],
+      image: 'assets/img/news/4.jpg',
+    },
+    {
+      id: 3,
+      name: 'Accommodations',
+      text: [
+        `${data[0]?.accomodationsOne}`,
+        `${data[0]?.accomodationsTwo}`,
+        `${data[0]?.accomodationsThree}`,
+        `${data[0]?.accomodationsFour}`,
+      ],
+    },
+    {
+      id: 4,
+      name: 'Cost',
+      text: [
+        `${data[0]?.costOne}`,
+        `${data[0]?.costTwo}`,
+        `${data[0]?.costThree}`,
+        `${data[0]?.costFour}`,
+      ],
+    },
+    {
+      id: 5,
+      name: 'Cancellation Policy',
+      text: [`${data[0]?.cancellationOne}`, `${data[0]?.cancellationTwo}`],
+    },
+    {
+      id: 6,
+      name: 'Want to Join?',
+      text: [
+        `${data[0]?.joinOne}`,
+        `${data[0]?.joinTwo}`,
+        `${data[0]?.joinThree}`,
+      ],
+    },
+  ];
   const fetchData = () => {
     const query = '*[_type == "retreat"]';
     client.fetch(query).then(setData).catch(console.error);
@@ -88,8 +85,6 @@ const ServiceItems = () => {
       subscription.unsubscribe();
     };
   }, []);
-
-  console.log(data);
 
   const { setServiceModal, modalToggle, modal } = useContext(TokyoContext);
   return (
