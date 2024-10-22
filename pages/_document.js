@@ -1,4 +1,5 @@
 import { Head, Html, Main, NextScript } from 'next/document';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function Document() {
   return (
@@ -23,12 +24,14 @@ export default function Document() {
         <link rel="stylesheet" href="assets/css/plugins.css" />
         <link rel="stylesheet" href="assets/css/custom.css" />
         <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="icon" href="assets/img/favicon.ico" sizes="any" />
 
         <title>Sacred Feminine</title>
       </Head>
       <body>
         <Main />
         <NextScript />
+        <Analytics />
       </body>
     </Html>
   );
