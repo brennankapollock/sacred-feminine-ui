@@ -1,65 +1,94 @@
 import { TokyoContext } from '@/src/Context';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
+import { client } from '@/src/sanity';
 
-const services = [
-  {
-    id: 1,
-    name: 'Details',
-    text: [
-      'Our retreat will begin around 5PM the 13th, but you are welcome to arrive anytime after 4pm. The retreat will end at 2:30PM on the 15th, and we ask that all participants be there until that time.',
-      'Every activity - group or solo - is not about adherence to a schedule or pleasing others, but we want to create an opportunity for you to listen to yourself, learning from your own heart and others around you.',
-      'For each retreat, a private facebook group is created - this can help retreat participants to get to knoweach other before the weekend and collaborate on transportation.',
-    ],
-  },
-  {
-    id: 2,
-    name: 'Retreat Prep',
-    text: [
-      ' Upon registration, you’ll receive a welcome email that will provide details on how you can best prepare for the retreat. It will also include a very basic outline of what will happen over the course of the retreat.',
-      'We’ll also ask you to provide any information about yourself that you feel you want to share so we can get to know you better and serve you well at the retreat.',
-      'If you requested an on site accommodations but there is no room left, or you prefer to arrange your own, there will be a facebook group that you can join once you have paid for your ticket or a deposit.',
-    ],
-    image: 'assets/img/news/4.jpg',
-  },
-  {
-    id: 3,
-    name: 'Accommodations',
-    text: [
-      'We will have limited on site accommodations for those of you who are interested. This will be a "first come first serve” basis, so please let us know as soon as you can if you would like a bed on site. If you request a room in your email and there is space still available we will let you know. Here is the cost breakdown for an on-site room for the entirety of the retreat:',
-      '- $300 for a private room (2 beds available)',
-      '- $200 for a shared room (4 beds available)',
-      '- $50 for barn bed further away from the house (2 beds available)',
-    ],
-  },
-  {
-    id: 4,
-    name: 'Cost',
-    text: [
-      'Please let us know if making a single payment is an obstacle for you as we also have scholarships available.',
-      'The cost of the retreat is $1000.00',
-      'Meals included are dinner the first night, and the breakfasts the following two days. There will be some fridge space for you to bring food for other meals, and also long breaks for you to get or prepare your own meals.',
-      'We will have a wide variety of foods for the meals for those who are vegan, gluten free, etc.',
-    ],
-  },
-  {
-    id: 5,
-    name: 'Cancellation Policy',
-    text: [
-      ' Due to the vendor charges for processing payments plus all of the backend work we do to prepare, we are unable to offer refunds.',
-      'However, should you need to cancel for some reason, you are welcome to either gift your spot to someone, or exchange your spot with someone else.',
-    ],
-  },
-  {
-    id: 6,
-    name: 'Want to Join?',
-    text: [
-      'Space is limited to 27 participants, if you would like to come, please send an email to team@sacredfeminine.co with your first and last name.',
-      'If you want to request on site accommodation (see accommodation section for details) please include which room type you prefer in your email as well.',
-      'These e-mails will be answered on a first come first serve basis. If you decide to join, we will provide a link for you to make an online payment for the retreat (and your room if applicable).',
-    ],
-  },
-];
 const ServiceItems = () => {
+  const [data, setData] = useState([]);
+  const services = [
+    {
+      id: 1,
+      name: 'Details',
+      text: [
+        `${data[0]?.detailsOne}`,
+        `${data[0]?.detailsTwo}`,
+        `${data[0]?.detailsThree}`,
+      ],
+    },
+    {
+      id: 2,
+      name: 'Retreat Prep',
+      text: [
+        `${data[0]?.prepOne}`,
+        `${data[0]?.prepTwo}`,
+        `${data[0]?.prepThree}`,
+      ],
+      image: 'assets/img/news/4.jpg',
+    },
+    {
+      id: 3,
+      name: 'Accommodations',
+      text: [
+        `${data[0]?.accomodationsOne}`,
+        `${data[0]?.accomodationsTwo}`,
+        `${data[0]?.accomodationsThree}`,
+        `${data[0]?.accomodationsFour}`,
+      ],
+    },
+    {
+      id: 4,
+      name: 'Cost',
+      text: [
+        `${data[0]?.costOne}`,
+        `${data[0]?.costTwo}`,
+        `${data[0]?.costThree}`,
+        `${data[0]?.costFour}`,
+      ],
+    },
+    {
+      id: 5,
+      name: 'Cancellation Policy',
+      text: [`${data[0]?.cancellationOne}`, `${data[0]?.cancellationTwo}`],
+    },
+    {
+      id: 6,
+      name: 'Want to Join?',
+      text: [
+        `${data[0]?.joinOne}`,
+        `${data[0]?.joinTwo}`,
+        `${data[0]?.joinThree}`,
+      ],
+    },
+  ];
+
+  const fetchData = () => {
+    const query = '*[_type == "retreat"]';
+    client.fetch(query).then(setData).catch(console.error);
+  };
+
+  useEffect(() => {
+    // Fetch initial data
+    fetchData();
+
+    // Listen for changes in the data
+    const subscription = client
+      .listen('*[_type == "retreat"]')
+      .subscribe((update) => {
+        if (
+          update.mutationType === 'create' ||
+          update.mutationType === 'patch'
+        ) {
+          fetchData(); // Refetch data on update
+        }
+      });
+
+    // Clean up the subscription on unmount
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
+
+  console.log(data);
+
   const { setServiceModal, modalToggle, modal } = useContext(TokyoContext);
   return (
     <div className="list w-full h-auto clear-both float-left">
