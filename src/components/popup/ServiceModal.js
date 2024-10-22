@@ -1,8 +1,10 @@
 import { TokyoContext } from '@/src/Context';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import ModalContainer from './ModalContainer';
+
 const ServiceModal = () => {
   const { serviceModal, setServiceModal } = useContext(TokyoContext);
+
   return (
     <ModalContainer nullValue={setServiceModal}>
       <div className="service_popup_informations w-full h-auto clear-both float-left flex flex-col">
