@@ -47,7 +47,7 @@ export default function Form() {
     <section>
       <div className="product-cards flex flex-col items-center justify-center h-screen m-4">
         <h1 className="product-title text-4xl font-bold font-psych">
-          Form & Space
+          Rest In Peace
         </h1>
         {!selectedProduct &&
           products.map((product) => (
