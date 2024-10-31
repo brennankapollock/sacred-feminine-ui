@@ -3,7 +3,7 @@ import { useState } from 'react';
 const FormPage = () => {
   const [code, setCode] = useState('');
   const [isCodeValid, setIsCodeValid] = useState(false);
-  const validCode = 'SCHOLARSHIP';
+  const validCode = 'FORMANDSPACE';
 
   const handleCodeSubmit = (e) => {
     e.preventDefault();

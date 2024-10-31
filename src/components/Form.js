@@ -9,8 +9,8 @@ const stripePromise = loadStripe(
 const products = [
   {
     id: 1,
-    name: 'Temecula Retreat (Scholarship)',
-    price: 300,
+    name: 'Form & Space | Abbotsford',
+    price: 20,
     image: 'product1.jpg',
     quantity: 1,
   },
