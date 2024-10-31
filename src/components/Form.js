@@ -9,7 +9,7 @@ const stripePromise = loadStripe(
 const products = [
   {
     id: 1,
-    name: 'Form & Space | Abbotsford',
+    name: 'Form & Space',
     price: 20,
     image: 'product1.jpg',
     quantity: 1,
