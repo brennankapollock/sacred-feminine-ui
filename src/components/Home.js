@@ -1,15 +1,15 @@
-import { useState, useContext } from 'react';
-import SectionContainer from './containers/SectionContainer';
-import { TokyoContext } from '../Context';
-import MailchimpModal from './MailChimpModal';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
 } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
+import { useContext, useState } from 'react';
+import { TokyoContext } from '../Context';
+import SectionContainer from './containers/SectionContainer';
+import MailchimpModal from './MailChimpModal';
 
 const Home = () => {
   const { navChange, nav, menus } = useContext(TokyoContext);
@@ -46,12 +46,6 @@ const Home = () => {
                   onClick={handleOpenModal}
                 >
                   Stay in the Loop!
-                </Button>
-                <Button
-                  className="text-black font-psych"
-                  onClick={() => navChange('retreat')}
-                >
-                  Temecula Retreat
                 </Button>
               </div>
             </div>
