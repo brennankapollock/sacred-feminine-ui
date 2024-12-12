@@ -1,4 +1,10 @@
 import { client } from '@/src/sanity';
+import {
+  CalendarIcon,
+  ClockIcon,
+  CurrencyDollarIcon,
+  MapPinIcon,
+} from '@heroicons/react/24/outline';
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import { TokyoContext } from '../Context';
@@ -14,14 +20,15 @@ const Events = () => {
     const [year, month, day] = dateString.split('-');
     const date = new Date(year, month - 1, day);
     return date.toLocaleDateString('en-US', {
-      month: 'short',
+      weekday: 'long',
+      month: 'long',
       day: 'numeric',
       year: 'numeric',
     });
   };
 
   const fetchData = () => {
-    const query = '*[_type == "event"]';
+    const query = '*[_type == "event"] | order(startDate asc)';
     client.fetch(query).then(setData).catch(console.error);
   };
 
@@ -35,7 +42,7 @@ const Events = () => {
           update.mutationType === 'create' ||
           update.mutationType === 'patch'
         ) {
-          handleFetchData();
+          fetchData();
         }
       });
 
@@ -54,65 +61,71 @@ const Events = () => {
             <SectionTitle pageName={'Events'} title={'Upcoming Events'} />
           </div>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Array.isArray(data) && data.length > 0 ? (
-            data.map((event, index) => (
+            data.map((event) => (
               <div
                 key={event._id}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className="group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
               >
-                <div className="p-8">
-                  <div
-                    className={`w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold mb-6 ${
-                      index % 3 === 0
-                        ? 'bg-chefchaouen_blue'
-                        : index % 3 === 1
-                        ? 'bg-sf_yellow'
-                        : 'bg-dark_goldenrod'
-                    }`}
-                  >
-                    {index + 1 <= 9 ? `0${index + 1}` : index + 1}
+                <div className="p-6 space-y-6">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-500">
+                      {event.spots ? `${event.spots} spots left` : ''}
+                    </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold font-psych text-black mb-4">
+                  <h3 className="text-2xl font-bold font-psych text-black group-hover:text-desert_sand transition-colors duration-300">
                     {event.name}
                   </h3>
 
-                  <div className="space-y-3 font-bagnard text-gray-600 mb-6">
-                    <p className="flex items-center">
-                      <span className="font-semibold mr-2">Date:</span>
-                      {formatDate(event.startDate)}
-                    </p>
-                    <p className="flex items-center">
-                      <span className="font-semibold mr-2">Time:</span>
-                      {event.startTime} - {event.endTime}
-                    </p>
-                    <p className="flex items-center">
-                      <span className="font-semibold mr-2">Location:</span>
-                      {event.location}
-                    </p>
-                    <p className="flex items-center">
-                      <span className="font-semibold mr-2">Price:</span>
-                      {event.price}
-                    </p>
+                  <div className="space-y-4 font-bagnard text-gray-600">
+                    <div className="flex items-center space-x-3">
+                      <CalendarIcon className="h-5 w-5 text-desert_sand" />
+                      <span>{formatDate(event.startDate)}</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <ClockIcon className="h-5 w-5 text-desert_sand" />
+                      <span>
+                        {event.startTime} - {event.endTime}
+                      </span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <MapPinIcon className="h-5 w-5 text-desert_sand flex-shrink-0 mt-1.5" />
+                      <span className="whitespace-pre-line">
+                        {event.location.split(',').join('\n')}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <CurrencyDollarIcon className="h-5 w-5 text-desert_sand" />
+                      <span>{event.price}</span>
+                    </div>
                   </div>
 
                   <button
                     onClick={handleNavigate}
-                    className="w-full bg-desert_sand text-black font-psych py-3 px-6 rounded-xl border-2 border-black hover:bg-opacity-80 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-desert_sand"
+                    className="w-full bg-desert_sand text-black font-psych py-4 px-6 rounded-xl 
+                             hover:bg-opacity-90 transition-all duration-300 
+                             focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-desert_sand
+                             flex items-center justify-center space-x-2 group-hover:transform group-hover:scale-105"
                     aria-label="Purchase ticket for event"
                   >
-                    Purchase Ticket
+                    <span>Purchase Ticket</span>
                   </button>
                 </div>
               </div>
             ))
           ) : (
-            <div className="col-span-full text-center py-12">
-              <p className="text-xl font-bagnard text-gray-500">
-                No upcoming events at this time.
-              </p>
+            <div className="col-span-full text-center py-16">
+              <div className="max-w-md mx-auto">
+                <p className="text-xl font-bagnard text-gray-500 mb-4">
+                  No upcoming events at this time.
+                </p>
+                <p className="text-gray-400">
+                  Check back soon for new events or subscribe to our newsletter
+                  to stay updated.
+                </p>
+              </div>
             </div>
           )}
         </div>
