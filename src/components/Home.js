@@ -6,6 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import { useRouter } from 'next/router';
 import { useContext, useState } from 'react';
 import { TokyoContext } from '../Context';
 import SectionContainer from './containers/SectionContainer';
@@ -13,6 +14,7 @@ import MailchimpModal from './MailChimpModal';
 
 const Home = () => {
   const { navChange, nav, menus } = useContext(TokyoContext);
+  const router = useRouter();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -46,6 +48,12 @@ const Home = () => {
                   onClick={handleOpenModal}
                 >
                   Stay in the Loop!
+                </Button>
+                <Button
+                  className="text-black font-psych"
+                  onClick={() => router.push('/ecstatic-dance')}
+                >
+                  Dance With Us!
                 </Button>
               </div>
             </div>

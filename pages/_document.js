@@ -24,8 +24,6 @@ export default function Document() {
         <link rel="stylesheet" href="assets/css/custom.css" />
         <link rel="stylesheet" href="assets/css/main.css" />
         <link rel="icon" href="assets/img/favicon.ico" sizes="any" />
-
-        <title>Sacred Feminine</title>
       </Head>
       <body>
         <Main />

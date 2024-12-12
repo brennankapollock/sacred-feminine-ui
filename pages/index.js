@@ -1,6 +1,7 @@
 import Layout from '@/src/layout/Layout';
 import About from 'components/About';
 import Contact from 'components/Contact';
+import Events from 'components/Events';
 import Home from 'components/Home';
 import Retreat from 'components/Retreat';
 import dynamic from 'next/dynamic';
@@ -13,6 +14,7 @@ const Index = () => {
       <Home />
       <About />
       <Retreat />
+      <Events />
       <div className="tokyo_tm_portfolio_titles" />
       <Resources />
       <Contact />
