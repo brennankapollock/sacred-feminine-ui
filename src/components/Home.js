@@ -49,12 +49,6 @@ const Home = () => {
                 >
                   Stay in the Loop!
                 </Button>
-                <Button
-                  className="text-black font-psych"
-                  onClick={() => router.push('/ecstatic-dance')}
-                >
-                  Dance With Us!
-                </Button>
               </div>
             </div>
           </div>

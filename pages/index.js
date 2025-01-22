@@ -1,3 +1,4 @@
+import RetreatTwo from '@/src/components/RetreatTwo';
 import Layout from '@/src/layout/Layout';
 import About from 'components/About';
 import Contact from 'components/Contact';
@@ -14,6 +15,7 @@ const Index = () => {
       <Home />
       <About />
       <Retreat />
+      <RetreatTwo />
       <Events />
       <div className="tokyo_tm_portfolio_titles" />
       <Resources />
