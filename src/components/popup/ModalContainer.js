@@ -9,7 +9,7 @@ const ModalContainer = ({ children, nullValue }) => {
   });
   return (
     <div className="tokyo_tm_modalbox opened">
-      <div className="box_inner" ref={domNode}>
+      <div className="box_inner overflow-y-auto" ref={domNode}>
         <div className="close">
           <a
             href="#"
@@ -21,7 +21,7 @@ const ModalContainer = ({ children, nullValue }) => {
             <i className="icon-cancel" />
           </a>
         </div>
-        <div className="description_wrap">{children}</div>
+        <div className="description_wrap overflow-y-auto">{children}</div>
       </div>
     </div>
   );

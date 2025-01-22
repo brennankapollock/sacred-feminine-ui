@@ -38,10 +38,10 @@ const ServiceItems = () => {
       id: 4,
       name: 'Cost',
       text: [
-        `${data[0]?.costOne}`,
-        `${data[0]?.costTwo}`,
-        `${data[0]?.costThree}`,
-        `${data[0]?.costFour}`,
+        `${data[0]?.costOne || ''}`,
+        `${data[0]?.costTwo || ''}`,
+        `${data[0]?.costThree || ''}`,
+        `${data[0]?.costFour || ''}`,
       ],
     },
     {

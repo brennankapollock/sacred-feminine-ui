@@ -1,92 +1,68 @@
 import { TokyoContext } from '@/src/Context';
-import { client } from '@/src/sanity';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
-const ServiceItemsTwo = () => {
-  const [data, setData] = useState([]);
+const ServiceItemsTwo = ({ retreat }) => {
+  const { setServiceModal, modalToggle } = useContext(TokyoContext);
+
   const services = [
     {
       id: 1,
       name: 'Details',
       text: [
-        `${data[1]?.detailsOne}`,
-        `${data[1]?.detailsTwo}`,
-        `${data[1]?.detailsThree}`,
-      ],
+        retreat?.detailsOne || '',
+        retreat?.detailsTwo || '',
+        retreat?.detailsThree || '',
+      ].filter(Boolean),
     },
     {
       id: 2,
       name: 'Retreat Prep',
       text: [
-        `${data[1]?.prepOne}`,
-        `${data[1]?.prepTwo}`,
-        `${data[1]?.prepThree}`,
-      ],
+        retreat?.prepOne || '',
+        retreat?.prepTwo || '',
+        retreat?.prepThree || '',
+      ].filter(Boolean),
       image: 'assets/img/news/4.jpg',
     },
     {
       id: 3,
       name: 'Accommodations',
       text: [
-        `${data[1]?.accomodationsOne}`,
-        `${data[1]?.accomodationsTwo}`,
-        `${data[1]?.accomodationsThree}`,
-        `${data[1]?.accomodationsFour}`,
-      ],
+        retreat?.accomodationsOne || '',
+        retreat?.accomodationsTwo || '',
+        retreat?.accomodationsThree || '',
+        retreat?.accomodationsFour || '',
+      ].filter(Boolean),
     },
     {
       id: 4,
       name: 'Cost',
       text: [
-        `${data[1]?.costOne}`,
-        `${data[1]?.costTwo}`,
-        `${data[1]?.costThree}`,
-        `${data[1]?.costFour}`,
-      ],
+        retreat?.costOne || '',
+        retreat?.costTwo || '',
+        retreat?.costThree || '',
+        retreat?.costFour || '',
+      ].filter(Boolean),
     },
     {
       id: 5,
       name: 'Cancellation Policy',
-      text: [`${data[1]?.cancellationOne}`, `${data[1]?.cancellationTwo}`],
+      text: [
+        retreat?.cancellationOne || '',
+        retreat?.cancellationTwo || '',
+      ].filter(Boolean),
     },
     {
       id: 6,
       name: 'Want to Join?',
       text: [
-        `${data[1]?.joinOne}`,
-        `${data[1]?.joinTwo}`,
-        `${data[1]?.joinThree}`,
-      ],
+        retreat?.joinOne || '',
+        retreat?.joinTwo || '',
+        retreat?.joinThree || '',
+      ].filter(Boolean),
     },
   ];
-  const fetchData = () => {
-    const query = '*[_type == "retreat"]';
-    client.fetch(query).then(setData).catch(console.error);
-  };
 
-  useEffect(() => {
-    // Fetch initial data
-    fetchData();
-
-    // Listen for changes in the data
-    const subscription = client
-      .listen('*[_type == "retreat"]')
-      .subscribe((update) => {
-        if (
-          update.mutationType === 'create' ||
-          update.mutationType === 'patch'
-        ) {
-          fetchData(); // Refetch data on update
-        }
-      });
-
-    // Clean up the subscription on unmount
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, []);
-
-  const { setServiceModal, modalToggle, modal } = useContext(TokyoContext);
   return (
     <div className="list w-full h-auto clear-both float-left">
       <ul className="ml-[-40px] list-none flex flex-wrap">
@@ -123,20 +99,17 @@ const ServiceItemsTwo = () => {
                   {service.id <= 9 ? `0${service.id}` : service.id}
                 </span>
               )}
-              {service.id == 7 && (
-                <span className="number inline-block mb-[25px] relative w-[60px] h-[60px] leading-[60px] text-center rounded-full bg-chefchaouen_blue font-bold text-black transition-all duration-300">
-                  {service.id <= 9 ? `0${service.id}` : service.id}
-                </span>
-              )}
 
-              <h3 className=" font-bold font-psych text-black text-[18px] mb-[15px]">
+              <h3 className="font-bold font-psych text-black text-[18px] mb-[15px]">
                 {service.name}
               </h3>
-              <p className=" font-bagnard">{service.text[0].slice(0, 70)}...</p>
+
+              <p className="font-bagnard">{service.text[0]?.slice(0, 70)}...</p>
               <div className="tokyo_tm_read_more">
                 <a
                   href="#"
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
                     modalToggle(true);
                     setServiceModal(service);
                   }}
@@ -147,7 +120,8 @@ const ServiceItemsTwo = () => {
               <a
                 className="tokyo_tm_full_link"
                 href="#"
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   modalToggle(true);
                   setServiceModal(service);
                 }}
@@ -159,4 +133,5 @@ const ServiceItemsTwo = () => {
     </div>
   );
 };
+
 export default ServiceItemsTwo;

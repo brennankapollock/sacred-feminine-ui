@@ -35,11 +35,10 @@ const initialState = {
   menus: [
     { id: 1, name: 'home', href: 'home' },
     { id: 2, name: 'about', href: 'about' },
-    { id: 3, name: "men's retreat", href: 'mens-retreat' },
-    { id: 4, name: "women's retreat", href: 'womens-retreat' },
-    { id: 5, name: 'events', href: 'events' },
-    { id: 6, name: 'resources', href: 'resources' },
-    { id: 7, name: 'contact', href: 'contact' },
+    { id: 3, name: 'retreats', href: 'retreats' },
+    { id: 4, name: 'events', href: 'events' },
+    { id: 5, name: 'resources', href: 'resources' },
+    { id: 6, name: 'contact', href: 'contact' },
   ],
 };
 
@@ -51,6 +50,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         nav: payload,
+        animation: 'fadeInLeft',
       };
     case ANIMATION:
       return {
