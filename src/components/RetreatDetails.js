@@ -14,7 +14,7 @@ const RetreatDetails = ({ retreat }) => {
               <SectionTitle
                 pageName={retreat?.name || ''}
                 title={`${retreat?.location || ''} | ${
-                  retreat?.range || retreat?.range || ''
+                  retreat?.range || retreat?.range  || ''
                 }`}
               />
             </div>
