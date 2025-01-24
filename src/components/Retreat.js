@@ -11,7 +11,7 @@ const Retreat = () => {
             <div className="title_flex w-full h-auto clear-both flex justify-between items-end">
               <SectionTitle
                 pageName={"Women's Retreat"}
-                title={'Ojai, CA | April 11th-13th '}
+                title={'Santa Paula, CA | April 11th-13th '}
               />
             </div>
           </div>
