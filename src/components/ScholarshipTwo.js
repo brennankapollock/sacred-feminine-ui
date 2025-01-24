@@ -1,6 +1,6 @@
 import { loadStripe } from '@stripe/stripe-js';
-import { useState } from 'react';
 import Head from 'next/head';
+import { useState } from 'react';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -10,8 +10,6 @@ const products = [
   {
     id: 2,
     name: 'Sacred Feminine Retreat',
-    description:
-      'Scholarship-supported retreat experience with partial financial assistance',
     price: 700,
     image: 'product2.jpg',
     quantity: 1,
@@ -81,9 +79,6 @@ export default function ScholarshipTwo() {
                     ${selectedProduct.price}
                   </p>
                 </div>
-                <p className="text-[#666666] text-base">
-                  {selectedProduct.description}
-                </p>
               </div>
 
               <div className="flex flex-col sm:flex-row justify-between gap-4">

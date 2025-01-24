@@ -10,8 +10,6 @@ const products = [
   {
     id: 1,
     name: 'Sacred Feminine Retreat',
-    description:
-      'Full retreat experience including all workshops, meals, and activities',
     price: 1000,
     image: 'product1.jpg',
     quantity: 1,
@@ -20,8 +18,7 @@ const products = [
   {
     id: 2,
     name: 'Sacred Feminine Retreat',
-    description:
-      'Full retreat experience including all workshops, meals, and activities',
+
     price: 500,
     image: 'product2.jpg',
     quantity: 1,
@@ -87,9 +84,6 @@ export default function Checkout() {
                       <div className="inline-block bg-[#f8f3ef] px-3 py-1 rounded-full text-sm text-[#927f73] mb-3">
                         {product.type}
                       </div>
-                      <p className="text-[#666666] text-base">
-                        {product.description}
-                      </p>
                     </div>
                     <div className="flex flex-col items-start md:items-end space-y-3">
                       <p className="text-2xl font-cormorant text-[#2c2c2c]">
@@ -125,9 +119,6 @@ export default function Checkout() {
                     ${selectedProduct.price}
                   </p>
                 </div>
-                <p className="text-[#666666] text-base">
-                  {selectedProduct.description}
-                </p>
               </div>
 
               <div className="flex flex-col sm:flex-row justify-between gap-4">

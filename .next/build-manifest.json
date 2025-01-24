@@ -30,10 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/lodging.js"
     ],
-    "/scholarship-two": [
+    "/scholarship": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/scholarship-two.js"
+      "static/chunks/pages/scholarship.js"
     ]
   },
   "ampFirstPages": []
