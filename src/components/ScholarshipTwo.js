@@ -171,7 +171,7 @@ export default function ScholarshipTwo() {
                 href="mailto:support@sacredfeminine.com"
                 className="text-[#b5a397] hover:text-[#927f73] underline"
               >
-                support@sacredfeminine.com
+                team@sacredfeminine.com
               </a>
             </p>
           </div>
