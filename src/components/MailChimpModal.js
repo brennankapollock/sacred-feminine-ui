@@ -9,70 +9,84 @@ const MailchimpModal = ({ onClose }) => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     try {
       const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ firstName, lastName, email }),
       });
+      const data = await response.json();
+      
       if (response.ok) {
         setIsSubscribed(true);
+      } else if (response.status === 400 && data.error === 'already_subscribed') {
+        setError(data.message);
       } else {
-        console.error('Failed to subscribe');
+        setError('Failed to subscribe. Please try again later.');
       }
     } catch (error) {
-      console.error('Error:', error);
+      setError('An error occurred. Please try again later.');
     }
   };
 
   if (isSubscribed) {
     return (
-      <Alert className="bg-green-100">
-        <AlertTitle>Success!</AlertTitle>
-        <AlertDescription>Thank you for subscribing!</AlertDescription>
-        <Button onClick={onClose} className="mt-4 w-full" variant="outline">
-          Close
-        </Button>
+      <Alert>
+        <AlertTitle>Thank you for subscribing!</AlertTitle>
+        <AlertDescription>
+          We'll keep you updated with our latest news and events.
+        </AlertDescription>
       </Alert>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <Label htmlFor="firstName">First Name</Label>
-        <Input
-          id="firstName"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <Label htmlFor="lastName">Last Name</Label>
-        <Input
-          id="lastName"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <Label htmlFor="email">Email</Label>
-        <Input
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <Button type="submit" className="w-full">
-        Subscribe
-      </Button>
-    </form>
+    <div className="space-y-4">
+      {error && (
+        <Alert>
+          <AlertTitle>Notice</AlertTitle>
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+      )}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <Label htmlFor="firstName">First Name</Label>
+          <Input
+            id="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <Label htmlFor="lastName">Last Name</Label>
+          <Input
+            id="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <Button type="submit" className="w-full">
+          Subscribe
+        </Button>
+      </form>
+    </div>
   );
 };
 

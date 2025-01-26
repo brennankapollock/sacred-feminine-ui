@@ -7,6 +7,8 @@ mailchimp.setConfig({
   server: 'us19',
 });
 
+console.log(process.env.MAILCHIMP_API_KEY);
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -30,10 +32,15 @@ export default async function handler(req, res) {
 
     return res.status(201).json({ message: 'Successfully subscribed' });
   } catch (error) {
-    console.error('Error subscribing to Mailchimp:', error);
-
-    return res
-      .status(500)
-      .json({ error: error.message || 'Error subscribing to newsletter' });
+    // Check if error is due to member already existing
+    if (error.status === 400 && error.response?.body?.title === 'Member Exists') {
+      return res.status(400).json({ 
+        error: 'already_subscribed',
+        message: 'You are already subscribed to our newsletter!'
+      });
+    }
+    
+    console.error('Error:', error);
+    return res.status(500).json({ error: 'Error subscribing to newsletter' });
   }
 }
