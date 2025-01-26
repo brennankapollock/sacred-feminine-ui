@@ -171,7 +171,7 @@ export default function ScholarshipThree() {
                 href="mailto:support@sacredfeminine.com"
                 className="text-[#b5a397] hover:text-[#927f73] underline"
               >
-                team@sacredfeminine.com
+                team@sacredfeminine.co
               </a>
             </p>
           </div>
