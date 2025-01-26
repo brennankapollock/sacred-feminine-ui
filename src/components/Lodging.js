@@ -22,7 +22,7 @@ const products = [
     name: 'Shared Room',
     description:
       'Share a comfortable room with one other retreat participant, fostering connection and community',
-    price: 150,
+    price: 200,
     image: 'product2.jpg',
     quantity: 1,
     type: 'Standard',
