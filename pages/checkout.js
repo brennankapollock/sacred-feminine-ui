@@ -71,7 +71,7 @@ const CheckoutPage = () => {
             <p className="text-sm text-[#666666]">
               Need assistance? Contact{' '}
               <a href="mailto:support@sacredfeminine.com" className="text-[#b5a397] hover:text-[#927f73] underline">
-                support@sacredfeminine.com
+                team@sacredfeminine.co
               </a>
             </p>
           </div>
