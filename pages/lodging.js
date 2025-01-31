@@ -1,6 +1,6 @@
 import Lodging from '@/src/components/Lodging';
-import { useState } from 'react';
 import Head from 'next/head';
+import { useState } from 'react';
 
 const LodgingPage = () => {
   const [code, setCode] = useState('');
@@ -35,11 +35,14 @@ const LodgingPage = () => {
               Enter your access code to view retreat lodging details
             </p>
           </div>
-          
+
           <div className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] p-8 md:p-10">
             <form onSubmit={handleCodeSubmit} className="space-y-8">
               <div className="space-y-2">
-                <label htmlFor="code" className="block text-sm font-medium text-[#4a4a4a] mb-2">
+                <label
+                  htmlFor="code"
+                  className="block text-sm font-medium text-[#4a4a4a] mb-2"
+                >
                   Access Code
                 </label>
                 <div className="relative">
@@ -57,7 +60,7 @@ const LodgingPage = () => {
                   This code was provided in your retreat welcome package
                 </p>
               </div>
-              
+
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-[#b5a397] to-[#a39185] hover:from-[#a39185] hover:to-[#927f73] text-white py-4 px-6 rounded-lg transition-all duration-200 transform hover:scale-[1.02] font-cormorant text-xl tracking-wide shadow-sm"
@@ -66,11 +69,14 @@ const LodgingPage = () => {
               </button>
             </form>
           </div>
-          
+
           <div className="text-center mt-8">
             <p className="text-sm text-[#666666]">
               Need assistance? Contact{' '}
-              <a href="mailto:support@sacredfeminine.com" className="text-[#b5a397] hover:text-[#927f73] underline">
+              <a
+                href="mailto:team@sacredfeminine.co"
+                className="text-[#b5a397] hover:text-[#927f73] underline"
+              >
                 team@sacredfeminine.co
               </a>
             </p>

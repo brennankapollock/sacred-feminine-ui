@@ -1,6 +1,6 @@
 import { loadStripe } from '@stripe/stripe-js';
-import { useState } from 'react';
 import Head from 'next/head';
+import { useState } from 'react';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -126,10 +126,10 @@ export default function Lodging() {
               <p className="text-sm text-[#666666]">
                 Need assistance? Contact{' '}
                 <a
-                  href="mailto:support@sacredfeminine.com"
+                  href="mailto:team@sacredfeminine.co"
                   className="text-[#b5a397] hover:text-[#927f73] underline"
                 >
-                  support@sacredfeminine.com
+                  team@sacredfeminine.co
                 </a>
               </p>
             </div>
@@ -193,7 +193,7 @@ export default function Lodging() {
             <p className="text-sm text-[#666666]">
               Need assistance? Contact{' '}
               <a
-                href="mailto:support@sacredfeminine.com"
+                href="mailto:team@sacredfeminine.co"
                 className="text-[#b5a397] hover:text-[#927f73] underline"
               >
                 team@sacredfeminine.co

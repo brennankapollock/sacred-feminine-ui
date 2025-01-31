@@ -142,7 +142,7 @@ export default function Checkout() {
             <p className="text-sm text-[#666666]">
               Need assistance? Contact{' '}
               <a
-                href="mailto:support@sacredfeminine.com"
+                href="mailto:team@sacredfeminine.co"
                 className="text-[#b5a397] hover:text-[#927f73] underline"
               >
                 team@sacredfeminine.co

@@ -101,10 +101,10 @@ export default function ScholarshipThree() {
               <p className="text-sm text-[#666666]">
                 Need assistance? Contact{' '}
                 <a
-                  href="mailto:support@sacredfeminine.com"
+                  href="mailto:team@sacredfeminine.co"
                   className="text-[#b5a397] hover:text-[#927f73] underline"
                 >
-                  support@sacredfeminine.com
+                  team@sacredfeminine.co
                 </a>
               </p>
             </div>
@@ -168,7 +168,7 @@ export default function ScholarshipThree() {
             <p className="text-sm text-[#666666]">
               Need assistance? Contact{' '}
               <a
-                href="mailto:support@sacredfeminine.com"
+                href="mailto:team@sacredfeminine.co"
                 className="text-[#b5a397] hover:text-[#927f73] underline"
               >
                 team@sacredfeminine.co
