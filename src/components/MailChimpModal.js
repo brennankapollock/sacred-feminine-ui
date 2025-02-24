@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { useContext, useState } from 'react';
+import { TokyoContext } from '../Context';
 
 const MailchimpModal = ({ onClose }) => {
   const [firstName, setFirstName] = useState('');
@@ -10,6 +11,7 @@ const MailchimpModal = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [error, setError] = useState('');
+  const { navChange, nav, menus } = useContext(TokyoContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,10 +23,13 @@ const MailchimpModal = ({ onClose }) => {
         body: JSON.stringify({ firstName, lastName, email }),
       });
       const data = await response.json();
-      
+
       if (response.ok) {
         setIsSubscribed(true);
-      } else if (response.status === 400 && data.error === 'already_subscribed') {
+      } else if (
+        response.status === 400 &&
+        data.error === 'already_subscribed'
+      ) {
         setError(data.message);
       } else {
         setError('Failed to subscribe. Please try again later.');
@@ -36,10 +41,21 @@ const MailchimpModal = ({ onClose }) => {
 
   if (isSubscribed) {
     return (
-      <Alert>
+      <Alert className="flex flex-col items-center justify-center gap-4">
         <AlertTitle>Thank you for subscribing!</AlertTitle>
-        <AlertDescription>
-          We'll keep you updated with our latest news and events.
+        <AlertDescription className="flex flex-col items-center text-center">
+          <span className="mb-4">
+            We'll keep you updated! Check out our current retreats here:
+          </span>
+          <Button
+            className="text-black bg-dark_goldenrod font-psych text-lg px-8 py-6 hover:bg-chefchaouen_blue mt-2"
+            onClick={() => {
+              onClose();
+              navChange('retreats');
+            }}
+          >
+            Retreats
+          </Button>
         </AlertDescription>
       </Alert>
     );
@@ -55,7 +71,9 @@ const MailchimpModal = ({ onClose }) => {
       )}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <Label htmlFor="firstName">First Name</Label>
+          <Label className="font-psych" htmlFor="firstName">
+            First Name
+          </Label>
           <Input
             id="firstName"
             value={firstName}
@@ -64,7 +82,9 @@ const MailchimpModal = ({ onClose }) => {
           />
         </div>
         <div>
-          <Label htmlFor="lastName">Last Name</Label>
+          <Label className="font-psych" htmlFor="lastName">
+            Last Name
+          </Label>
           <Input
             id="lastName"
             value={lastName}
@@ -73,7 +93,9 @@ const MailchimpModal = ({ onClose }) => {
           />
         </div>
         <div>
-          <Label htmlFor="email">Email</Label>
+          <Label className="font-psych" htmlFor="email">
+            Email
+          </Label>
           <Input
             id="email"
             type="email"
@@ -82,7 +104,10 @@ const MailchimpModal = ({ onClose }) => {
             required
           />
         </div>
-        <Button type="submit" className="w-full">
+        <Button
+          type="submit"
+          className="w-full font-psych text-black bg-dark_goldenrod hover:text-white hover:bg-dark_goldenrod-300"
+        >
           Subscribe
         </Button>
       </form>

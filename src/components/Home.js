@@ -42,12 +42,18 @@ const Home = () => {
                 vulnerability, the self and the other, our sense of the realness
                 of right here, and the vastness and mystery of the unknown.
               </p>
-              <div className="tokyo_tm_button flex items-center justify-evenly rounded-lg">
+              <div className="flex gap-4 justify-center">
                 <Button
-                  className="text-black font-psych"
+                  className="text-black bg-dark_goldenrod  font-psych text-lg px-8 py-6 hover:bg-chefchaouen_blue"
                   onClick={handleOpenModal}
                 >
                   Stay in the Loop!
+                </Button>
+                <Button
+                  className="text-black bg-dark_goldenrod font-psych text-lg px-8 py-6 hover:bg-chefchaouen_blue"
+                  onClick={() => navChange('retreats')}
+                >
+                  Retreats
                 </Button>
               </div>
             </div>
