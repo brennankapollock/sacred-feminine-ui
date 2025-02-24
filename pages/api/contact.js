@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
   try {
     // For testing: Use the email you used to sign up for Resend
-    const testEmail = 'mail@brennankapollock.com'; // Replace with your email
+    const testEmail = 'mail@brennankapollock.com';
 
     // Send email to team (during testing, this goes to your email)
     const teamEmailResponse = await resend.emails.send({
