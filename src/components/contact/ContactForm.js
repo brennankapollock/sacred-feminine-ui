@@ -25,16 +25,31 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '898e84b5-efb5-4a2c-9846-1a3b5d26edcd',
+          from_name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          message: formData.message,
+          subject: 'New Contact Form Submission - Sacred Feminine',
+          reply_to: formData.email,
+          to_email: 'team@sacredfeminine.co',
+          // Auto-response settings
+          autoresponse: {
+            subject: 'Thank you for contacting Sacred Feminine',
+            message: `Dear ${formData.firstName},\n\nThank you for reaching out. We have received your message and will get back to you soon.\n\nBest regards,\nSacred Feminine Team`,
+          },
+        }),
       });
 
       const data = await response.json();
 
-      if (response.ok) {
-        toast.success(data.message || 'Message sent successfully!');
+      if (data.success) {
+        toast.success('Message sent successfully!');
         setFormData({
           firstName: '',
           lastName: '',
@@ -42,11 +57,11 @@ const ContactForm = () => {
           message: '',
         });
       } else {
-        throw new Error(data.error || 'Failed to send message');
+        throw new Error('Failed to send message');
       }
     } catch (error) {
       console.error('Error:', error);
-      toast.error(error.message || 'Failed to send message. Please try again.');
+      toast.error('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
