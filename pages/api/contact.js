@@ -14,14 +14,11 @@ export default async function handler(req, res) {
   }
 
   try {
-    // For testing: Use the email you used to sign up for Resend
-    const testEmail = 'mail@brennankapollock.com';
-
-    // Send email to team (during testing, this goes to your email)
+    // Send notification email to Sacred Feminine team
     const teamEmailResponse = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Resend's sandbox domain
-      to: testEmail,
-      subject: `Contact Form Submission from ${firstName} ${lastName}`,
+      from: 'Sacred Feminine <noreply@team.sacredfeminine.co>',
+      to: 'team@sacredfeminine.co',
+      subject: `New Contact Form Submission from ${firstName} ${lastName}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${firstName} ${lastName}</p>
@@ -29,25 +26,29 @@ export default async function handler(req, res) {
         <p><strong>Message:</strong></p>
         <p>${message}</p>
       `,
+      reply_to: email,
     });
 
-    console.log('Team email response:', teamEmailResponse); // Add logging
+    console.log('Team email response:', teamEmailResponse);
 
-    // Send confirmation email to user (during testing, this also goes to your email)
+    // Send confirmation email to user
     const userEmailResponse = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Resend's sandbox domain
-      to: testEmail, // During testing, send to your email instead of user's email
-      subject: 'We received your message - Sacred Feminine',
+      from: 'Sacred Feminine <noreply@team.sacredfeminine.co>',
+      to: email,
+      subject: 'Thank you for contacting Sacred Feminine',
       html: `
-        <h2>Thank you for contacting Sacred Feminine</h2>
-        <p>Dear ${firstName},</p>
-        <p>We have received your message and will get back to you soon.</p>
-        <p>Best regards,</p>
-        <p>The Sacred Feminine Team</p>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #333;">Thank you for contacting Sacred Feminine</h2>
+          <p>Dear ${firstName},</p>
+          <p>We have received your message and will get back to you soon.</p>
+          <p>Best regards,</p>
+          <p>The Sacred Feminine Team</p>
+        </div>
       `,
+      reply_to: 'team@sacredfeminine.co',
     });
 
-    console.log('User email response:', userEmailResponse); // Add logging
+    console.log('User email response:', userEmailResponse);
 
     return res.status(200).json({
       message: 'Message sent successfully',

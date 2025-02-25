@@ -25,31 +25,27 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // Updated to use your Resend API endpoint
+      const response = await fetch('/api/contact', {
+        // Make sure this matches your API route path
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '898e84b5-efb5-4a2c-9846-1a3b5d26edcd',
-          from_name: `${formData.firstName} ${formData.lastName}`,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
           email: formData.email,
           message: formData.message,
-          subject: 'New Contact Form Submission - Sacred Feminine',
-          reply_to: formData.email,
-          to_email: 'team@sacredfeminine.co',
-          // Auto-response settings
-          autoresponse: {
-            subject: 'Thank you for contacting Sacred Feminine',
-            message: `Dear ${formData.firstName},\n\nThank you for reaching out. We have received your message and will get back to you soon.\n\nBest regards,\nSacred Feminine Team`,
-          },
         }),
       });
 
       const data = await response.json();
 
-      if (data.success) {
-        toast.success('Message sent successfully!');
+      if (response.ok) {
+        toast.success(
+          'Message sent successfully! Please check your email for confirmation.'
+        );
         setFormData({
           firstName: '',
           lastName: '',
@@ -57,11 +53,11 @@ const ContactForm = () => {
           message: '',
         });
       } else {
-        throw new Error('Failed to send message');
+        throw new Error(data.error || 'Failed to send message');
       }
     } catch (error) {
       console.error('Error:', error);
-      toast.error('Failed to send message. Please try again.');
+      toast.error(error.message || 'Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }

@@ -23,20 +23,27 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/subscribe', {
+      // Updated to use your Resend API endpoint
+      const response = await fetch('/api/contact', {
+        // Make sure this matches your API route path
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
           message: formData.message,
-          source: 'contact_form',
         }),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        toast.success('Message sent successfully!');
+        toast.success(
+          'Message sent successfully! Please check your email for confirmation.'
+        );
         setFormData({
           firstName: '',
           lastName: '',
@@ -44,11 +51,11 @@ const ContactForm = () => {
           message: '',
         });
       } else {
-        throw new Error('Failed to send message');
+        throw new Error(data.error || 'Failed to send message');
       }
     } catch (error) {
       console.error('Error:', error);
-      toast.error('Failed to send message. Please try again.');
+      toast.error(error.message || 'Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
