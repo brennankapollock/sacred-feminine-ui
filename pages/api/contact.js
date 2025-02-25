@@ -35,10 +35,10 @@ export default async function handler(req, res) {
     const userEmailResponse = await resend.emails.send({
       from: 'Sacred Feminine <noreply@team.sacredfeminine.co>',
       to: email,
-      subject: 'Thank you for contacting Sacred Feminine',
+      subject: 'Thank you for Reaching Out!',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #333;">Thank you for contacting Sacred Feminine</h2>
+          <h2 style="color: #333;">Thank you for Reaching Out!</h2>
           <p>Dear ${firstName},</p>
           <p>We have received your message and will get back to you soon.</p>
           <p>Best regards,</p>
