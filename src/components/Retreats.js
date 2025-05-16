@@ -40,7 +40,7 @@ const Retreats = () => {
   }, []);
 
   const fetchData = () => {
-    const query = '*[_type == "retreat"]';
+    const query = '*[_type == "retreat"]{..., "cardImageUrl": cardImage.asset->url}';
     client
       .fetch(query)
       .then((data) => {
@@ -114,9 +114,9 @@ const Retreats = () => {
                     <div className="list_inner w-full h-auto clear-both float-left relative border-solid border-[rgba(0,0,0,.1)] border bg-white transition-all duration-300 hover:bg-chefchaouen_blue overflow-hidden">
                       <div className="relative h-[200px] w-full overflow-hidden">
                         <img
-                          src={`/assets/img/retreats/${retreat.location.toLowerCase().includes('santa paula') 
-                            ? 'santa-paula-ca.png'
-                            : 'temecula-ca.png'}`}
+                          src={retreat.cardImageUrl || (retreat.location.toLowerCase().includes('santa paula') 
+                            ? '/assets/img/retreats/santa-paula-ca.png'
+                            : '/assets/img/retreats/temecula-ca.png')}
                           alt={`${retreat.location} Retreat`}
                           className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                           onError={(e) => {

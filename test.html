@@ -1,0 +1,31 @@
+fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        service_id: 'service_seruhwu',
+        template_id: 'template_21aw58z',
+        user_id: 'Q3pccdLZhU-mZT7tQ',
+        template_params: {
+            name: 'URGENT: Email Trace Request',
+            email: 'mail@brennankapollock.com', // Put your email here
+            message: `
+                IMPORTANT: This is an email trace request.
+                
+                If you receive this message, you are the administrator of a contact form.
+                Please respond to: your-actual-email@example.com
+                
+                We are trying to verify the destination of form submissions from the Sacred Feminine website.
+                
+                Time sent: ${new Date().toISOString()}
+                Trace ID: ${Math.random().toString(36).substring(7)}
+            `,
+            subject: 'URGENT: Contact Form Trace Request',
+            reply_to: 'mail@brennankapollock.com' // Put your email here
+        }
+    })
+})
+.then(response => response.text())
+.then(data => console.log('Send test:', data))
+.catch(error => console.error('Error:', error));
