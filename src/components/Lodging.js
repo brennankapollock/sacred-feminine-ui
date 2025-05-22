@@ -1,6 +1,6 @@
-import { loadStripe } from '@stripe/stripe-js';
-import Head from 'next/head';
-import { useState } from 'react';
+import { loadStripe } from "@stripe/stripe-js";
+import Head from "next/head";
+import { useState } from "react";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -9,33 +9,43 @@ const stripePromise = loadStripe(
 const products = [
   {
     id: 1,
-    name: 'Private Room',
+    name: "Deluxe Suite",
     description:
-      'Enjoy a private room with en-suite bathroom, perfect for those seeking solitude and comfort',
-    price: 300,
-    image: 'product1.jpg',
+      "Indulge in our spacious deluxe suite with premium amenities, offering both comfort and luxury for an enhanced retreat experience",
+    price: 350,
+    image: "product4.jpg",
     quantity: 1,
-    type: 'Premium',
+    type: "Premium Plus",
   },
   {
     id: 2,
-    name: 'Shared Room',
+    name: "Private Room",
     description:
-      'Share a comfortable room with one other retreat participant, fostering connection and community',
-    price: 200,
-    image: 'product2.jpg',
+      "Enjoy a private room with en-suite bathroom, perfect for those seeking solitude and comfort",
+    price: 300,
+    image: "product1.jpg",
     quantity: 1,
-    type: 'Standard',
+    type: "Premium",
   },
   {
     id: 3,
-    name: 'Barn Bed',
+    name: "Shared Room",
     description:
-      'Experience our rustic barn accommodation, a unique and cozy shared space perfect for the adventurous spirit',
-    price: 50,
-    image: 'product3.jpg',
+      "Share a comfortable room with one other retreat participant, fostering connection and community",
+    price: 200,
+    image: "product2.jpg",
     quantity: 1,
-    type: 'Basic',
+    type: "Standard",
+  },
+  {
+    id: 4,
+    name: "Barn Bed",
+    description:
+      "Experience our rustic barn accommodation, a unique and cozy shared space perfect for the adventurous spirit",
+    price: 50,
+    image: "product3.jpg",
+    quantity: 1,
+    type: "Basic",
   },
 ];
 
@@ -48,14 +58,14 @@ export default function Lodging() {
 
   const handleCheckout = async () => {
     if (!selectedProduct) {
-      alert('Please select a lodging option to proceed.');
+      alert("Please select a lodging option to proceed.");
       return;
     }
     const stripe = await stripePromise;
-    const response = await fetch('/api/checkout-sessions/create', {
-      method: 'POST',
+    const response = await fetch("/api/checkout-sessions/create", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         cartItems: [selectedProduct],
@@ -124,7 +134,7 @@ export default function Lodging() {
 
             <div className="text-center mt-8">
               <p className="text-sm text-[#666666]">
-                Need assistance? Contact{' '}
+                Need assistance? Contact{" "}
                 <a
                   href="mailto:team@sacredfeminine.co"
                   className="text-[#b5a397] hover:text-[#927f73] underline"
@@ -191,7 +201,7 @@ export default function Lodging() {
 
           <div className="text-center mt-8">
             <p className="text-sm text-[#666666]">
-              Need assistance? Contact{' '}
+              Need assistance? Contact{" "}
               <a
                 href="mailto:team@sacredfeminine.co"
                 className="text-[#b5a397] hover:text-[#927f73] underline"

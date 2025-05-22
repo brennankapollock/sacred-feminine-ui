@@ -1,6 +1,6 @@
-import { loadStripe } from '@stripe/stripe-js';
-import Head from 'next/head';
-import { useState } from 'react';
+import { loadStripe } from "@stripe/stripe-js";
+import Head from "next/head";
+import { useState } from "react";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -9,20 +9,28 @@ const stripePromise = loadStripe(
 const products = [
   {
     id: 1,
-    name: 'Sacred Feminine Retreat',
-    price: 1000,
-    image: 'product1.jpg',
+    name: "Sacred Feminine Retreat",
+    price: 1150,
+    image: "product1.jpg",
     quantity: 1,
-    type: 'Full Payment',
+    type: "Full Payment",
   },
   {
     id: 2,
-    name: 'Sacred Feminine Retreat',
+    name: "Sacred Feminine Retreat",
+    price: 1000,
+    image: "product1.jpg",
+    quantity: 1,
+    type: "Full Payment",
+  },
+  {
+    id: 3,
+    name: "Sacred Feminine Retreat",
 
     price: 500,
-    image: 'product2.jpg',
+    image: "product2.jpg",
     quantity: 1,
-    type: 'Half Payment',
+    type: "Half Payment",
   },
 ];
 
@@ -35,14 +43,14 @@ export default function Checkout() {
 
   const handleCheckout = async () => {
     if (!selectedProduct) {
-      alert('Please select a payment option to proceed.');
+      alert("Please select a payment option to proceed.");
       return;
     }
     const stripe = await stripePromise;
-    const response = await fetch('/api/checkout-sessions/create', {
-      method: 'POST',
+    const response = await fetch("/api/checkout-sessions/create", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         cartItems: [selectedProduct],
@@ -140,7 +148,7 @@ export default function Checkout() {
 
           <div className="text-center mt-8">
             <p className="text-sm text-[#666666]">
-              Need assistance? Contact{' '}
+              Need assistance? Contact{" "}
               <a
                 href="mailto:team@sacredfeminine.co"
                 className="text-[#b5a397] hover:text-[#927f73] underline"
