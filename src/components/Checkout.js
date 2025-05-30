@@ -17,20 +17,19 @@ const products = [
   },
   {
     id: 2,
-    name: "Sacred Feminine Retreat",
-    price: 1000,
+    name: "Retreat Second Payment",
+    price: 650,
     image: "product1.jpg",
     quantity: 1,
-    type: "Full Payment",
+    type: "Second Payment",
   },
   {
     id: 3,
-    name: "Sacred Feminine Retreat",
-
+    name: "Retreat Deposit",
     price: 500,
     image: "product2.jpg",
     quantity: 1,
-    type: "Half Payment",
+    type: "Deposit",
   },
 ];
 

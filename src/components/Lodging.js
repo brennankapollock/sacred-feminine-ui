@@ -9,9 +9,9 @@ const stripePromise = loadStripe(
 const products = [
   {
     id: 1,
-    name: "Deluxe Suite",
+    name: "Bedroom w/ Queen Bed",
     description:
-      "Indulge in our spacious deluxe suite with premium amenities, offering both comfort and luxury for an enhanced retreat experience",
+      "Indulge in our spacious bedroom with a queen bed and premium amenities, offering both comfort and luxury for an enhanced retreat experience",
     price: 350,
     image: "product4.jpg",
     quantity: 1,
