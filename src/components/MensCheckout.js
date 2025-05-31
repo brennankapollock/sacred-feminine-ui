@@ -9,8 +9,8 @@ const stripePromise = loadStripe(
 const products = [
   {
     id: 1,
-    name: "Sacred Feminine Retreat",
-    price: 1150,
+    name: "Full Retreat Payment",
+    price: 1200,
     image: "product1.jpg",
     quantity: 1,
     type: "Full Payment",
@@ -18,7 +18,7 @@ const products = [
   {
     id: 2,
     name: "Retreat Second Payment",
-    price: 650,
+    price: 700,
     image: "product1.jpg",
     quantity: 1,
     type: "Second Payment",
@@ -33,7 +33,7 @@ const products = [
   },
 ];
 
-export default function Checkout() {
+export default function MensCheckout() {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleProductSelect = (product) => {
@@ -63,13 +63,13 @@ export default function Checkout() {
   return (
     <>
       <Head>
-        <title>Checkout | Sacred Feminine Retreat</title>
+        <title>Checkout | Sacred Masculine Retreat</title>
       </Head>
-      <div className="min-h-screen bg-gradient-to-b from-[#f8f3ef] to-[#f0e9e4] py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-b from-[#f0f2f5] to-[#e8ebf0] py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-[#666666] text-lg max-w-2xl mx-auto font-light">
-              Choose your payment option for the Sacred Feminine Retreat
+            <p className="text-[#4a5568] text-lg max-w-2xl mx-auto font-light">
+              Choose your payment option for the Sacred Masculine Retreat
             </p>
           </div>
 
@@ -78,24 +78,24 @@ export default function Checkout() {
               {products.map((product) => (
                 <div
                   key={product.id}
-                  className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] p-6 md:p-8 transition-transform duration-200 hover:scale-[1.02]"
+                  className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] p-6 md:p-8 transition-transform duration-200 hover:scale-[1.02] border border-[#e2e8f0]"
                 >
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                     <div className="mb-4 md:mb-0">
-                      <h2 className="font-cormorant text-2xl text-[#2c2c2c] mb-2">
+                      <h2 className="font-cormorant text-2xl text-[#2d3748] mb-2">
                         {product.name}
                       </h2>
-                      <div className="inline-block bg-[#f8f3ef] px-3 py-1 rounded-full text-sm text-[#927f73] mb-3">
+                      <div className="inline-block bg-[#f7fafc] px-3 py-1 rounded-full text-sm text-[#4a5568] mb-3 border border-[#e2e8f0]">
                         {product.type}
                       </div>
                     </div>
                     <div className="flex flex-col items-start md:items-end space-y-3">
-                      <p className="text-2xl font-cormorant text-[#2c2c2c]">
+                      <p className="text-2xl font-cormorant text-[#2d3748]">
                         ${product.price}
                       </p>
                       <button
                         onClick={() => handleProductSelect(product)}
-                        className="bg-gradient-to-r from-[#b5a397] to-[#a39185] hover:from-[#a39185] hover:to-[#927f73] text-white px-6 py-3 rounded-lg transition-all duration-200 font-cormorant text-xl tracking-wide shadow-sm w-full md:w-auto"
+                        className="bg-gradient-to-r from-[#4a5568] to-[#2d3748] hover:from-[#2d3748] hover:to-[#1a202c] text-white px-6 py-3 rounded-lg transition-all duration-200 font-cormorant text-xl tracking-wide shadow-sm w-full md:w-auto"
                       >
                         Select Option
                       </button>
@@ -105,21 +105,21 @@ export default function Checkout() {
               ))}
             </div>
           ) : (
-            <div className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] p-8 md:p-10">
-              <h3 className="font-cormorant text-2xl text-[#2c2c2c] mb-6">
+            <div className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] p-8 md:p-10 border border-[#e2e8f0]">
+              <h3 className="font-cormorant text-2xl text-[#2d3748] mb-6">
                 Order Summary
               </h3>
-              <div className="border-t border-b border-[#e5e5e5] py-6 mb-6">
+              <div className="border-t border-b border-[#e2e8f0] py-6 mb-6">
                 <div className="flex justify-between items-center mb-4">
                   <div>
-                    <h4 className="font-cormorant text-xl text-[#2c2c2c] mb-1">
+                    <h4 className="font-cormorant text-xl text-[#2d3748] mb-1">
                       {selectedProduct.name}
                     </h4>
-                    <div className="inline-block bg-[#f8f3ef] px-3 py-1 rounded-full text-sm text-[#927f73]">
+                    <div className="inline-block bg-[#f7fafc] px-3 py-1 rounded-full text-sm text-[#4a5568] border border-[#e2e8f0]">
                       {selectedProduct.type}
                     </div>
                   </div>
-                  <p className="text-2xl font-cormorant text-[#2c2c2c]">
+                  <p className="text-2xl font-cormorant text-[#2d3748]">
                     ${selectedProduct.price}
                   </p>
                 </div>
@@ -128,13 +128,13 @@ export default function Checkout() {
               <div className="flex flex-col sm:flex-row justify-between gap-4">
                 <button
                   onClick={() => handleProductSelect(null)}
-                  className="px-6 py-3 border-2 border-[#b5a397] text-[#b5a397] rounded-lg hover:bg-[#f8f3ef] transition-colors duration-200 font-cormorant text-xl"
+                  className="px-6 py-3 border-2 border-[#4a5568] text-[#4a5568] rounded-lg hover:bg-[#f7fafc] transition-colors duration-200 font-cormorant text-xl"
                 >
                   Change Selection
                 </button>
                 <button
                   onClick={handleCheckout}
-                  className="bg-gradient-to-r from-[#b5a397] to-[#a39185] hover:from-[#a39185] hover:to-[#927f73] text-white px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02] font-cormorant text-xl tracking-wide shadow-sm"
+                  className="bg-gradient-to-r from-[#4a5568] to-[#2d3748] hover:from-[#2d3748] hover:to-[#1a202c] text-white px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02] font-cormorant text-xl tracking-wide shadow-sm"
                 >
                   Proceed to Payment
                 </button>
@@ -143,11 +143,11 @@ export default function Checkout() {
           )}
 
           <div className="text-center mt-8">
-            <p className="text-sm text-[#666666]">
+            <p className="text-sm text-[#4a5568]">
               Need assistance? Contact{" "}
               <a
                 href="mailto:team@sacredfeminine.co"
-                className="text-[#b5a397] hover:text-[#927f73] underline"
+                className="text-[#4a5568] hover:text-[#2d3748] underline"
               >
                 team@sacredfeminine.co
               </a>
