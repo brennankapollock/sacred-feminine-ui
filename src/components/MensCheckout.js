@@ -69,7 +69,7 @@ export default function MensCheckout() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-[#4a5568] text-lg max-w-2xl mx-auto font-light">
-              Choose your payment option for the Sacred Masculine Retreat
+              Choose your payment option for the Sacred Feminine Mens Retreat
             </p>
           </div>
 
