@@ -2,5 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/admin": "pages/admin.js",
+  "/admin/checkout-pages": "pages/admin/checkout-pages.js",
+  "/api/checkout-pages": "pages/api/checkout-pages.js"
 }
