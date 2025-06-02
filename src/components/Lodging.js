@@ -1,56 +1,49 @@
 import { loadStripe } from "@stripe/stripe-js";
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
 
-const products = [
-  {
-    id: 1,
-    name: "Bedroom w/ Queen Bed",
-    description:
-      "Indulge in our spacious bedroom with a queen bed and premium amenities, offering both comfort and luxury for an enhanced retreat experience",
-    price: 350,
-    image: "product4.jpg",
-    quantity: 1,
-    type: "Premium Plus",
-  },
-  {
-    id: 2,
-    name: "Private Room",
-    description:
-      "Enjoy a private room with en-suite bathroom, perfect for those seeking solitude and comfort",
-    price: 300,
-    image: "product1.jpg",
-    quantity: 1,
-    type: "Premium",
-  },
-  {
-    id: 3,
-    name: "Shared Room",
-    description:
-      "Share a comfortable room with one other retreat participant, fostering connection and community",
-    price: 200,
-    image: "product2.jpg",
-    quantity: 1,
-    type: "Standard",
-  },
-  {
-    id: 4,
-    name: "Barn Bed",
-    description:
-      "Experience our rustic barn accommodation, a unique and cozy shared space perfect for the adventurous spirit",
-    price: 50,
-    image: "product3.jpg",
-    quantity: 1,
-    type: "Basic",
-  },
-];
-
 export default function Lodging() {
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchLodgingOptions();
+  }, []);
+
+  const fetchLodgingOptions = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch("/api/lodging-options");
+      const result = await response.json();
+
+      if (result.success) {
+        // Convert the data format to match the existing structure
+        const formattedProducts = result.data.map((option, index) => ({
+          id: option._id,
+          name: option.name,
+          description: option.description,
+          price: option.price,
+          type: option.type,
+          image: option.image || `product${index + 1}.jpg`,
+          quantity: 1,
+        }));
+        setProducts(formattedProducts);
+      } else {
+        setError(result.message);
+      }
+    } catch (err) {
+      setError("Failed to load lodging options");
+      console.error("Error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleProductSelect = (product) => {
     setSelectedProduct(product);
@@ -165,39 +158,63 @@ export default function Lodging() {
             </p>
           </div>
 
-          <div className="space-y-6">
-            {products.map((product) => (
-              <div
-                key={product.id}
-                className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] p-6 md:p-8 transition-transform duration-200 hover:scale-[1.02]"
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                  <div className="mb-4 md:mb-0">
-                    <h2 className="font-cormorant text-2xl text-[#2c2c2c] mb-2">
-                      {product.name}
-                    </h2>
-                    <div className="inline-block bg-[#f8f3ef] px-3 py-1 rounded-full text-sm text-[#927f73] mb-3">
-                      {product.type}
+          {loading ? (
+            <div className="text-center py-12">
+              <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#b5a397]"></div>
+              <p className="mt-4 text-[#666666]">Loading lodging options...</p>
+            </div>
+          ) : error ? (
+            <div className="text-center py-12">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <p className="text-red-600 mb-4">{error}</p>
+                <button
+                  onClick={fetchLodgingOptions}
+                  className="bg-[#b5a397] text-white px-4 py-2 rounded-lg hover:bg-[#a39185] transition-colors"
+                >
+                  Try Again
+                </button>
+              </div>
+            </div>
+          ) : products.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-[#666666] text-lg">No lodging options available at this time.</p>
+              <p className="text-[#888888] text-sm mt-2">Please contact us for assistance.</p>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {products.map((product) => (
+                <div
+                  key={product.id}
+                  className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] p-6 md:p-8 transition-transform duration-200 hover:scale-[1.02]"
+                >
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div className="mb-4 md:mb-0">
+                      <h2 className="font-cormorant text-2xl text-[#2c2c2c] mb-2">
+                        {product.name}
+                      </h2>
+                      <div className="inline-block bg-[#f8f3ef] px-3 py-1 rounded-full text-sm text-[#927f73] mb-3">
+                        {product.type}
+                      </div>
+                      <p className="text-[#666666] text-base">
+                        {product.description}
+                      </p>
                     </div>
-                    <p className="text-[#666666] text-base">
-                      {product.description}
-                    </p>
-                  </div>
-                  <div className="flex flex-col items-start md:items-end space-y-3">
-                    <p className="text-2xl font-cormorant text-[#2c2c2c]">
-                      ${product.price}
-                    </p>
-                    <button
-                      onClick={() => handleProductSelect(product)}
-                      className="bg-gradient-to-r from-[#b5a397] to-[#a39185] hover:from-[#a39185] hover:to-[#927f73] text-white px-6 py-3 rounded-lg transition-all duration-200 font-cormorant text-xl tracking-wide shadow-sm w-full md:w-auto"
-                    >
-                      Select Option
-                    </button>
+                    <div className="flex flex-col items-start md:items-end space-y-3">
+                      <p className="text-2xl font-cormorant text-[#2c2c2c]">
+                        ${product.price}
+                      </p>
+                      <button
+                        onClick={() => handleProductSelect(product)}
+                        className="bg-gradient-to-r from-[#b5a397] to-[#a39185] hover:from-[#a39185] hover:to-[#927f73] text-white px-6 py-3 rounded-lg transition-all duration-200 font-cormorant text-xl tracking-wide shadow-sm w-full md:w-auto"
+                      >
+                        Select Option
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           <div className="text-center mt-8">
             <p className="text-sm text-[#666666]">

@@ -53,6 +53,20 @@ export default function AdminDashboard() {
       external: true,
     },
     {
+      title: "Checkout Pages",
+      description: "Manage retreat checkout and payment pages",
+      href: "/admin/checkout-pages",
+      icon: "💳",
+      color: "from-blue-500 to-blue-600",
+    },
+    {
+      title: "Lodging Options",
+      description: "Manage accommodation types and pricing",
+      href: "/admin/lodging-options",
+      icon: "🏠",
+      color: "from-amber-500 to-amber-600",
+    },
+    {
       title: "User Management",
       description: "View registrations and user data",
       href: "/admin/users",
