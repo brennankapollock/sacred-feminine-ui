@@ -9,7 +9,7 @@ export default async function handler(req, res) {
         description,
         price,
         type,
-        image,
+        "image": image.asset->url,
         isActive,
         displayOrder,
         _createdAt,
