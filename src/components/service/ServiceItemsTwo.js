@@ -27,12 +27,9 @@ const ServiceItemsTwo = ({ retreat }) => {
     {
       id: 3,
       name: 'Accommodations',
-      text: [
-        retreat?.accomodationsOne || '',
-        retreat?.accomodationsTwo || '',
-        retreat?.accomodationsThree || '',
-        retreat?.accomodationsFour || '',
-      ].filter(Boolean),
+      text: retreat?.accommodations 
+        ? retreat.accommodations.split('\n').filter(line => line.trim() !== '')
+        : [],
     },
     {
       id: 4,

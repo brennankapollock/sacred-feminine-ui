@@ -27,12 +27,9 @@ const ServiceItems = () => {
     {
       id: 3,
       name: 'Accommodations',
-      text: [
-        `${data[0]?.accomodationsOne}`,
-        `${data[0]?.accomodationsTwo}`,
-        `${data[0]?.accomodationsThree}`,
-        `${data[0]?.accomodationsFour}`,
-      ],
+      text: data[0]?.accommodations 
+        ? data[0].accommodations.split('\n').filter(line => line.trim() !== '')
+        : [],
     },
     {
       id: 4,
