@@ -1,110 +1,112 @@
 {
   "../node_modules/@sanity/client/dist/index.browser.js -> ./_chunks-es/stegaEncodeSourceMap.js": {
-    "id": "../node_modules/@sanity/client/dist/index.browser.js -> ./_chunks-es/stegaEncodeSourceMap.js",
+    "id": 4235,
     "files": [
-      "static/chunks/node_modules_sanity_client_dist__chunks-es_stegaEncodeSourceMap_js.js"
+      "static/chunks/235.ca5f117b18a28a47.js"
     ]
   },
   "../node_modules/@sanity/client/dist/index.browser.js -> @sanity/eventsource": {
-    "id": "../node_modules/@sanity/client/dist/index.browser.js -> @sanity/eventsource",
+    "id": 3699,
     "files": [
-      "static/chunks/node_modules_sanity_eventsource_browser_js.js"
+      "static/chunks/699.1ab40e97150fd2fa.js"
     ]
   },
   "../node_modules/react-player/lib/ReactPlayer.js -> ./Preview": {
-    "id": "../node_modules/react-player/lib/ReactPlayer.js -> ./Preview",
+    "id": 3855,
     "files": [
-      "static/chunks/reactPlayerPreview.js"
+      "static/chunks/reactPlayerPreview.de8d3145b1df7987.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./DailyMotion": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./DailyMotion",
+    "id": 6807,
     "files": [
-      "static/chunks/reactPlayerDailyMotion.js"
+      "static/chunks/reactPlayerDailyMotion.c543fab3fcf321d9.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./Facebook": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./Facebook",
+    "id": 1972,
     "files": [
-      "static/chunks/reactPlayerFacebook.js"
+      "static/chunks/reactPlayerFacebook.7bebd3022926d254.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./FilePlayer": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./FilePlayer",
+    "id": 4926,
     "files": [
-      "static/chunks/reactPlayerFilePlayer.js"
+      "static/chunks/reactPlayerFilePlayer.23cd8ea8835d9e0d.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./Kaltura": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./Kaltura",
+    "id": 3911,
     "files": [
-      "static/chunks/reactPlayerKaltura.js"
+      "static/chunks/reactPlayerKaltura.c4afee1fc973a2ce.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./Mixcloud": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./Mixcloud",
+    "id": 143,
     "files": [
-      "static/chunks/reactPlayerMixcloud.js"
+      "static/chunks/reactPlayerMixcloud.08b362f6e2530e42.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./Mux": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./Mux",
+    "id": 8376,
     "files": [
-      "static/chunks/reactPlayerMux.js"
+      "static/chunks/reactPlayerMux.4e470687bddf4058.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./SoundCloud": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./SoundCloud",
+    "id": 2780,
     "files": [
-      "static/chunks/reactPlayerSoundCloud.js"
+      "static/chunks/reactPlayerSoundCloud.d93e199793d0af62.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./Streamable": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./Streamable",
+    "id": 993,
     "files": [
-      "static/chunks/reactPlayerStreamable.js"
+      "static/chunks/reactPlayerStreamable.3f5de3299f631817.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./Twitch": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./Twitch",
+    "id": 9482,
     "files": [
-      "static/chunks/reactPlayerTwitch.js"
+      "static/chunks/reactPlayerTwitch.7bdeb07f27087aa3.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./Vidyard": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./Vidyard",
+    "id": 6596,
     "files": [
-      "static/chunks/reactPlayerVidyard.js"
+      "static/chunks/reactPlayerVidyard.509d641bb4a36378.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./Vimeo": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./Vimeo",
+    "id": 868,
     "files": [
-      "static/chunks/reactPlayerVimeo.js"
+      "static/chunks/reactPlayerVimeo.7d654b062ddd5b11.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./Wistia": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./Wistia",
+    "id": 1402,
     "files": [
-      "static/chunks/reactPlayerWistia.js"
+      "static/chunks/reactPlayerWistia.c8906457febcfc39.js"
     ]
   },
   "../node_modules/react-player/lib/players/index.js -> ./YouTube": {
-    "id": "../node_modules/react-player/lib/players/index.js -> ./YouTube",
+    "id": 356,
     "files": [
-      "static/chunks/reactPlayerYouTube.js"
+      "static/chunks/reactPlayerYouTube.475146714cbec4cd.js"
     ]
   },
   "../src/layout/Layout.js -> components/Resources": {
-    "id": "../src/layout/Layout.js -> components/Resources",
+    "id": 7175,
     "files": [
-      "static/chunks/src_components_Resources_js.js"
+      "static/chunks/391.da7f6a74e06c7268.js",
+      "static/chunks/676.7a506ef59102d41b.js"
     ]
   },
   "index.js -> components/Resources": {
-    "id": "index.js -> components/Resources",
+    "id": 7175,
     "files": [
-      "static/chunks/src_components_Resources_js.js"
+      "static/chunks/391.da7f6a74e06c7268.js",
+      "static/chunks/676.7a506ef59102d41b.js"
     ]
   }
 }

@@ -3,7 +3,14 @@ import Head from "next/head";
 import { useState } from "react";
 
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+  {
+    apiVersion: '2023-10-16',
+    stripeAccount: undefined,
+    // Disable analytics to prevent ad blocker issues
+    betas: [],
+    locale: 'auto',
+  }
 );
 
 export default function DynamicCheckout({ checkoutData }) {
@@ -42,13 +49,18 @@ export default function DynamicCheckout({ checkoutData }) {
       return;
     }
 
-    const stripe = await stripePromise;
-    const response = await fetch("/api/checkout-sessions/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    try {
+      console.log("Starting checkout process...");
+      console.log("Selected product:", selectedProduct);
+
+      const stripe = await stripePromise;
+      if (!stripe) {
+        console.error("Stripe failed to load");
+        alert("Payment system is not available. Please try again.");
+        return;
+      }
+
+      const requestBody = {
         cartItems: [
           {
             id: selectedProduct.displayOrder,
@@ -59,10 +71,50 @@ export default function DynamicCheckout({ checkoutData }) {
           },
         ],
         returnUrl: window.location.origin,
-      }),
-    });
-    const { sessionId } = await response.json();
-    await stripe.redirectToCheckout({ sessionId });
+      };
+
+      console.log("Making API request to /api/checkout-sessions/create");
+      console.log("Request body:", requestBody);
+
+      const response = await fetch("/api/checkout-sessions/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      console.log("Response status:", response.status);
+      console.log("Response headers:", response.headers);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("API Error:", response.status, errorText);
+        throw new Error(`API Error: ${response.status} - ${errorText}`);
+      }
+
+      const responseData = await response.json();
+      console.log("API Response:", responseData);
+
+      if (!responseData.sessionId) {
+        throw new Error("No session ID received from API");
+      }
+
+      console.log("Redirecting to Stripe checkout...");
+      const result = await stripe.redirectToCheckout({
+        sessionId: responseData.sessionId,
+      });
+
+      if (result.error) {
+        console.error("Stripe redirect error:", result.error);
+        alert(`Payment error: ${result.error.message}`);
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+      alert(
+        `Checkout failed: ${error.message}. Please try again or contact support.`
+      );
+    }
   };
 
   // Generate CSS custom properties for colors
