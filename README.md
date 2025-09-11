@@ -37,8 +37,7 @@ Sacred Feminine started as a series of retreats for woman-identifying people whe
   - Tailwind CSS
   - Shadcn UI Components
   - Custom animations
-  
-- **State Management**: 
+- **State Management**:
   - React Context
   - Custom hooks
 

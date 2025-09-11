@@ -65,10 +65,10 @@ export default function Checkout() {
       <Head>
         <title>Checkout | Sacred Feminine Retreat</title>
       </Head>
-      <div className="min-h-screen bg-gradient-to-b from-[#f8f3ef] to-[#f0e9e4] py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-b from-desert_sand-900 to-desert_sand-800 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-[#666666] text-lg max-w-2xl mx-auto font-light">
+            <p className="text-eerie_black-600 text-lg max-w-2xl mx-auto font-light">
               Choose your payment option for the Sacred Feminine Retreat
             </p>
           </div>
@@ -78,24 +78,24 @@ export default function Checkout() {
               {products.map((product) => (
                 <div
                   key={product.id}
-                  className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] p-6 md:p-8 transition-transform duration-200 hover:scale-[1.02]"
+                  className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-desert_sand-300 p-6 md:p-8 transition-transform duration-200 hover:scale-[1.02]"
                 >
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                     <div className="mb-4 md:mb-0">
-                      <h2 className="font-cormorant text-2xl text-[#2c2c2c] mb-2">
+                      <h2 className="font-bagnard text-2xl text-eerie_black mb-2">
                         {product.name}
                       </h2>
-                      <div className="inline-block bg-[#f8f3ef] px-3 py-1 rounded-full text-sm text-[#927f73] mb-3">
+                      <div className="inline-block bg-desert_sand-900 px-3 py-1 rounded-full text-sm text-dark_goldenrod-400 border border-desert_sand-300 mb-3">
                         {product.type}
                       </div>
                     </div>
                     <div className="flex flex-col items-start md:items-end space-y-3">
-                      <p className="text-2xl font-cormorant text-[#2c2c2c]">
+                      <p className="text-2xl font-bagnard text-eerie_black">
                         ${product.price}
                       </p>
                       <button
                         onClick={() => handleProductSelect(product)}
-                        className="bg-gradient-to-r from-[#b5a397] to-[#a39185] hover:from-[#a39185] hover:to-[#927f73] text-white px-6 py-3 rounded-lg transition-all duration-200 font-cormorant text-xl tracking-wide shadow-sm w-full md:w-auto"
+                        className="bg-gradient-to-r from-dark_goldenrod to-dark_goldenrod-600 hover:from-dark_goldenrod-600 hover:to-dark_goldenrod-700 text-white px-6 py-3 rounded-lg transition-all duration-200 font-bagnard text-xl tracking-wide shadow-sm w-full md:w-auto"
                       >
                         Select Option
                       </button>
@@ -105,21 +105,21 @@ export default function Checkout() {
               ))}
             </div>
           ) : (
-            <div className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] p-8 md:p-10">
-              <h3 className="font-cormorant text-2xl text-[#2c2c2c] mb-6">
+            <div className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-desert_sand-300 p-8 md:p-10">
+              <h3 className="font-bagnard text-2xl text-eerie_black mb-6">
                 Order Summary
               </h3>
-              <div className="border-t border-b border-[#e5e5e5] py-6 mb-6">
+              <div className="border-t border-b border-desert_sand-300 py-6 mb-6">
                 <div className="flex justify-between items-center mb-4">
                   <div>
-                    <h4 className="font-cormorant text-xl text-[#2c2c2c] mb-1">
+                    <h4 className="font-bagnard text-xl text-eerie_black mb-1">
                       {selectedProduct.name}
                     </h4>
-                    <div className="inline-block bg-[#f8f3ef] px-3 py-1 rounded-full text-sm text-[#927f73]">
+                    <div className="inline-block bg-desert_sand-900 px-3 py-1 rounded-full text-sm text-dark_goldenrod-400 border border-desert_sand-300">
                       {selectedProduct.type}
                     </div>
                   </div>
-                  <p className="text-2xl font-cormorant text-[#2c2c2c]">
+                  <p className="text-2xl font-bagnard text-eerie_black">
                     ${selectedProduct.price}
                   </p>
                 </div>
@@ -128,13 +128,13 @@ export default function Checkout() {
               <div className="flex flex-col sm:flex-row justify-between gap-4">
                 <button
                   onClick={() => handleProductSelect(null)}
-                  className="px-6 py-3 border-2 border-[#b5a397] text-[#b5a397] rounded-lg hover:bg-[#f8f3ef] transition-colors duration-200 font-cormorant text-xl"
+                  className="px-6 py-3 border-2 border-dark_goldenrod text-dark_goldenrod rounded-lg hover:bg-desert_sand-900 transition-colors duration-200 font-bagnard text-xl"
                 >
                   Change Selection
                 </button>
                 <button
                   onClick={handleCheckout}
-                  className="bg-gradient-to-r from-[#b5a397] to-[#a39185] hover:from-[#a39185] hover:to-[#927f73] text-white px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02] font-cormorant text-xl tracking-wide shadow-sm"
+                  className="bg-gradient-to-r from-dark_goldenrod to-dark_goldenrod-600 hover:from-dark_goldenrod-600 hover:to-dark_goldenrod-700 text-white px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02] font-bagnard text-xl tracking-wide shadow-sm"
                 >
                   Proceed to Payment
                 </button>
@@ -143,11 +143,11 @@ export default function Checkout() {
           )}
 
           <div className="text-center mt-8">
-            <p className="text-sm text-[#666666]">
+            <p className="text-sm text-eerie_black-600">
               Need assistance? Contact{" "}
               <a
                 href="mailto:team@sacredfeminine.co"
-                className="text-[#b5a397] hover:text-[#927f73] underline"
+                className="text-[#b5a397] hover:text-dark_goldenrod-400 underline"
               >
                 team@sacredfeminine.co
               </a>

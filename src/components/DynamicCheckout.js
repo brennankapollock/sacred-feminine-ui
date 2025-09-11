@@ -162,7 +162,7 @@ export default function DynamicCheckout({ checkoutData }) {
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                     <div className="mb-4 md:mb-0">
                       <h2
-                        className="font-cormorant text-2xl mb-2"
+                        className="font-bagnard text-2xl mb-2"
                         style={{ color: "var(--text-color)" }}
                       >
                         {product.name}
@@ -180,14 +180,14 @@ export default function DynamicCheckout({ checkoutData }) {
                     </div>
                     <div className="flex flex-col items-start md:items-end space-y-3">
                       <p
-                        className="text-2xl font-cormorant"
+                        className="text-2xl font-bagnard"
                         style={{ color: "var(--text-color)" }}
                       >
                         ${product.price}
                       </p>
                       <button
                         onClick={() => handleProductSelect(product)}
-                        className="px-6 py-3 rounded-lg transition-all duration-200 font-cormorant text-xl tracking-wide shadow-sm w-full md:w-auto text-white"
+                        className="px-6 py-3 rounded-lg transition-all duration-200 font-bagnard text-xl tracking-wide shadow-sm w-full md:w-auto text-white"
                         style={{
                           background: `linear-gradient(to right, var(--primary-color), var(--secondary-color))`,
                         }}
@@ -208,7 +208,7 @@ export default function DynamicCheckout({ checkoutData }) {
           ) : (
             <div className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] p-8 md:p-10 border border-gray-200">
               <h3
-                className="font-cormorant text-2xl mb-6"
+                className="font-bagnard text-2xl mb-6"
                 style={{ color: "var(--text-color)" }}
               >
                 Order Summary
@@ -217,7 +217,7 @@ export default function DynamicCheckout({ checkoutData }) {
                 <div className="flex justify-between items-center mb-4">
                   <div>
                     <h4
-                      className="font-cormorant text-xl mb-1"
+                      className="font-bagnard text-xl mb-1"
                       style={{ color: "var(--text-color)" }}
                     >
                       {selectedProduct.name}
@@ -234,7 +234,7 @@ export default function DynamicCheckout({ checkoutData }) {
                     )}
                   </div>
                   <p
-                    className="text-2xl font-cormorant"
+                    className="text-2xl font-bagnard"
                     style={{ color: "var(--text-color)" }}
                   >
                     ${selectedProduct.price}
@@ -245,7 +245,7 @@ export default function DynamicCheckout({ checkoutData }) {
               <div className="flex flex-col sm:flex-row justify-between gap-4">
                 <button
                   onClick={() => handleProductSelect(null)}
-                  className="px-6 py-3 border-2 rounded-lg transition-colors duration-200 font-cormorant text-xl"
+                  className="px-6 py-3 border-2 rounded-lg transition-colors duration-200 font-bagnard text-xl"
                   style={{
                     borderColor: "var(--primary-color)",
                     color: "var(--primary-color)",
@@ -261,7 +261,7 @@ export default function DynamicCheckout({ checkoutData }) {
                 </button>
                 <button
                   onClick={handleCheckout}
-                  className="px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02] font-cormorant text-xl tracking-wide shadow-sm text-white"
+                  className="px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02] font-bagnard text-xl tracking-wide shadow-sm text-white"
                   style={{
                     background: `linear-gradient(to right, var(--primary-color), var(--secondary-color))`,
                   }}
