@@ -50,6 +50,11 @@ Sacred Feminine started as a series of retreats for woman-identifying people whe
   - Multiple payment tiers
   - Secure checkout
 
+- **Secret Management**:
+  - Doppler integration
+  - Automatic Stripe API key rotation
+  - Secure environment variable management
+
 - **Email & Newsletter**:
   - EmailJS
   - Mailchimp integration

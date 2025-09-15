@@ -1,9 +1,21 @@
 import { loadStripe } from '@stripe/stripe-js';
 import { useState } from 'react';
+import { getStripePublishableKey } from '../../lib/config';
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-);
+let stripePromise = null;
+
+async function getStripe() {
+  if (!stripePromise) {
+    try {
+      const publishableKey = await getStripePublishableKey();
+      stripePromise = loadStripe(publishableKey);
+    } catch (error) {
+      console.error('Failed to initialize Stripe:', error);
+      throw error;
+    }
+  }
+  return stripePromise;
+}
 
 const products = [
   {
@@ -27,7 +39,7 @@ export default function Event() {
       alert('Please select a product to proceed.');
       return;
     }
-    const stripe = await stripePromise;
+    const stripe = await getStripe();
     const response = await fetch('/api/checkout-sessions/create', {
       method: 'POST',
       headers: {

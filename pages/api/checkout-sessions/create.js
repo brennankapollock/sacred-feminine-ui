@@ -1,14 +1,27 @@
 require("dotenv").config();
 import Stripe from "stripe";
+import { getSecret } from "../../../lib/secrets";
 
-// Check if Stripe key is available
-if (!process.env.STRIPE_SECRET_KEY) {
-  console.error("STRIPE_SECRET_KEY is not set in environment variables");
+// Initialize Stripe with Doppler secret
+let stripe;
+
+async function initializeStripe() {
+  if (!stripe) {
+    try {
+      const stripeSecretKey = await getSecret('STRIPE_SECRET_KEY');
+      if (!stripeSecretKey) {
+        throw new Error("STRIPE_SECRET_KEY not found in Doppler");
+      }
+      stripe = new Stripe(stripeSecretKey, {
+        apiVersion: "2023-10-16",
+      });
+    } catch (error) {
+      console.error("Failed to initialize Stripe:", error.message);
+      throw error;
+    }
+  }
+  return stripe;
 }
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: "2023-10-16",
-});
 
 export default async function handler(req, res) {
   console.log("API Route called with method:", req.method);
@@ -21,6 +34,9 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Initialize Stripe with Doppler secret
+    const stripeClient = await initializeStripe();
+    
     const { cartItems, returnUrl } = req.body;
 
     console.log("Received cart items:", cartItems);
@@ -47,7 +63,7 @@ export default async function handler(req, res) {
 
     console.log("Creating Stripe session with line items:", line_items);
 
-    const session = await stripe.checkout.sessions.create({
+    const session = await stripeClient.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items,
       mode: "payment",

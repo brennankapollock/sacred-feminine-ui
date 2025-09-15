@@ -4,11 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:doppler": "doppler run -- next dev",
     "build": "next build",
+    "build:doppler": "doppler run -- next build",
     "start": "next start",
+    "start:doppler": "doppler run -- next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@dopplerhq/node-sdk": "^1.3.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@heroicons/react": "^2.2.0",

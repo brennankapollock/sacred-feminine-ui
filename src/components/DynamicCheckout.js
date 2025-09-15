@@ -1,17 +1,28 @@
 import { loadStripe } from "@stripe/stripe-js";
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getStripePublishableKey } from "../../lib/config";
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
-  {
-    apiVersion: '2023-10-16',
-    stripeAccount: undefined,
-    // Disable analytics to prevent ad blocker issues
-    betas: [],
-    locale: 'auto',
+let stripePromise = null;
+
+async function getStripe() {
+  if (!stripePromise) {
+    try {
+      const publishableKey = await getStripePublishableKey();
+      stripePromise = loadStripe(publishableKey, {
+        apiVersion: '2023-10-16',
+        stripeAccount: undefined,
+        // Disable analytics to prevent ad blocker issues
+        betas: [],
+        locale: 'auto',
+      });
+    } catch (error) {
+      console.error('Failed to initialize Stripe:', error);
+      throw error;
+    }
   }
-);
+  return stripePromise;
+}
 
 export default function DynamicCheckout({ checkoutData }) {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -53,7 +64,7 @@ export default function DynamicCheckout({ checkoutData }) {
       console.log("Starting checkout process...");
       console.log("Selected product:", selectedProduct);
 
-      const stripe = await stripePromise;
+      const stripe = await getStripe();
       if (!stripe) {
         console.error("Stripe failed to load");
         alert("Payment system is not available. Please try again.");
