@@ -8,20 +8,16 @@ const ServiceItemsTwo = ({ retreat }) => {
     {
       id: 1,
       name: 'Details',
-      text: [
-        retreat?.detailsOne || '',
-        retreat?.detailsTwo || '',
-        retreat?.detailsThree || '',
-      ].filter(Boolean),
+      text: retreat?.details
+        ? retreat.details.split('\n').filter(line => line.trim() !== '')
+        : [],
     },
     {
       id: 2,
       name: 'Retreat Prep',
-      text: [
-        retreat?.prepOne || '',
-        retreat?.prepTwo || '',
-        retreat?.prepThree || '',
-      ].filter(Boolean),
+      text: retreat?.prep
+        ? retreat.prep.split('\n').filter(line => line.trim() !== '')
+        : [],
       image: 'assets/img/news/4.jpg',
     },
     {
@@ -34,20 +30,16 @@ const ServiceItemsTwo = ({ retreat }) => {
     {
       id: 4,
       name: 'Cost',
-      text: [
-        retreat?.costOne || '',
-        retreat?.costTwo || '',
-        retreat?.costThree || '',
-        retreat?.costFour || '',
-      ].filter(Boolean),
+      text: retreat?.cost
+        ? retreat.cost.split('\n').filter(line => line.trim() !== '')
+        : [],
     },
     {
       id: 5,
       name: 'Cancellation Policy',
-      text: [
-        retreat?.cancellationOne || '',
-        retreat?.cancellationTwo || '',
-      ].filter(Boolean),
+      text: retreat?.cancellation
+        ? retreat.cancellation.split('\n').filter(line => line.trim() !== '')
+        : [],
     },
     {
       id: 6,

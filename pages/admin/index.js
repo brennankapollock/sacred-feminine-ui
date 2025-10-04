@@ -60,6 +60,13 @@ export default function AdminDashboard() {
       color: "from-blue-500 to-blue-600",
     },
     {
+      title: "Retreat Management",
+      description: "Manage retreats with integrated lodging & checkout",
+      href: "/admin/retreats",
+      icon: "🧘‍♀️",
+      color: "from-teal-500 to-teal-600",
+    },
+    {
       title: "Lodging Options",
       description: "Manage accommodation types and pricing",
       href: "/admin/lodging-options",

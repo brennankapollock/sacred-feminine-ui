@@ -1,12 +1,21 @@
 import { client } from "@/src/sanity";
 import DynamicCheckoutPage from "@/src/components/DynamicCheckoutPage";
-import { GetStaticPaths, GetStaticProps } from "next";
+
+const hasSanityConfig = Boolean(
+  (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || process.env.SANITY_PROJECT_ID) &&
+  (process.env.NEXT_PUBLIC_SANITY_DATASET || process.env.SANITY_DATASET)
+);
 
 export default function CheckoutPage({ checkoutData }) {
   return <DynamicCheckoutPage checkoutData={checkoutData} />;
 }
 
 export const getStaticPaths = async () => {
+  // If Sanity is not configured in this environment, skip pre-generating paths
+  if (!hasSanityConfig) {
+    return { paths: [], fallback: "blocking" };
+  }
+
   const query = `*[_type == "checkoutPage" && isActive == true]{
     "slug": slug.current
   }`;
@@ -24,6 +33,10 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
+  if (!hasSanityConfig) {
+    return { notFound: true, revalidate: 60 };
+  }
+
   const query = `*[_type == "checkoutPage" && slug.current == $slug][0]{
     title,
     "slug": slug.current,
@@ -51,6 +64,7 @@ export const getStaticProps = async ({ params }) => {
   if (!checkoutData || !checkoutData.isActive) {
     return {
       notFound: true,
+      revalidate: 60,
     };
   }
 

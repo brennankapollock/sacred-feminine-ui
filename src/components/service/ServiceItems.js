@@ -8,20 +8,16 @@ const ServiceItems = () => {
     {
       id: 1,
       name: 'Details',
-      text: [
-        `${data[0]?.detailsOne}`,
-        `${data[0]?.detailsTwo}`,
-        `${data[0]?.detailsThree}`,
-      ],
+      text: data[0]?.details
+        ? data[0].details.split('\n').filter(line => line.trim() !== '')
+        : [],
     },
     {
       id: 2,
       name: 'Retreat Prep',
-      text: [
-        `${data[0]?.prepOne}`,
-        `${data[0]?.prepTwo}`,
-        `${data[0]?.prepThree}`,
-      ],
+      text: data[0]?.prep
+        ? data[0].prep.split('\n').filter(line => line.trim() !== '')
+        : [],
       image: 'assets/img/news/4.jpg',
     },
     {
@@ -34,17 +30,16 @@ const ServiceItems = () => {
     {
       id: 4,
       name: 'Cost',
-      text: [
-        `${data[0]?.costOne || ''}`,
-        `${data[0]?.costTwo || ''}`,
-        `${data[0]?.costThree || ''}`,
-        `${data[0]?.costFour || ''}`,
-      ],
+      text: data[0]?.cost
+        ? data[0].cost.split('\n').filter(line => line.trim() !== '')
+        : [],
     },
     {
       id: 5,
       name: 'Cancellation Policy',
-      text: [`${data[0]?.cancellationOne}`, `${data[0]?.cancellationTwo}`],
+      text: data[0]?.cancellation
+        ? data[0].cancellation.split('\n').filter(line => line.trim() !== '')
+        : [],
     },
     {
       id: 6,

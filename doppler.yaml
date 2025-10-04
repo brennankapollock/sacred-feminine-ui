@@ -1,0 +1,3 @@
+setup:
+  project: sacred-feminine
+  config: dev

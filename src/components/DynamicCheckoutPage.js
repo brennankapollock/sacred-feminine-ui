@@ -51,11 +51,11 @@ const DynamicCheckoutPage = ({ checkoutData }) => {
   // Generate CSS custom properties for colors
   const cssVars = colorScheme
     ? {
-        "--primary-color": colorScheme.primary?.hex || "#4a5568",
-        "--secondary-color": colorScheme.secondary?.hex || "#2d3748",
-        "--text-color": colorScheme.text?.hex || "#2d3748",
-        "--bg-from": colorScheme.background?.from?.hex || "#f0f2f5",
-        "--bg-to": colorScheme.background?.to?.hex || "#e8ebf0",
+        "--primary-color": colorScheme.primary?.hex || "#A98747",
+        "--secondary-color": colorScheme.secondary?.hex || "#876c39",
+        "--text-color": colorScheme.text?.hex || "#1A1A1A",
+        "--bg-from": colorScheme.background?.from?.hex || "#faf1eb",
+        "--bg-to": colorScheme.background?.to?.hex || "#f4e2d7",
       }
     : {};
 
@@ -74,7 +74,7 @@ const DynamicCheckoutPage = ({ checkoutData }) => {
         <div className="w-full max-w-lg">
           <div className="text-center mb-12">
             <h1
-              className="font-cormorant text-4xl md:text-5xl mb-4"
+              className="font-bagnard text-4xl md:text-5xl mb-4"
               style={{ color: "var(--text-color)" }}
             >
               {accessTitle}
@@ -127,7 +127,7 @@ const DynamicCheckoutPage = ({ checkoutData }) => {
 
               <button
                 type="submit"
-                className="w-full py-4 px-6 rounded-lg transition-all duration-200 transform hover:scale-[1.02] font-cormorant text-xl tracking-wide shadow-sm text-white"
+                className="w-full py-4 px-6 rounded-lg transition-all duration-200 transform hover:scale-[1.02] font-bagnard text-xl tracking-wide shadow-sm text-white"
                 style={{
                   background: `linear-gradient(to right, var(--primary-color), var(--secondary-color))`,
                 }}
