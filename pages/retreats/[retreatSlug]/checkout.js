@@ -1,12 +1,20 @@
 import { client } from "@/src/sanity";
 import RetreatCheckout from "@/src/components/RetreatCheckout";
-import { GetStaticPaths, GetStaticProps } from "next";
+
+const hasSanityConfig = Boolean(
+  (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || process.env.SANITY_PROJECT_ID) &&
+  (process.env.NEXT_PUBLIC_SANITY_DATASET || process.env.SANITY_DATASET)
+);
 
 export default function RetreatCheckoutPage({ retreatData }) {
   return <RetreatCheckout retreatData={retreatData} />;
 }
 
 export const getStaticPaths = async () => {
+  if (!hasSanityConfig) {
+    return { paths: [], fallback: "blocking" };
+  }
+
   const query = `*[_type == "retreat" && isLodgingCheckoutActive == true]{
     "slug": slug.current
   }`;
@@ -24,6 +32,10 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
+  if (!hasSanityConfig) {
+    return { notFound: true, revalidate: 60 };
+  }
+
   const query = `*[_type == "retreat" && slug.current == $slug && isLodgingCheckoutActive == true][0]{
     name,
     "slug": slug.current,
@@ -62,6 +74,7 @@ export const getStaticProps = async ({ params }) => {
   if (!retreatData) {
     return {
       notFound: true,
+      revalidate: 60,
     };
   }
 
