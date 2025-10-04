@@ -1,6 +1,6 @@
 # Sacred Feminine
 
-A modern web application built with Next.js, focusing on retreats, resources, and community engagement for Sacred Feminine - created in 2018 by Lisa Gungor and Dr. Hillary McBride.
+A modern web application built with Next.js, focusing on retreats, resources, and community engagement for Sacred Feminine - created in 2018 by Lisa Gungor and Dr. Hillary McBride. This site is created by brennan k.a. pollock
 
 ## 🌟 Overview
 
