@@ -1,64 +1,73 @@
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 (() => {
 var exports = {};
-exports.id = "pages/_app";
-exports.ids = ["pages/_app"];
+exports.id = 888;
+exports.ids = [888];
 exports.modules = {
 
-/***/ "./pages/_app.js":
-/*!***********************!*\
-  !*** ./pages/_app.js ***!
-  \***********************/
+/***/ 6004:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _src_Context_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/src/Context.js */ \"./src/Context.js\");\n/* harmony import */ var _styles_globals_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/styles/globals.css */ \"./styles/globals.css\");\n/* harmony import */ var _styles_globals_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_styles_globals_css__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _vercel_analytics_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vercel/analytics/react */ \"@vercel/analytics/react\");\n/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-hot-toast */ \"react-hot-toast\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ \"next/router\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _src_contexts_AdminAuthContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/contexts/AdminAuthContext */ \"./src/contexts/AdminAuthContext.js\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_vercel_analytics_react__WEBPACK_IMPORTED_MODULE_3__, react_hot_toast__WEBPACK_IMPORTED_MODULE_4__]);\n([_vercel_analytics_react__WEBPACK_IMPORTED_MODULE_3__, react_hot_toast__WEBPACK_IMPORTED_MODULE_4__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);\n\n\n\n\n\n\n\nfunction App({ Component , pageProps  }) {\n    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_5__.useRouter)();\n    const isAdminRoute = router.pathname.startsWith(\"/admin\");\n    if (isAdminRoute) {\n        return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_src_contexts_AdminAuthContext__WEBPACK_IMPORTED_MODULE_6__.AdminAuthProvider, {\n            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(Component, {\n                ...pageProps\n            }, void 0, false, {\n                fileName: \"/Users/brennanpollock/Projects/clients/sacred-feminine/sacred-feminine-ui/pages/_app.js\",\n                lineNumber: 15,\n                columnNumber: 9\n            }, this)\n        }, void 0, false, {\n            fileName: \"/Users/brennanpollock/Projects/clients/sacred-feminine/sacred-feminine-ui/pages/_app.js\",\n            lineNumber: 14,\n            columnNumber: 7\n        }, this);\n    }\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_src_Context_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(Component, {\n                ...pageProps\n            }, void 0, false, {\n                fileName: \"/Users/brennanpollock/Projects/clients/sacred-feminine/sacred-feminine-ui/pages/_app.js\",\n                lineNumber: 22,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_vercel_analytics_react__WEBPACK_IMPORTED_MODULE_3__.Analytics, {}, void 0, false, {\n                fileName: \"/Users/brennanpollock/Projects/clients/sacred-feminine/sacred-feminine-ui/pages/_app.js\",\n                lineNumber: 23,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_hot_toast__WEBPACK_IMPORTED_MODULE_4__.Toaster, {\n                position: \"bottom-center\"\n            }, void 0, false, {\n                fileName: \"/Users/brennanpollock/Projects/clients/sacred-feminine/sacred-feminine-ui/pages/_app.js\",\n                lineNumber: 24,\n                columnNumber: 7\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"/Users/brennanpollock/Projects/clients/sacred-feminine/sacred-feminine-ui/pages/_app.js\",\n        lineNumber: 21,\n        columnNumber: 5\n    }, this);\n}\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9fYXBwLmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUEwQztBQUNaO0FBQ3NCO0FBQ1Y7QUFDRjtBQUM2QjtBQUV0RCxTQUFTSyxJQUFJLEVBQUVDLFVBQVMsRUFBRUMsVUFBUyxFQUFFLEVBQUU7SUFDcEQsTUFBTUMsU0FBU0wsc0RBQVNBO0lBQ3hCLE1BQU1NLGVBQWVELE9BQU9FLFFBQVEsQ0FBQ0MsVUFBVSxDQUFDO0lBRWhELElBQUlGLGNBQWM7UUFDaEIscUJBQ0UsOERBQUNMLDZFQUFpQkE7c0JBQ2hCLDRFQUFDRTtnQkFBVyxHQUFHQyxTQUFTOzs7Ozs7Ozs7OztJQUc5QixDQUFDO0lBRUQscUJBQ0UsOERBQUNQLHVEQUFVQTs7MEJBQ1QsOERBQUNNO2dCQUFXLEdBQUdDLFNBQVM7Ozs7OzswQkFDeEIsOERBQUNOLDhEQUFTQTs7Ozs7MEJBQ1YsOERBQUNDLG9EQUFPQTtnQkFBQ1UsVUFBUzs7Ozs7Ozs7Ozs7O0FBR3hCLENBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zYWNyZWQtZmVtaW5pbmUtdWkvLi9wYWdlcy9fYXBwLmpzP2UwYWQiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFRva3lvU3RhdGUgZnJvbSBcIkAvc3JjL0NvbnRleHQuanNcIjtcbmltcG9ydCBcIkAvc3R5bGVzL2dsb2JhbHMuY3NzXCI7XG5pbXBvcnQgeyBBbmFseXRpY3MgfSBmcm9tIFwiQHZlcmNlbC9hbmFseXRpY3MvcmVhY3RcIjtcbmltcG9ydCB7IFRvYXN0ZXIgfSBmcm9tIFwicmVhY3QtaG90LXRvYXN0XCI7XG5pbXBvcnQgeyB1c2VSb3V0ZXIgfSBmcm9tIFwibmV4dC9yb3V0ZXJcIjtcbmltcG9ydCB7IEFkbWluQXV0aFByb3ZpZGVyIH0gZnJvbSBcIi4uL3NyYy9jb250ZXh0cy9BZG1pbkF1dGhDb250ZXh0XCI7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIEFwcCh7IENvbXBvbmVudCwgcGFnZVByb3BzIH0pIHtcbiAgY29uc3Qgcm91dGVyID0gdXNlUm91dGVyKCk7XG4gIGNvbnN0IGlzQWRtaW5Sb3V0ZSA9IHJvdXRlci5wYXRobmFtZS5zdGFydHNXaXRoKFwiL2FkbWluXCIpO1xuXG4gIGlmIChpc0FkbWluUm91dGUpIHtcbiAgICByZXR1cm4gKFxuICAgICAgPEFkbWluQXV0aFByb3ZpZGVyPlxuICAgICAgICA8Q29tcG9uZW50IHsuLi5wYWdlUHJvcHN9IC8+XG4gICAgICA8L0FkbWluQXV0aFByb3ZpZGVyPlxuICAgICk7XG4gIH1cblxuICByZXR1cm4gKFxuICAgIDxUb2t5b1N0YXRlPlxuICAgICAgPENvbXBvbmVudCB7Li4ucGFnZVByb3BzfSAvPlxuICAgICAgPEFuYWx5dGljcyAvPlxuICAgICAgPFRvYXN0ZXIgcG9zaXRpb249XCJib3R0b20tY2VudGVyXCIgLz5cbiAgICA8L1Rva3lvU3RhdGU+XG4gICk7XG59XG4iXSwibmFtZXMiOlsiVG9reW9TdGF0ZSIsIkFuYWx5dGljcyIsIlRvYXN0ZXIiLCJ1c2VSb3V0ZXIiLCJBZG1pbkF1dGhQcm92aWRlciIsIkFwcCIsIkNvbXBvbmVudCIsInBhZ2VQcm9wcyIsInJvdXRlciIsImlzQWRtaW5Sb3V0ZSIsInBhdGhuYW1lIiwic3RhcnRzV2l0aCIsInBvc2l0aW9uIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/_app.js\n");
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ App)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _src_Context_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5744);
+/* harmony import */ var _styles_globals_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6764);
+/* harmony import */ var _styles_globals_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_styles_globals_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _vercel_analytics_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9752);
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6201);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1853);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _src_contexts_AdminAuthContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2590);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_vercel_analytics_react__WEBPACK_IMPORTED_MODULE_3__, react_hot_toast__WEBPACK_IMPORTED_MODULE_4__]);
+([_vercel_analytics_react__WEBPACK_IMPORTED_MODULE_3__, react_hot_toast__WEBPACK_IMPORTED_MODULE_4__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
+
+
+
+
+
+
+function App({ Component , pageProps  }) {
+    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_5__.useRouter)();
+    const isAdminRoute = router.pathname.startsWith("/admin");
+    if (isAdminRoute) {
+        return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_contexts_AdminAuthContext__WEBPACK_IMPORTED_MODULE_6__/* .AdminAuthProvider */ .W, {
+            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
+                ...pageProps
+            })
+        });
+    }
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_src_Context_js__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
+        children: [
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
+                ...pageProps
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_vercel_analytics_react__WEBPACK_IMPORTED_MODULE_3__.Analytics, {}),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_hot_toast__WEBPACK_IMPORTED_MODULE_4__.Toaster, {
+                position: "bottom-center"
+            })
+        ]
+    });
+}
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
 
 /***/ }),
 
-/***/ "./src/Context.js":
-/*!************************!*\
-  !*** ./src/Context.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"TokyoContext\": () => (/* binding */ TokyoContext),\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n\n\n// Create Context\nconst TokyoContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)();\n// Type\nconst type = {\n    NAV: \"NAV\",\n    ANIMATION: \"ANIMATION\",\n    MODAL: \"MODAL\",\n    SERVICEMODAL: \"SERVICEMODAL\",\n    NEWSMODAL: \"NEWSMODAL\",\n    PORTFOLIODETAILSMODAL: \"PORTFOLIODETAILSMODAL\",\n    SIGNUPMODAL: \"SIGNUPMODAL\"\n};\nconst { NAV , ANIMATION , MODAL , SERVICEMODAL , NEWSMODAL , PORTFOLIODETAILSMODAL , SIGNUPMODAL  } = type;\n// Initial Value\nconst initialState = {\n    nav: \"home\",\n    animation: \"fadeInLeft\",\n    modal: false,\n    serviceModal: null,\n    newsModal: null,\n    portfolioDetailsModal: null,\n    signUpModal: false,\n    menus: [\n        {\n            id: 1,\n            name: \"home\",\n            href: \"home\"\n        },\n        {\n            id: 2,\n            name: \"about\",\n            href: \"about\"\n        },\n        {\n            id: 3,\n            name: \"retreats\",\n            href: \"retreats\"\n        },\n        {\n            id: 4,\n            name: \"events\",\n            href: \"events\"\n        },\n        {\n            id: 5,\n            name: \"resources\",\n            href: \"resources\"\n        },\n        {\n            id: 6,\n            name: \"contact\",\n            href: \"contact\"\n        }\n    ]\n};\n// Reducer\nconst reducer = (state, action)=>{\n    const { type , payload  } = action;\n    switch(type){\n        case NAV:\n            return {\n                ...state,\n                nav: payload,\n                animation: \"fadeInLeft\"\n            };\n        case ANIMATION:\n            return {\n                ...state,\n                animation: payload\n            };\n        case SIGNUPMODAL:\n            return {\n                ...state,\n                signUpModal: payload\n            };\n        case MODAL:\n            return {\n                ...state,\n                modal: payload\n            };\n        case SERVICEMODAL:\n            return {\n                ...state,\n                serviceModal: payload\n            };\n        case NEWSMODAL:\n            return {\n                ...state,\n                newsModal: payload\n            };\n        case PORTFOLIODETAILSMODAL:\n            return {\n                ...state,\n                portfolioDetailsModal: payload\n            };\n        default:\n            return state;\n    }\n};\n// Watson State\nconst TokyoState = ({ children  })=>{\n    const [state, dispatch] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useReducer)(reducer, initialState);\n    const navChange = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)((value)=>{\n        dispatch({\n            type: NAV,\n            payload: value\n        });\n    }, []);\n    const animationChnage = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)((value)=>{\n        dispatch({\n            type: ANIMATION,\n            payload: value\n        });\n    }, []);\n    const modalToggle = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)((value)=>{\n        dispatch({\n            type: MODAL,\n            payload: value\n        });\n    }, []);\n    const setSignUpModal = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)((value)=>{\n        dispatch({\n            type: SIGNUPMODAL,\n            payload: value\n        });\n    }, []);\n    const setServiceModal = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)((value)=>{\n        dispatch({\n            type: SERVICEMODAL,\n            payload: value\n        });\n    }, []);\n    const setNewsModal = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)((value)=>{\n        dispatch({\n            type: NEWSMODAL,\n            payload: value\n        });\n    }, []);\n    const setPortfolioDetailsModal = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)((value)=>{\n        dispatch({\n            type: PORTFOLIODETAILSMODAL,\n            payload: value\n        });\n    }, []);\n    const { nav , animation , modal , serviceModal , newsModal , portfolioDetailsModal , menus , signUpModal  } = state;\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(TokyoContext.Provider, {\n        value: {\n            menus,\n            nav,\n            navChange,\n            animation,\n            animationChnage,\n            modal,\n            modalToggle,\n            serviceModal,\n            setServiceModal,\n            newsModal,\n            setNewsModal,\n            portfolioDetailsModal,\n            setPortfolioDetailsModal,\n            signUpModal,\n            setSignUpModal\n        },\n        children: children\n    }, void 0, false, {\n        fileName: \"/Users/brennanpollock/Projects/clients/sacred-feminine/sacred-feminine-ui/src/Context.js\",\n        lineNumber: 152,\n        columnNumber: 5\n    }, undefined);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TokyoState);\n\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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QUU7SUFFTCxNQUFNSSxrQkFBa0JuQyxrREFBV0EsQ0FBQyxDQUFDK0IsUUFBVTtRQUM3Q0YsU0FBUztZQUNQMUIsTUFBTUk7WUFDTm1CLFNBQVNLO1FBQ1g7SUFDRixHQUFHLEVBQUU7SUFDTCxNQUFNSyxlQUFlcEMsa0RBQVdBLENBQUMsQ0FBQytCLFFBQVU7UUFDMUNGLFNBQVM7WUFDUDFCLE1BQU1LO1lBQ05rQixTQUFTSztRQUNYO0lBQ0YsR0FBRyxFQUFFO0lBQ0wsTUFBTU0sMkJBQTJCckMsa0RBQVdBLENBQUMsQ0FBQytCLFFBQVU7UUFDdERGLFNBQVM7WUFDUDFCLE1BQU1NO1lBQ05pQixTQUFTSztRQUNYO0lBQ0YsR0FBRyxFQUFFO0lBRUwsTUFBTSxFQUNKbkIsSUFBRyxFQUNIQyxVQUFTLEVBQ1RDLE1BQUssRUFDTEMsYUFBWSxFQUNaQyxVQUFTLEVBQ1RDLHNCQUFxQixFQUNyQkUsTUFBSyxFQUNMRCxZQUFXLEVBQ1osR0FBR007SUFDSixxQkFDRSw4REFBQ3RCLGFBQWFvQyxRQUFRO1FBQ3BCUCxPQUFPO1lBQ0xaO1lBQ0FQO1lBQ0FrQjtZQUNBakI7WUFDQW1CO1lBQ0FsQjtZQUNBbUI7WUFDQWxCO1lBQ0FvQjtZQUNBbkI7WUFDQW9CO1lBQ0FuQjtZQUNBb0I7WUFDQW5CO1lBQ0FnQjtRQUNGO2tCQUVDTjs7Ozs7O0FBR1A7QUFFQSxpRUFBZUQsVUFBVUEsRUFBQztBQUNGIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc2FjcmVkLWZlbWluaW5lLXVpLy4vc3JjL0NvbnRleHQuanM/ZWI1MyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjcmVhdGVDb250ZXh0LCB1c2VDYWxsYmFjaywgdXNlUmVkdWNlciB9IGZyb20gJ3JlYWN0JztcblxuLy8gQ3JlYXRlIENvbnRleHRcbmNvbnN0IFRva3lvQ29udGV4dCA9IGNyZWF0ZUNvbnRleHQoKTtcblxuLy8gVHlwZVxuY29uc3QgdHlwZSA9IHtcbiAgTkFWOiAnTkFWJyxcbiAgQU5JTUFUSU9OOiAnQU5JTUFUSU9OJyxcbiAgTU9EQUw6ICdNT0RBTCcsXG4gIFNFUlZJQ0VNT0RBTDogJ1NFUlZJQ0VNT0RBTCcsXG4gIE5FV1NNT0RBTDogJ05FV1NNT0RBTCcsXG4gIFBPUlRGT0xJT0RFVEFJTFNNT0RBTDogJ1BPUlRGT0xJT0RFVEFJTFNNT0RBTCcsXG4gIFNJR05VUE1PREFMOiAnU0lHTlVQTU9EQUwnLFxufTtcbmNvbnN0IHtcbiAgTkFWLFxuICBBTklNQVRJT04sXG4gIE1PREFMLFxuICBTRVJWSUNFTU9EQUwsXG4gIE5FV1NNT0RBTCxcbiAgUE9SVEZPTElPREVUQUlMU01PREFMLFxuICBTSUdOVVBNT0RBTCxcbn0gPSB0eXBlO1xuXG4vLyBJbml0aWFsIFZhbHVlXG5jb25zdCBpbml0aWFsU3RhdGUgPSB7XG4gIG5hdjogJ2hvbWUnLFxuICBhbmltYXRpb246ICdmYWRlSW5MZWZ0JyxcbiAgbW9kYWw6IGZhbHNlLFxuICBzZXJ2aWNlTW9kYWw6IG51bGwsXG4gIG5ld3NNb2RhbDogbnVsbCxcbiAgcG9ydGZvbGlvRGV0YWlsc01vZGFsOiBudWxsLFxuICBzaWduVXBNb2RhbDogZmFsc2UsXG4gIG1lbnVzOiBbXG4gICAgeyBpZDogMSwgbmFtZTogJ2hvbWUnLCBocmVmOiAnaG9tZScgfSxcbiAgICB7IGlkOiAyLCBuYW1lOiAnYWJvdXQnLCBocmVmOiAnYWJvdXQnIH0sXG4gICAgeyBpZDogMywgbmFtZTogJ3JldHJlYXRzJywgaHJlZjogJ3JldHJlYXRzJyB9LFxuICAgIHsgaWQ6IDQsIG5hbWU6ICdldmVudHMnLCBocmVmOiAnZXZlbnRzJyB9LFxuICAgIHsgaWQ6IDUsIG5hbWU6ICdyZXNvdXJjZXMnLCBocmVmOiAncmVzb3VyY2VzJyB9LFxuICAgIHsgaWQ6IDYsIG5hbWU6ICdjb250YWN0JywgaHJlZjogJ2NvbnRhY3QnIH0sXG4gIF0sXG59O1xuXG4vLyBSZWR1Y2VyXG5jb25zdCByZWR1Y2VyID0gKHN0YXRlLCBhY3Rpb24pID0+IHtcbiAgY29uc3QgeyB0eXBlLCBwYXlsb2FkIH0gPSBhY3Rpb247XG4gIHN3aXRjaCAodHlwZSkge1xuICAgIGNhc2UgTkFWOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIG5hdjogcGF5bG9hZCxcbiAgICAgICAgYW5pbWF0aW9uOiAnZmFkZUluTGVmdCcsXG4gICAgICB9O1xuICAgIGNhc2UgQU5JTUFUSU9OOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIGFuaW1hdGlvbjogcGF5bG9hZCxcbiAgICAgIH07XG4gICAgY2FzZSBTSUdOVVBNT0RBTDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBzaWduVXBNb2RhbDogcGF5bG9hZCxcbiAgICAgIH07XG4gICAgY2FzZSBNT0RBTDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBtb2RhbDogcGF5bG9hZCxcbiAgICAgIH07XG4gICAgY2FzZSBTRVJWSUNFTU9EQUw6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgc2VydmljZU1vZGFsOiBwYXlsb2FkLFxuICAgICAgfTtcbiAgICBjYXNlIE5FV1NNT0RBTDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBuZXdzTW9kYWw6IHBheWxvYWQsXG4gICAgICB9O1xuICAgIGNhc2UgUE9SVEZPTElPREVUQUlMU01PREFMOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIHBvcnRmb2xpb0RldGFpbHNNb2RhbDogcGF5bG9hZCxcbiAgICAgIH07XG4gICAgZGVmYXVsdDpcbiAgICAgIHJldHVybiBzdGF0ZTtcbiAgfVxufTtcblxuLy8gV2F0c29uIFN0YXRlXG5jb25zdCBUb2t5b1N0YXRlID0gKHsgY2hpbGRyZW4gfSkgPT4ge1xuICBjb25zdCBbc3RhdGUsIGRpc3BhdGNoXSA9IHVzZVJlZHVjZXIocmVkdWNlciwgaW5pdGlhbFN0YXRlKTtcblxuICBjb25zdCBuYXZDaGFuZ2UgPSB1c2VDYWxsYmFjaygodmFsdWUpID0+IHtcbiAgICBkaXNwYXRjaCh7XG4gICAgICB0eXBlOiBOQVYsXG4gICAgICBwYXlsb2FkOiB2YWx1ZSxcbiAgICB9KTtcbiAgfSwgW10pO1xuXG4gIGNvbnN0IGFuaW1hdGlvbkNobmFnZSA9IHVzZUNhbGxiYWNrKCh2YWx1ZSkgPT4ge1xuICAgIGRpc3BhdGNoKHtcbiAgICAgIHR5cGU6IEFOSU1BVElPTixcbiAgICAgIHBheWxvYWQ6IHZhbHVlLFxuICAgIH0pO1xuICB9LCBbXSk7XG5cbiAgY29uc3QgbW9kYWxUb2dnbGUgPSB1c2VDYWxsYmFjaygodmFsdWUpID0+IHtcbiAgICBkaXNwYXRjaCh7XG4gICAgICB0eXBlOiBNT0RBTCxcbiAgICAgIHBheWxvYWQ6IHZhbHVlLFxuICAgIH0pO1xuICB9LCBbXSk7XG5cbiAgY29uc3Qgc2V0U2lnblVwTW9kYWwgPSB1c2VDYWxsYmFjaygodmFsdWUpID0+IHtcbiAgICBkaXNwYXRjaCh7XG4gICAgICB0eXBlOiBTSUdOVVBNT0RBTCxcbiAgICAgIHBheWxvYWQ6IHZhbHVlLFxuICAgIH0pO1xuICB9LCBbXSk7XG5cbiAgY29uc3Qgc2V0U2VydmljZU1vZGFsID0gdXNlQ2FsbGJhY2soKHZhbHVlKSA9PiB7XG4gICAgZGlzcGF0Y2goe1xuICAgICAgdHlwZTogU0VSVklDRU1PREFMLFxuICAgICAgcGF5bG9hZDogdmFsdWUsXG4gICAgfSk7XG4gIH0sIFtdKTtcbiAgY29uc3Qgc2V0TmV3c01vZGFsID0gdXNlQ2FsbGJhY2soKHZhbHVlKSA9PiB7XG4gICAgZGlzcGF0Y2goe1xuICAgICAgdHlwZTogTkVXU01PREFMLFxuICAgICAgcGF5bG9hZDogdmFsdWUsXG4gICAgfSk7XG4gIH0sIFtdKTtcbiAgY29uc3Qgc2V0UG9ydGZvbGlvRGV0YWlsc01vZGFsID0gdXNlQ2FsbGJhY2soKHZhbHVlKSA9PiB7XG4gICAgZGlzcGF0Y2goe1xuICAgICAgdHlwZTogUE9SVEZPTElPREVUQUlMU01PREFMLFxuICAgICAgcGF5bG9hZDogdmFsdWUsXG4gICAgfSk7XG4gIH0sIFtdKTtcblxuICBjb25zdCB7XG4gICAgbmF2LFxuICAgIGFuaW1hdGlvbixcbiAgICBtb2RhbCxcbiAgICBzZXJ2aWNlTW9kYWwsXG4gICAgbmV3c01vZGFsLFxuICAgIHBvcnRmb2xpb0RldGFpbHNNb2RhbCxcbiAgICBtZW51cyxcbiAgICBzaWduVXBNb2RhbCxcbiAgfSA9IHN0YXRlO1xuICByZXR1cm4gKFxuICAgIDxUb2t5b0NvbnRleHQuUHJvdmlkZXJcbiAgICAgIHZhbHVlPXt7XG4gICAgICAgIG1lbnVzLFxuICAgICAgICBuYXYsXG4gICAgICAgIG5hdkNoYW5nZSxcbiAgICAgICAgYW5pbWF0aW9uLFxuICAgICAgICBhbmltYXRpb25DaG5hZ2UsXG4gICAgICAgIG1vZGFsLFxuICAgICAgICBtb2RhbFRvZ2dsZSxcbiAgICAgICAgc2VydmljZU1vZGFsLFxuICAgICAgICBzZXRTZXJ2aWNlTW9kYWwsXG4gICAgICAgIG5ld3NNb2RhbCxcbiAgICAgICAgc2V0TmV3c01vZGFsLFxuICAgICAgICBwb3J0Zm9saW9EZXRhaWxzTW9kYWwsXG4gICAgICAgIHNldFBvcnRmb2xpb0RldGFpbHNNb2RhbCxcbiAgICAgICAgc2lnblVwTW9kYWwsXG4gICAgICAgIHNldFNpZ25VcE1vZGFsLFxuICAgICAgfX1cbiAgICA+XG4gICAgICB7Y2hpbGRyZW59XG4gICAgPC9Ub2t5b0NvbnRleHQuUHJvdmlkZXI+XG4gICk7XG59O1xuXG5leHBvcnQgZGVmYXVsdCBUb2t5b1N0YXRlO1xuZXhwb3J0IHsgVG9reW9Db250ZXh0IH07XG4iXSwibmFtZXMiOlsiY3JlYXRlQ29udGV4dCIsInVzZUNhbGxiYWNrIiwidXNlUmVkdWNlciIsIlRva3lvQ29udGV4dCIsInR5cGUiLCJOQVYiLCJBTklNQVRJT04iLCJNT0RBTCIsIlNFUlZJQ0VNT0RBTCIsIk5FV1NNT0RBTCIsIlBPUlRGT0xJT0RFVEFJTFNNT0RBTCIsIlNJR05VUE1PREFMIiwiaW5pdGlhbFN0YXRlIiwibmF2IiwiYW5pbWF0aW9uIiwibW9kYWwiLCJzZXJ2aWNlTW9kYWwiLCJuZXdzTW9kYWwiLCJwb3J0Zm9saW9EZXRhaWxzTW9kYWwiLCJzaWduVXBNb2RhbCIsIm1lbnVzIiwiaWQiLCJuYW1lIiwiaHJlZiIsInJlZHVjZXIiLCJzdGF0ZSIsImFjdGlvbiIsInBheWxvYWQiLCJUb2t5b1N0YXRlIiwiY2hpbGRyZW4iLCJkaXNwYXRjaCIsIm5hdkNoYW5nZSIsInZhbHVlIiwiYW5pbWF0aW9uQ2huYWdlIiwibW9kYWxUb2dnbGUiLCJzZXRTaWduVXBNb2RhbCIsInNldFNlcnZpY2VNb2RhbCIsInNldE5ld3NNb2RhbCIsInNldFBvcnRmb2xpb0RldGFpbHNNb2RhbCIsIlByb3ZpZGVyIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/Context.js\n");
-
-/***/ }),
-
-/***/ "./src/contexts/AdminAuthContext.js":
-/*!******************************************!*\
-  !*** ./src/contexts/AdminAuthContext.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"AdminAuthProvider\": () => (/* binding */ AdminAuthProvider),\n/* harmony export */   \"useAdminAuth\": () => (/* binding */ useAdminAuth)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconst AdminAuthContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)();\nconst useAdminAuth = ()=>{\n    const context = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(AdminAuthContext);\n    if (!context) {\n        throw new Error(\"useAdminAuth must be used within an AdminAuthProvider\");\n    }\n    return context;\n};\nconst AdminAuthProvider = ({ children  })=>{\n    const [isAuthenticated, setIsAuthenticated] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);\n    const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{\n        // Check if user is already authenticated\n        const authenticated = localStorage.getItem(\"adminAuthenticated\") === \"true\";\n        setIsAuthenticated(authenticated);\n        setLoading(false);\n    }, []);\n    const login = async (password)=>{\n        const ADMIN_PASSWORD = \"lightdarklightagain\" || 0;\n        if (password === ADMIN_PASSWORD) {\n            localStorage.setItem(\"adminAuthenticated\", \"true\");\n            setIsAuthenticated(true);\n            return true;\n        }\n        return false;\n    };\n    const logout = ()=>{\n        localStorage.removeItem(\"adminAuthenticated\");\n        setIsAuthenticated(false);\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(AdminAuthContext.Provider, {\n        value: {\n            isAuthenticated,\n            loading,\n            login,\n            logout\n        },\n        children: children\n    }, void 0, false, {\n        fileName: \"/Users/brennanpollock/Projects/clients/sacred-feminine/sacred-feminine-ui/src/contexts/AdminAuthContext.js\",\n        lineNumber: 41,\n        columnNumber: 5\n    }, undefined);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29udGV4dHMvQWRtaW5BdXRoQ29udGV4dC5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O0FBQXVFO0FBRXZFLE1BQU1JLGlDQUFtQkosb0RBQWFBO0FBRS9CLE1BQU1LLGVBQWUsSUFBTTtJQUNoQyxNQUFNQyxVQUFVTCxpREFBVUEsQ0FBQ0c7SUFDM0IsSUFBSSxDQUFDRSxTQUFTO1FBQ1osTUFBTSxJQUFJQyxNQUFNLHlEQUF5RDtJQUMzRSxDQUFDO0lBQ0QsT0FBT0Q7QUFDVCxFQUFFO0FBRUssTUFBTUUsb0JBQW9CLENBQUMsRUFBRUMsU0FBUSxFQUFFLEdBQUs7SUFDakQsTUFBTSxDQUFDQyxpQkFBaUJDLG1CQUFtQixHQUFHVCwrQ0FBUUEsQ0FBQyxLQUFLO0lBQzVELE1BQU0sQ0FBQ1UsU0FBU0MsV0FBVyxHQUFHWCwrQ0FBUUEsQ0FBQyxJQUFJO0lBRTNDQyxnREFBU0EsQ0FBQyxJQUFNO1FBQ2QseUNBQXlDO1FBQ3pDLE1BQU1XLGdCQUFnQkMsYUFBYUMsT0FBTyxDQUFDLDBCQUEwQjtRQUNyRUwsbUJBQW1CRztRQUNuQkQsV0FBVyxLQUFLO0lBQ2xCLEdBQUcsRUFBRTtJQUVMLE1BQU1JLFFBQVEsT0FBT0MsV0FBYTtRQUNoQyxNQUFNQyxpQkFBaUJDLHFCQUFzQyxJQUFJLENBQVU7UUFFM0UsSUFBSUYsYUFBYUMsZ0JBQWdCO1lBQy9CSixhQUFhUSxPQUFPLENBQUMsc0JBQXNCO1lBQzNDWixtQkFBbUIsSUFBSTtZQUN2QixPQUFPLElBQUk7UUFDYixDQUFDO1FBQ0QsT0FBTyxLQUFLO0lBQ2Q7SUFFQSxNQUFNYSxTQUFTLElBQU07UUFDbkJULGFBQWFVLFVBQVUsQ0FBQztRQUN4QmQsbUJBQW1CLEtBQUs7SUFDMUI7SUFFQSxxQkFDRSw4REFBQ1AsaUJBQWlCc0IsUUFBUTtRQUN4QkMsT0FBTztZQUNMakI7WUFDQUU7WUFDQUs7WUFDQU87UUFDRjtrQkFFQ2Y7Ozs7OztBQUdQLEVBQUUiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zYWNyZWQtZmVtaW5pbmUtdWkvLi9zcmMvY29udGV4dHMvQWRtaW5BdXRoQ29udGV4dC5qcz81YzUxIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNyZWF0ZUNvbnRleHQsIHVzZUNvbnRleHQsIHVzZVN0YXRlLCB1c2VFZmZlY3QgfSBmcm9tIFwicmVhY3RcIjtcblxuY29uc3QgQWRtaW5BdXRoQ29udGV4dCA9IGNyZWF0ZUNvbnRleHQoKTtcblxuZXhwb3J0IGNvbnN0IHVzZUFkbWluQXV0aCA9ICgpID0+IHtcbiAgY29uc3QgY29udGV4dCA9IHVzZUNvbnRleHQoQWRtaW5BdXRoQ29udGV4dCk7XG4gIGlmICghY29udGV4dCkge1xuICAgIHRocm93IG5ldyBFcnJvcihcInVzZUFkbWluQXV0aCBtdXN0IGJlIHVzZWQgd2l0aGluIGFuIEFkbWluQXV0aFByb3ZpZGVyXCIpO1xuICB9XG4gIHJldHVybiBjb250ZXh0O1xufTtcblxuZXhwb3J0IGNvbnN0IEFkbWluQXV0aFByb3ZpZGVyID0gKHsgY2hpbGRyZW4gfSkgPT4ge1xuICBjb25zdCBbaXNBdXRoZW50aWNhdGVkLCBzZXRJc0F1dGhlbnRpY2F0ZWRdID0gdXNlU3RhdGUoZmFsc2UpO1xuICBjb25zdCBbbG9hZGluZywgc2V0TG9hZGluZ10gPSB1c2VTdGF0ZSh0cnVlKTtcblxuICB1c2VFZmZlY3QoKCkgPT4ge1xuICAgIC8vIENoZWNrIGlmIHVzZXIgaXMgYWxyZWFkeSBhdXRoZW50aWNhdGVkXG4gICAgY29uc3QgYXV0aGVudGljYXRlZCA9IGxvY2FsU3RvcmFnZS5nZXRJdGVtKFwiYWRtaW5BdXRoZW50aWNhdGVkXCIpID09PSBcInRydWVcIjtcbiAgICBzZXRJc0F1dGhlbnRpY2F0ZWQoYXV0aGVudGljYXRlZCk7XG4gICAgc2V0TG9hZGluZyhmYWxzZSk7XG4gIH0sIFtdKTtcblxuICBjb25zdCBsb2dpbiA9IGFzeW5jIChwYXNzd29yZCkgPT4ge1xuICAgIGNvbnN0IEFETUlOX1BBU1NXT1JEID0gcHJvY2Vzcy5lbnYuTkVYVF9QVUJMSUNfQURNSU5fUEFTU1dPUkQgfHwgXCJhZG1pbjEyM1wiO1xuXG4gICAgaWYgKHBhc3N3b3JkID09PSBBRE1JTl9QQVNTV09SRCkge1xuICAgICAgbG9jYWxTdG9yYWdlLnNldEl0ZW0oXCJhZG1pbkF1dGhlbnRpY2F0ZWRcIiwgXCJ0cnVlXCIpO1xuICAgICAgc2V0SXNBdXRoZW50aWNhdGVkKHRydWUpO1xuICAgICAgcmV0dXJuIHRydWU7XG4gICAgfVxuICAgIHJldHVybiBmYWxzZTtcbiAgfTtcblxuICBjb25zdCBsb2dvdXQgPSAoKSA9PiB7XG4gICAgbG9jYWxTdG9yYWdlLnJlbW92ZUl0ZW0oXCJhZG1pbkF1dGhlbnRpY2F0ZWRcIik7XG4gICAgc2V0SXNBdXRoZW50aWNhdGVkKGZhbHNlKTtcbiAgfTtcblxuICByZXR1cm4gKFxuICAgIDxBZG1pbkF1dGhDb250ZXh0LlByb3ZpZGVyXG4gICAgICB2YWx1ZT17e1xuICAgICAgICBpc0F1dGhlbnRpY2F0ZWQsXG4gICAgICAgIGxvYWRpbmcsXG4gICAgICAgIGxvZ2luLFxuICAgICAgICBsb2dvdXQsXG4gICAgICB9fVxuICAgID5cbiAgICAgIHtjaGlsZHJlbn1cbiAgICA8L0FkbWluQXV0aENvbnRleHQuUHJvdmlkZXI+XG4gICk7XG59O1xuIl0sIm5hbWVzIjpbImNyZWF0ZUNvbnRleHQiLCJ1c2VDb250ZXh0IiwidXNlU3RhdGUiLCJ1c2VFZmZlY3QiLCJBZG1pbkF1dGhDb250ZXh0IiwidXNlQWRtaW5BdXRoIiwiY29udGV4dCIsIkVycm9yIiwiQWRtaW5BdXRoUHJvdmlkZXIiLCJjaGlsZHJlbiIsImlzQXV0aGVudGljYXRlZCIsInNldElzQXV0aGVudGljYXRlZCIsImxvYWRpbmciLCJzZXRMb2FkaW5nIiwiYXV0aGVudGljYXRlZCIsImxvY2FsU3RvcmFnZSIsImdldEl0ZW0iLCJsb2dpbiIsInBhc3N3b3JkIiwiQURNSU5fUEFTU1dPUkQiLCJwcm9jZXNzIiwiZW52IiwiTkVYVF9QVUJMSUNfQURNSU5fUEFTU1dPUkQiLCJzZXRJdGVtIiwibG9nb3V0IiwicmVtb3ZlSXRlbSIsIlByb3ZpZGVyIiwidmFsdWUiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/contexts/AdminAuthContext.js\n");
-
-/***/ }),
-
-/***/ "./styles/globals.css":
-/*!****************************!*\
-  !*** ./styles/globals.css ***!
-  \****************************/
+/***/ 6764:
 /***/ (() => {
 
 
 
 /***/ }),
 
-/***/ "next/router":
-/*!******************************!*\
-  !*** external "next/router" ***!
-  \******************************/
+/***/ 1853:
 /***/ ((module) => {
 
 "use strict";
@@ -66,10 +75,7 @@ module.exports = require("next/router");
 
 /***/ }),
 
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
+/***/ 6689:
 /***/ ((module) => {
 
 "use strict";
@@ -77,21 +83,15 @@ module.exports = require("react");
 
 /***/ }),
 
-/***/ "react/jsx-dev-runtime":
-/*!****************************************!*\
-  !*** external "react/jsx-dev-runtime" ***!
-  \****************************************/
+/***/ 997:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("react/jsx-dev-runtime");
+module.exports = require("react/jsx-runtime");
 
 /***/ }),
 
-/***/ "@vercel/analytics/react":
-/*!******************************************!*\
-  !*** external "@vercel/analytics/react" ***!
-  \******************************************/
+/***/ 9752:
 /***/ ((module) => {
 
 "use strict";
@@ -99,10 +99,7 @@ module.exports = import("@vercel/analytics/react");;
 
 /***/ }),
 
-/***/ "react-hot-toast":
-/*!**********************************!*\
-  !*** external "react-hot-toast" ***!
-  \**********************************/
+/***/ 6201:
 /***/ ((module) => {
 
 "use strict";
@@ -117,7 +114,7 @@ module.exports = import("react-hot-toast");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__("./pages/_app.js"));
+var __webpack_exports__ = __webpack_require__.X(0, [590,744], () => (__webpack_exec__(6004)));
 module.exports = __webpack_exports__;
 
 })();

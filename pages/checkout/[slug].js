@@ -16,15 +16,18 @@ export const getStaticPaths = async () => {
     return { paths: [], fallback: "blocking" };
   }
 
-  const query = `*[_type == "checkoutPage" && isActive == true]{
-    "slug": slug.current
-  }`;
+  const [checkoutPages, events] = await Promise.all([
+    client.fetch(`*[_type == "checkoutPage" && isActive == true]{ "slug": slug.current }`),
+    client.fetch(`*[_type == "event" && coalesce(isCheckoutActive, true) == true && coalesce(enableTicketButton, true) == true]{
+      "slug": slug.current
+    }`),
+  ]);
 
-  const checkoutPages = await client.fetch(query);
-
-  const paths = checkoutPages.map((page) => ({
-    params: { slug: page.slug },
-  }));
+  const paths = [...checkoutPages, ...events]
+    .filter((item) => item?.slug)
+    .map((item) => ({
+      params: { slug: item.slug },
+    }));
 
   return {
     paths,
@@ -61,17 +64,70 @@ export const getStaticProps = async ({ params }) => {
 
   const checkoutData = await client.fetch(query, { slug: params.slug });
 
-  if (!checkoutData || !checkoutData.isActive) {
+  if (checkoutData && checkoutData.isActive) {
+    return {
+      props: {
+        checkoutData,
+      },
+      revalidate: 60,
+    };
+  }
+
+  const eventQuery = `*[_type == "event" && slug.current == $slug][0]{
+    name,
+    "slug": slug.current,
+    checkoutDescription,
+    contactEmail,
+    paymentOptions[] | order(displayOrder asc) {
+      name,
+      type,
+      price,
+      description,
+      isActive,
+      displayOrder
+    },
+    price,
+    isCheckoutActive,
+  }`;
+
+  const eventData = await client.fetch(eventQuery, { slug: params.slug });
+
+  if (!eventData) {
     return {
       notFound: true,
       revalidate: 60,
     };
   }
 
+  const activePaymentOptions = (eventData.paymentOptions || [])
+    .filter((option) => option?.isActive)
+    .map((option, index) => ({
+      ...option,
+      displayOrder: option.displayOrder || index + 1,
+    }));
+
+  if (activePaymentOptions.length === 0 || eventData.isCheckoutActive === false) {
+    return {
+      notFound: true,
+      revalidate: 60,
+    };
+  }
+
+  const adaptedCheckout = {
+    title: eventData.name,
+    slug: params.slug,
+    retreatName: eventData.name,
+    description: eventData.checkoutDescription,
+    isActive: true,
+    colorScheme: null,
+    paymentOptions: activePaymentOptions,
+    contactEmail: eventData.contactEmail || 'team@sacredfeminine.co',
+  };
+
   return {
     props: {
-      checkoutData,
+      checkoutData: adaptedCheckout,
     },
-    revalidate: 60, // Revalidate every minute
+    revalidate: 60,
   };
 };
