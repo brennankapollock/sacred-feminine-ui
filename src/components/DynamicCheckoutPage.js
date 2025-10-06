@@ -26,6 +26,10 @@ const DynamicCheckoutPage = ({ checkoutData }) => {
     );
   }
 
+  if (!checkoutData.accessCode) {
+    return <DynamicCheckout checkoutData={checkoutData} />;
+  }
+
   const {
     title,
     accessCode,
@@ -49,15 +53,33 @@ const DynamicCheckoutPage = ({ checkoutData }) => {
   }
 
   // Generate CSS custom properties for colors
-  const cssVars = colorScheme
-    ? {
-        "--primary-color": colorScheme.primary?.hex || "#A98747",
-        "--secondary-color": colorScheme.secondary?.hex || "#876c39",
-        "--text-color": colorScheme.text?.hex || "#1A1A1A",
-        "--bg-from": colorScheme.background?.from?.hex || "#faf1eb",
-        "--bg-to": colorScheme.background?.to?.hex || "#f4e2d7",
-      }
-    : {};
+  const fallbackScheme = {
+    primary: { hex: "#A98747" },
+    secondary: { hex: "#876c39" },
+    text: { hex: "#1A1A1A" },
+    background: {
+      from: { hex: "#faf1eb" },
+      to: { hex: "#f4e2d7" },
+    },
+  };
+
+  const scheme = {
+    primary: colorScheme?.primary || fallbackScheme.primary,
+    secondary: colorScheme?.secondary || fallbackScheme.secondary,
+    text: colorScheme?.text || fallbackScheme.text,
+    background: {
+      from: colorScheme?.background?.from || fallbackScheme.background.from,
+      to: colorScheme?.background?.to || fallbackScheme.background.to,
+    },
+  };
+
+  const cssVars = {
+    "--primary-color": scheme.primary?.hex || fallbackScheme.primary.hex,
+    "--secondary-color": scheme.secondary?.hex || fallbackScheme.secondary.hex,
+    "--text-color": scheme.text?.hex || fallbackScheme.text.hex,
+    "--bg-from": scheme.background?.from?.hex || fallbackScheme.background.from.hex,
+    "--bg-to": scheme.background?.to?.hex || fallbackScheme.background.to.hex,
+  };
 
   return (
     <>

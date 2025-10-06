@@ -3,22 +3,24 @@ import {
   CalendarIcon,
   ClockIcon,
   CurrencyDollarIcon,
-  MapPinIcon,
 } from '@heroicons/react/24/outline';
-import { useRouter } from 'next/router';
-import { useContext, useEffect, useState } from 'react';
-import { TokyoContext } from '../Context';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import SectionContainer from './containers/SectionContainer';
 import SectionTitle from './containers/SectionTitle';
 
+const formatPrice = (value) => {
+  if (value === null || value === undefined) return '';
+  const raw = String(value).trim();
+  if (!raw) return '';
+  return raw.startsWith('$') ? raw : `$${raw}`;
+};
+
 const Events = () => {
   const [data, setData] = useState([]);
-  const { nav } = useContext(TokyoContext);
-  const router = useRouter();
-
-  const excerpt = (s, n = 220) => (!s ? '' : s.length > n ? s.slice(0, n).trim() + '…' : s);
 
   const formatDate = (dateString) => {
+    if (!dateString) return '';
     const [year, month, day] = dateString.split('-');
     const date = new Date(year, month - 1, day);
     return date.toLocaleDateString('en-US', {
@@ -27,6 +29,25 @@ const Events = () => {
       day: 'numeric',
       year: 'numeric',
     });
+  };
+
+  const formatDateRange = (startDate, endDate) => {
+    if (!startDate) return '';
+    const formattedStart = formatDate(startDate);
+    if (!endDate || endDate === startDate) {
+      return formattedStart;
+    }
+
+    const formattedEnd = formatDate(endDate);
+    return `${formattedStart} – ${formattedEnd}`;
+  };
+
+  const formatTimeRange = (startTime, endTime) => {
+    if (!startTime && !endTime) return '';
+    if (startTime && endTime) {
+      return `${startTime} – ${endTime}`;
+    }
+    return startTime || endTime || '';
   };
 
   const fetchData = () => {
@@ -38,13 +59,10 @@ const Events = () => {
         endDate,
         startTime,
         endTime,
-        location,
         price,
-        details,
-        costOne,
-        spots,
         enableTicketButton,
-        ticketUrl
+        "isCheckoutActive": coalesce(isCheckoutActive, true),
+        "slug": coalesce(slug.current, slug)
       }
     `;
     client.fetch(query).then(setData).catch(console.error);
@@ -67,8 +85,6 @@ const Events = () => {
     return () => subscription.unsubscribe();
   }, []);
 
-  // Ticket navigation is now handled by an optional external URL per event.
-
   return (
     <SectionContainer name={'events'}>
       <div className="container mx-auto px-4 py-16">
@@ -86,9 +102,7 @@ const Events = () => {
               >
                 <div className="p-6 space-y-6">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">
-                      {event.spots ? `${event.spots} spots left` : ''}
-                    </span>
+                    <span className="text-sm text-gray-500">Upcoming</span>
                   </div>
 
                   <h3 className="text-2xl font-bold font-psych text-black group-hover:text-desert_sand transition-colors duration-300">
@@ -98,50 +112,39 @@ const Events = () => {
                   <div className="space-y-4 font-bagnard text-gray-600">
                     <div className="flex items-center space-x-3">
                       <CalendarIcon className="h-5 w-5 text-desert_sand" />
-                      <span>{formatDate(event.startDate)}</span>
+                      <span>{formatDateRange(event.startDate, event.endDate)}</span>
                     </div>
-                    <div className="flex items-center space-x-3">
-                      <ClockIcon className="h-5 w-5 text-desert_sand" />
-                      <span>
-                        {event.startTime} - {event.endTime}
-                      </span>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <MapPinIcon className="h-5 w-5 text-desert_sand flex-shrink-0 mt-1.5" />
-                      <span className="whitespace-pre-line">
-                        {event.location?.split(',').join('\n')}
-                      </span>
-                    </div>
+                    {formatTimeRange(event.startTime, event.endTime) ? (
+                      <div className="flex items-center space-x-3">
+                        <ClockIcon className="h-5 w-5 text-desert_sand" />
+                        <span>{formatTimeRange(event.startTime, event.endTime)}</span>
+                      </div>
+                    ) : null}
                     <div className="flex items-center space-x-3">
                       <CurrencyDollarIcon className="h-5 w-5 text-desert_sand" />
-                      <span>{event.price}</span>
+                      <span>{formatPrice(event.price)}</span>
                     </div>
-
-                    {event.details && (
-                      <p className="text-gray-600">
-                        {excerpt(event.details)}
-                      </p>
-                    )}
-
-                    {event.costOne && (
-                      <div>
-                        <p className="text-sm text-gray-500 uppercase tracking-wide">Cost</p>
-                        <p className="text-gray-700 whitespace-pre-line">{event.costOne}</p>
-                      </div>
-                    )}
                   </div>
 
-                  {event.enableTicketButton && event.ticketUrl ? (
-                    <a
-                      href={event.ticketUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full inline-flex justify-center bg-desert_sand text-black font-psych py-4 px-6 rounded-xl hover:bg-opacity-90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-desert_sand group-hover:transform group-hover:scale-105"
-                      aria-label={`Get tickets for ${event.name}`}
-                    >
-                      <span>Get Tickets</span>
-                    </a>
-                  ) : null}
+                  {(() => {
+                    const ticketPath = event.slug ? `/checkout/${event.slug}` : null;
+                    const allowButton =
+                      event.enableTicketButton !== false &&
+                      event.isCheckoutActive !== false &&
+                      !!ticketPath;
+                    if (!allowButton) return null;
+
+                    return (
+                      <Link
+                        href={ticketPath}
+                        prefetch={false}
+                        className="w-full inline-flex justify-center bg-desert_sand text-black font-psych py-4 px-6 rounded-xl hover:bg-opacity-90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-desert_sand group-hover:transform group-hover:scale-105"
+                        aria-label={`Get tickets for ${event.name}`}
+                      >
+                        <span>Get Tickets</span>
+                      </Link>
+                    );
+                  })()}
                 </div>
               </div>
             ))

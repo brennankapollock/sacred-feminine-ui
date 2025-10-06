@@ -2,5 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/api/config": "pages/api/config.js",
+  "/checkout/[slug]": "pages/checkout/[slug].js",
+  "/": "pages/index.js",
+  "/api/checkout-sessions/create": "pages/api/checkout-sessions/create.js"
 }

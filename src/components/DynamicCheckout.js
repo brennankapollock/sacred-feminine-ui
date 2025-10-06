@@ -50,6 +50,20 @@ export default function DynamicCheckout({ checkoutData }) {
       ?.filter((option) => option.isActive)
       ?.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0)) || [];
 
+  const formatPrice = (amount) => {
+    if (amount === null || amount === undefined) return '';
+    const value = Number(amount);
+    if (Number.isNaN(value)) {
+      const raw = String(amount).trim();
+      return raw.startsWith('$') ? raw : `$${raw}`;
+    }
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 2,
+    }).format(value);
+  };
+
   const handleProductSelect = (product) => {
     setSelectedProduct(product);
   };
@@ -129,15 +143,33 @@ export default function DynamicCheckout({ checkoutData }) {
   };
 
   // Generate CSS custom properties for colors
-  const cssVars = colorScheme
-    ? {
-        "--primary-color": colorScheme.primary?.hex || "#4a5568",
-        "--secondary-color": colorScheme.secondary?.hex || "#2d3748",
-        "--text-color": colorScheme.text?.hex || "#2d3748",
-        "--bg-from": colorScheme.background?.from?.hex || "#f0f2f5",
-        "--bg-to": colorScheme.background?.to?.hex || "#e8ebf0",
-      }
-    : {};
+  const fallbackScheme = {
+    primary: { hex: "#4a5568" },
+    secondary: { hex: "#2d3748" },
+    text: { hex: "#2d3748" },
+    background: {
+      from: { hex: "#f0f2f5" },
+      to: { hex: "#e8ebf0" },
+    },
+  };
+
+  const scheme = {
+    primary: colorScheme?.primary || fallbackScheme.primary,
+    secondary: colorScheme?.secondary || fallbackScheme.secondary,
+    text: colorScheme?.text || fallbackScheme.text,
+    background: {
+      from: colorScheme?.background?.from || fallbackScheme.background.from,
+      to: colorScheme?.background?.to || fallbackScheme.background.to,
+    },
+  };
+
+  const cssVars = {
+    "--primary-color": scheme.primary?.hex || fallbackScheme.primary.hex,
+    "--secondary-color": scheme.secondary?.hex || fallbackScheme.secondary.hex,
+    "--text-color": scheme.text?.hex || fallbackScheme.text.hex,
+    "--bg-from": scheme.background?.from?.hex || fallbackScheme.background.from.hex,
+    "--bg-to": scheme.background?.to?.hex || fallbackScheme.background.to.hex,
+  };
 
   return (
     <>
@@ -194,7 +226,7 @@ export default function DynamicCheckout({ checkoutData }) {
                         className="text-2xl font-bagnard"
                         style={{ color: "var(--text-color)" }}
                       >
-                        ${product.price}
+                        {formatPrice(product.price)}
                       </p>
                       <button
                         onClick={() => handleProductSelect(product)}
@@ -248,7 +280,7 @@ export default function DynamicCheckout({ checkoutData }) {
                     className="text-2xl font-bagnard"
                     style={{ color: "var(--text-color)" }}
                   >
-                    ${selectedProduct.price}
+                    {formatPrice(selectedProduct.price)}
                   </p>
                 </div>
               </div>

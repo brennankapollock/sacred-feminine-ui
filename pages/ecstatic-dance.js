@@ -1,11 +1,12 @@
-import Event from '@/src/components/Event';
-
-const EcstaticDance = () => {
-  return (
-    <>
-      <Event />
-    </>
-  );
+export const getServerSideProps = async () => {
+  return {
+    redirect: {
+      destination: '/events',
+      permanent: false,
+    },
+  };
 };
 
-export default EcstaticDance;
+const EcstaticDanceRedirect = () => null;
+
+export default EcstaticDanceRedirect;
