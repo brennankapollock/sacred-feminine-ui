@@ -19,6 +19,13 @@ const formatPrice = (value) => {
 const Events = () => {
   const [data, setData] = useState([]);
 
+  const excerpt = (value, max = 200) => {
+    if (!value) return '';
+    const trimmed = value.trim();
+    if (trimmed.length <= max) return trimmed;
+    return `${trimmed.slice(0, max).trim()}…`;
+  };
+
   const formatDate = (dateString) => {
     if (!dateString) return '';
     const [year, month, day] = dateString.split('-');
@@ -60,6 +67,7 @@ const Events = () => {
         startTime,
         endTime,
         price,
+        cardDescription,
         enableTicketButton,
         "isCheckoutActive": coalesce(isCheckoutActive, true),
         "slug": coalesce(slug.current, slug)
@@ -124,6 +132,12 @@ const Events = () => {
                       <CurrencyDollarIcon className="h-5 w-5 text-desert_sand" />
                       <span>{formatPrice(event.price)}</span>
                     </div>
+
+                    {event.cardDescription ? (
+                      <p className="text-gray-600 whitespace-pre-line">
+                        {excerpt(event.cardDescription)}
+                      </p>
+                    ) : null}
                   </div>
 
                   {(() => {
