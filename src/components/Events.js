@@ -16,6 +16,8 @@ const Events = () => {
   const { nav } = useContext(TokyoContext);
   const router = useRouter();
 
+  const excerpt = (s, n = 220) => (!s ? '' : s.length > n ? s.slice(0, n).trim() + '…' : s);
+
   const formatDate = (dateString) => {
     const [year, month, day] = dateString.split('-');
     const date = new Date(year, month - 1, day);
@@ -28,7 +30,23 @@ const Events = () => {
   };
 
   const fetchData = () => {
-    const query = '*[_type == "event"] | order(startDate asc)';
+    const query = `
+      *[_type == "event" && !(_id in path("drafts.**"))] | order(startDate asc) {
+        _id,
+        name,
+        startDate,
+        endDate,
+        startTime,
+        endTime,
+        location,
+        price,
+        details,
+        costOne,
+        spots,
+        enableTicketButton,
+        ticketUrl
+      }
+    `;
     client.fetch(query).then(setData).catch(console.error);
   };
 
@@ -49,9 +67,7 @@ const Events = () => {
     return () => subscription.unsubscribe();
   }, []);
 
-  const handleNavigate = () => {
-    router.push('/ecstatic-dance');
-  };
+  // Ticket navigation is now handled by an optional external URL per event.
 
   return (
     <SectionContainer name={'events'}>
@@ -93,25 +109,39 @@ const Events = () => {
                     <div className="flex items-start space-x-3">
                       <MapPinIcon className="h-5 w-5 text-desert_sand flex-shrink-0 mt-1.5" />
                       <span className="whitespace-pre-line">
-                        {event.location.split(',').join('\n')}
+                        {event.location?.split(',').join('\n')}
                       </span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <CurrencyDollarIcon className="h-5 w-5 text-desert_sand" />
                       <span>{event.price}</span>
                     </div>
+
+                    {event.details && (
+                      <p className="text-gray-600">
+                        {excerpt(event.details)}
+                      </p>
+                    )}
+
+                    {event.costOne && (
+                      <div>
+                        <p className="text-sm text-gray-500 uppercase tracking-wide">Cost</p>
+                        <p className="text-gray-700 whitespace-pre-line">{event.costOne}</p>
+                      </div>
+                    )}
                   </div>
 
-                  <button
-                    onClick={handleNavigate}
-                    className="w-full bg-desert_sand text-black font-psych py-4 px-6 rounded-xl 
-                             hover:bg-opacity-90 transition-all duration-300 
-                             focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-desert_sand
-                             flex items-center justify-center space-x-2 group-hover:transform group-hover:scale-105"
-                    aria-label="Purchase ticket for event"
-                  >
-                    <span>Purchase Ticket</span>
-                  </button>
+                  {event.enableTicketButton && event.ticketUrl ? (
+                    <a
+                      href={event.ticketUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex justify-center bg-desert_sand text-black font-psych py-4 px-6 rounded-xl hover:bg-opacity-90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-desert_sand group-hover:transform group-hover:scale-105"
+                      aria-label={`Get tickets for ${event.name}`}
+                    >
+                      <span>Get Tickets</span>
+                    </a>
+                  ) : null}
                 </div>
               </div>
             ))
