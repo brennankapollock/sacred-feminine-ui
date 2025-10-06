@@ -9,25 +9,11 @@ import { useEffect, useState } from 'react';
 import SectionContainer from './containers/SectionContainer';
 import SectionTitle from './containers/SectionTitle';
 
-const toSlugString = (value) => {
-  if (!value) return '';
-  if (typeof value === 'string') return value;
-  if (typeof value === 'object' && typeof value.current === 'string') {
-    return value.current;
-  }
-  return '';
-};
-
-const getCheckoutSlug = (event) => toSlugString(event?.slug)?.trim() || '';
-
-const resolveTicketPath = (event) => {
-  const slug = getCheckoutSlug(event);
-  if (!slug) return null;
-
-  const cleaned = slug.replace(/^\/+/g, '').replace(/\/+$/g, '');
-  if (!cleaned) return null;
-
-  return `/checkout/${cleaned}`;
+const formatPrice = (value) => {
+  if (value === null || value === undefined) return '';
+  const raw = String(value).trim();
+  if (!raw) return '';
+  return raw.startsWith('$') ? raw : `$${raw}`;
 };
 
 const Events = () => {
@@ -136,18 +122,22 @@ const Events = () => {
                     ) : null}
                     <div className="flex items-center space-x-3">
                       <CurrencyDollarIcon className="h-5 w-5 text-desert_sand" />
-                      <span>{event.price}</span>
+                      <span>{formatPrice(event.price)}</span>
                     </div>
                   </div>
 
                   {(() => {
-                    const ticketPath = resolveTicketPath(event);
-                    const allowButton = event.enableTicketButton !== false && event.isCheckoutActive !== false;
-                    if (!allowButton || !ticketPath) return null;
+                    const ticketPath = event.slug ? `/checkout/${event.slug}` : null;
+                    const allowButton =
+                      event.enableTicketButton !== false &&
+                      event.isCheckoutActive !== false &&
+                      !!ticketPath;
+                    if (!allowButton) return null;
 
                     return (
                       <Link
                         href={ticketPath}
+                        prefetch={false}
                         className="w-full inline-flex justify-center bg-desert_sand text-black font-psych py-4 px-6 rounded-xl hover:bg-opacity-90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-desert_sand group-hover:transform group-hover:scale-105"
                         aria-label={`Get tickets for ${event.name}`}
                       >

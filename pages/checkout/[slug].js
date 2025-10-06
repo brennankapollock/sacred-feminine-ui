@@ -24,9 +24,9 @@ export const getStaticPaths = async () => {
   ]);
 
   const paths = [...checkoutPages, ...events]
-    .filter((item) => item?.slug)
-    .map((item) => ({
-      params: { slug: item.slug },
+    .filter((entry) => entry?.slug)
+    .map((entry) => ({
+      params: { slug: entry.slug },
     }));
 
   return {
@@ -76,37 +76,33 @@ export const getStaticProps = async ({ params }) => {
   const eventQuery = `*[_type == "event" && slug.current == $slug][0]{
     name,
     "slug": slug.current,
+    price,
     checkoutDescription,
     contactEmail,
-    paymentOptions[] | order(displayOrder asc) {
-      name,
-      type,
-      price,
-      description,
-      isActive,
-      displayOrder
-    },
-    price,
     isCheckoutActive,
   }`;
 
   const eventData = await client.fetch(eventQuery, { slug: params.slug });
 
-  if (!eventData) {
+  if (!eventData || eventData.isCheckoutActive === false) {
     return {
       notFound: true,
       revalidate: 60,
     };
   }
 
-  const activePaymentOptions = (eventData.paymentOptions || [])
-    .filter((option) => option?.isActive)
-    .map((option, index) => ({
-      ...option,
-      displayOrder: option.displayOrder || index + 1,
-    }));
+  const parsePrice = (value) => {
+    if (value === null || value === undefined) return null;
+    const numeric = Number(String(value).replace(/[^0-9.]/g, ''));
+    if (Number.isFinite(numeric) && numeric > 0) {
+      return Number(numeric.toFixed(2));
+    }
+    return null;
+  };
 
-  if (activePaymentOptions.length === 0 || eventData.isCheckoutActive === false) {
+  const basePrice = parsePrice(eventData.price);
+
+  if (!basePrice) {
     return {
       notFound: true,
       revalidate: 60,
@@ -120,7 +116,19 @@ export const getStaticProps = async ({ params }) => {
     description: eventData.checkoutDescription,
     isActive: true,
     colorScheme: null,
-    paymentOptions: activePaymentOptions,
+    paymentOptions: [
+      {
+        name: `${eventData.name} Ticket`,
+        type: 'Event Ticket',
+        price: basePrice,
+        description: eventData.checkoutDescription,
+        isActive: true,
+        displayOrder: 1,
+      },
+    ],
+    accessCode: null,
+    accessTitle: null,
+    accessDescription: null,
     contactEmail: eventData.contactEmail || 'team@sacredfeminine.co',
   };
 

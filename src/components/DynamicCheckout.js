@@ -50,6 +50,20 @@ export default function DynamicCheckout({ checkoutData }) {
       ?.filter((option) => option.isActive)
       ?.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0)) || [];
 
+  const formatPrice = (amount) => {
+    if (amount === null || amount === undefined) return '';
+    const value = Number(amount);
+    if (Number.isNaN(value)) {
+      const raw = String(amount).trim();
+      return raw.startsWith('$') ? raw : `$${raw}`;
+    }
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 2,
+    }).format(value);
+  };
+
   const handleProductSelect = (product) => {
     setSelectedProduct(product);
   };
@@ -212,7 +226,7 @@ export default function DynamicCheckout({ checkoutData }) {
                         className="text-2xl font-bagnard"
                         style={{ color: "var(--text-color)" }}
                       >
-                        ${product.price}
+                        {formatPrice(product.price)}
                       </p>
                       <button
                         onClick={() => handleProductSelect(product)}
@@ -266,7 +280,7 @@ export default function DynamicCheckout({ checkoutData }) {
                     className="text-2xl font-bagnard"
                     style={{ color: "var(--text-color)" }}
                   >
-                    ${selectedProduct.price}
+                    {formatPrice(selectedProduct.price)}
                   </p>
                 </div>
               </div>
