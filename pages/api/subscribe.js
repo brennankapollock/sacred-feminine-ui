@@ -1,13 +1,19 @@
-require('dotenv').config();
-
 import mailchimp from '@mailchimp/mailchimp_marketing';
+import { getSecret } from '../../lib/secrets';
 
-mailchimp.setConfig({
-  apiKey: process.env.MAILCHIMP_API_KEY,
-  server: 'us19',
-});
+const DEFAULT_AUDIENCE_ID = '749f2b97d8';
 
-console.log(process.env.MAILCHIMP_API_KEY);
+function getServerPrefix(apiKey) {
+  const serverPrefix = apiKey.match(/-([a-z]+\d+)$/i)?.[1];
+
+  if (!serverPrefix) {
+    throw new Error(
+      'MAILCHIMP_API_KEY must end with a Mailchimp server prefix such as -us19'
+    );
+  }
+
+  return serverPrefix;
+}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -21,7 +27,19 @@ export default async function handler(req, res) {
   }
 
   try {
-    await mailchimp.lists.addListMember('749f2b97d8', {
+    // Mailchimp credentials may be stored in Doppler or directly in the
+    // deployment environment. getSecret supports both locations.
+    const [apiKey, audienceId] = await Promise.all([
+      getSecret('MAILCHIMP_API_KEY'),
+      getSecret('MAILCHIMP_AUDIENCE_ID', DEFAULT_AUDIENCE_ID),
+    ]);
+
+    mailchimp.setConfig({
+      apiKey,
+      server: getServerPrefix(apiKey),
+    });
+
+    await mailchimp.lists.addListMember(audienceId, {
       email_address: email,
       status: 'subscribed',
       merge_fields: {
@@ -40,7 +58,23 @@ export default async function handler(req, res) {
       });
     }
     
-    console.error('Error:', error);
+    const isConfigurationError =
+      error.message?.includes('Secret MAILCHIMP_') ||
+      error.message?.includes('MAILCHIMP_API_KEY must end');
+
+    console.error('Mailchimp subscription failed:', {
+      status: error.status,
+      title: error.response?.body?.title,
+      message: error.message,
+    });
+
+    if (isConfigurationError) {
+      return res.status(503).json({
+        error: 'subscription_unavailable',
+        message: 'Newsletter signup is temporarily unavailable.',
+      });
+    }
+
     return res.status(500).json({ error: 'Error subscribing to newsletter' });
   }
 }

@@ -10,12 +10,14 @@ const MailchimpModal = ({ onClose }) => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const { navChange, nav, menus } = useContext(TokyoContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setIsSubmitting(true);
     try {
       const response = await fetch('/api/subscribe', {
         method: 'POST',
@@ -32,10 +34,14 @@ const MailchimpModal = ({ onClose }) => {
       ) {
         setError(data.message);
       } else {
-        setError('Failed to subscribe. Please try again later.');
+        setError(
+          data.message || 'Failed to subscribe. Please try again later.'
+        );
       }
     } catch (error) {
       setError('An error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -106,9 +112,10 @@ const MailchimpModal = ({ onClose }) => {
         </div>
         <Button
           type="submit"
+          disabled={isSubmitting}
           className="w-full font-psych text-black bg-dark_goldenrod hover:text-white hover:bg-dark_goldenrod-300"
         >
-          Subscribe
+          {isSubmitting ? 'Subscribing...' : 'Subscribe'}
         </Button>
       </form>
     </div>
